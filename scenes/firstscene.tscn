@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7esnod7uu2l7"]
+
+[ext_resource type="PackedScene" uid="uid://ckdscej2mu4q" path="res://scenes/car.tscn" id="1_iqvy6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iqvy6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1q3e1"]
+albedo_color = Color(0.99163, 0.22511, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, -45.3669, 16.2146, 0.822018)
+shadow_enabled = true
+
+[node name="floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.173531, 0, 0, 0, 1, 0, 0, 0)
+use_collision = true
+size = Vector3(60.8057, 1, 53.1396)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0248241, -0.18724, 0.567778)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, -0.173531, 0, -1, 0, -4.37114e-08, 29.3891, 1.12017, -0.273579)
+use_collision = true
+size = Vector3(62.6123, 19, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.05056e-08, 0, 1.3892, 0, 0.0703576, 0, -0.926659, 0, -6.07237e-08, -29.7078, 1.40362, -2.06069)
+use_collision = true
+size = Vector3(62.6123, 88.5723, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -0.173531, 0, 0, 0, 1, 0, 1.56178, -26.5128)
+use_collision = true
+size = Vector3(62.6123, 19, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -0.173531, 0, 0, 0, 1, -0.0662413, 0.611286, 22.7795)
+use_collision = true
+size = Vector3(62.612, 19.1, 1)
+
+[node name="car" parent="." instance=ExtResource("1_iqvy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5246, 3.19245, 2.37266)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 3.27569, 0, 0, 0, 10.1211, -1.55183, 1.62615, 0.715309)
+mesh = SubResource("BoxMesh_iqvy6")
+surface_material_override/0 = SubResource("StandardMaterial3D_1q3e1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 3.27569, 0, 0, 0, 0.99868, 8.02232, -0.63858, 1.37371)
+mesh = SubResource("BoxMesh_iqvy6")
+surface_material_override/0 = SubResource("StandardMaterial3D_1q3e1")

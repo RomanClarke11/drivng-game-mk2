@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dinq41rf8b35d"
+path="res://.godot/imported/ACIDTEK_MIX_-_SAPHYDAPHYYY_3_KLICKAUD.mp3-eb9d50c4d553b26da55f3ada5ca2082a.mp3str"
+
+[deps]
+
+source_file="res://music for radio in game/ACIDTEK_MIX_-_SAPHYDAPHYYY_3_KLICKAUD.mp3"
+dest_files=["res://.godot/imported/ACIDTEK_MIX_-_SAPHYDAPHYYY_3_KLICKAUD.mp3-eb9d50c4d553b26da55f3ada5ca2082a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

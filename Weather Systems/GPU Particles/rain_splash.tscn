@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://ds4vlc5p7xobw"]
+
+[sub_resource type="Gradient" id="Gradient_pq005"]
+offsets = PackedFloat32Array(0, 0.418182, 0.872727, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.518182, 0.518182, 0.518182, 1, 0.872727, 0.872727, 0.872727, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_78572"]
+gradient = SubResource("Gradient_pq005")
+
+[sub_resource type="Curve" id="Curve_ga0qt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2bur6"]
+curve = SubResource("Curve_ga0qt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1g6nl"]
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_box_extents = Vector3(25, 0, 25)
+scale_curve = SubResource("CurveTexture_2bur6")
+color_ramp = SubResource("GradientTexture1D_78572")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pq005"]
+transparency = 1
+albedo_color = Color(0.556627, 1, 0.996399, 1)
+billboard_mode = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_78572"]
+material = SubResource("StandardMaterial3D_pq005")
+radius = 0.01
+height = 0.01
+
+[node name="RainSplash" type="GPUParticles3D"]
+amount = 200
+lifetime = 0.3
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1g6nl")
+draw_pass_1 = SubResource("SphereMesh_78572")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvxnt1vd6o2cg"]
+
+[ext_resource type="Script" uid="uid://dyekfs0iqlpth" path="res://attempt.gd" id="1_5s177"]
+
+[node name="Attempt" type="Node3D"]
+script = ExtResource("1_5s177")
+grid_size_x = 25
+grid_size_z = 25
+spacing = 1.0
+scaling = 0.85
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.671488, 0, -0.741016, 0, 1, 0, 0.741016, 0, -0.671488, 0, 0, 0)

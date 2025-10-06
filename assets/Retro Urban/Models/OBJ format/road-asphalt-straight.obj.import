@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqkkqk0m3usr3"
+path="res://.godot/imported/road-asphalt-straight.obj-37e783e4b0e085b4a41b08d361c98634.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-asphalt-straight.obj-37e783e4b0e085b4a41b08d361c98634.mesh"]
+
+source_file="res://assets/Retro Urban/Models/OBJ format/road-asphalt-straight.obj"
+dest_files=["res://.godot/imported/road-asphalt-straight.obj-37e783e4b0e085b4a41b08d361c98634.mesh", "res://.godot/imported/road-asphalt-straight.obj-37e783e4b0e085b4a41b08d361c98634.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

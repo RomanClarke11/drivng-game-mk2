@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://04jdrftywm7x"]
+
+[ext_resource type="Script" path="res://scripts/suburban_root.gd" id="1_5wttb"]
+
+[node name="UrbanRoot" type="Node3D"]
+transform = Transform3D(1, 0.000806608, -0.000501879, -0.000806392, 1, 0.000440791, 0.000502227, -0.000440395, 1, 0, 0, 0)
+script = ExtResource("1_5wttb")
+grid_size_x = 100
+grid_size_z = 100
+spacing = 1.0
+model_scale = 0.8
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999125, -0.0135544, 0.0395628, 0.00898879, 0.854307, 0.519691, -0.0408429, 0.519592, -0.853438, 20.5818, 4.72945, 7.02959)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+transform = Transform3D(1, 4.47035e-08, -5.96046e-08, -1.49012e-08, 1, -2.98023e-08, -5.96046e-08, -2.98023e-08, 1, 0.0601099, -0.0565195, 0.243215)
+light_angular_distance = 3.75

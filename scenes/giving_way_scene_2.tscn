@@ -1,0 +1,573 @@
+[gd_scene load_steps=48 format=3 uid="uid://e6222ki85i2j"]
+
+[ext_resource type="Script" uid="uid://yf5tisf3gkf2" path="res://scripts/giving_way_scene_1.gd" id="1_m1che"]
+[ext_resource type="ArrayMesh" uid="uid://bh1hyvjjld7ib" path="res://assets/Roads/Models/OBJ format/road-bend-sidewalk.obj" id="2_1fxkv"]
+[ext_resource type="ArrayMesh" uid="uid://c84i7l878w00v" path="res://assets/Roads/Models/OBJ format/road-crossroad.obj" id="3_wmb0a"]
+[ext_resource type="ArrayMesh" uid="uid://d152dm4l3kdg8" path="res://assets/Roads/Models/OBJ format/light-curved.obj" id="4_rnkdo"]
+[ext_resource type="ArrayMesh" uid="uid://c1wagtgg7mqyg" path="res://assets/Roads/Models/OBJ format/road-straight.obj" id="5_03ydp"]
+[ext_resource type="ArrayMesh" uid="uid://cjd3h86u2qcg8" path="res://assets/Roads/Models/OBJ format/road-crossroad-barrier.obj" id="6_l6r23"]
+[ext_resource type="ArrayMesh" uid="uid://haxcxmywp32" path="res://assets/Roads/Models/OBJ format/tile-low.obj" id="7_c1a8t"]
+[ext_resource type="ArrayMesh" uid="uid://r7xnfm3cox0t" path="res://assets/Retro Urban/Models/OBJ format/grass.obj" id="8_ddije"]
+[ext_resource type="ArrayMesh" uid="uid://b6c3o1ansnxpi" path="res://assets/Suburban Buildings/Models/OBJ format/fence.obj" id="9_7fhx4"]
+[ext_resource type="ArrayMesh" uid="uid://bvqxdapeb32j3" path="res://assets/Suburban Buildings/Models/OBJ format/tree-large.obj" id="10_pflxb"]
+[ext_resource type="ArrayMesh" uid="uid://dgt867y5mlof4" path="res://assets/Suburban Buildings/Models/OBJ format/tree-small.obj" id="11_opl23"]
+[ext_resource type="ArrayMesh" uid="uid://4u2d1ogur8oh" path="res://assets/Suburban Buildings/Models/OBJ format/building-type-j.obj" id="12_kcr2i"]
+[ext_resource type="ArrayMesh" uid="uid://pa7bh8n5akia" path="res://assets/Suburban Buildings/Models/OBJ format/building-type-i.obj" id="13_mgpnc"]
+[ext_resource type="ArrayMesh" uid="uid://b6ow3d06tu0xp" path="res://assets/Suburban Buildings/Models/OBJ format/building-type-m.obj" id="14_4vd8e"]
+[ext_resource type="ArrayMesh" uid="uid://djmbxolmxtrwg" path="res://assets/Suburban Buildings/Models/OBJ format/driveway-short.obj" id="15_palwm"]
+[ext_resource type="ArrayMesh" uid="uid://b0v6y762s7ya0" path="res://assets/Suburban Buildings/Models/OBJ format/building-type-n.obj" id="16_oko4s"]
+[ext_resource type="ArrayMesh" uid="uid://doysse00hd3w1" path="res://assets/Commerical Buildings/Models/OBJ format/building-f.obj" id="17_828cp"]
+[ext_resource type="ArrayMesh" uid="uid://c7dif7fp0raa3" path="res://assets/Commerical Buildings/Models/OBJ format/building-g.obj" id="18_78x0x"]
+[ext_resource type="ArrayMesh" uid="uid://b8jjg2se2g5n" path="res://assets/Commerical Buildings/Models/OBJ format/building-j.obj" id="19_kg0hh"]
+[ext_resource type="ArrayMesh" uid="uid://du0170cj00s8q" path="res://assets/Commerical Buildings/Models/OBJ format/building-i.obj" id="20_r7k4s"]
+[ext_resource type="ArrayMesh" uid="uid://ofe03nnfxql" path="res://assets/Commerical Buildings/Models/OBJ format/building-h.obj" id="21_wylnf"]
+[ext_resource type="ArrayMesh" uid="uid://c4vc2wvjqpybb" path="res://assets/Commerical Buildings/Models/OBJ format/building-l.obj" id="22_8t0rd"]
+[ext_resource type="ArrayMesh" uid="uid://dy8p56w7esli8" path="res://assets/Commerical Buildings/Models/OBJ format/building-m.obj" id="23_1ve36"]
+[ext_resource type="ArrayMesh" uid="uid://b6sckt73bpv6s" path="res://assets/Commerical Buildings/Models/OBJ format/building-n.obj" id="24_fpavj"]
+[ext_resource type="ArrayMesh" uid="uid://ev50ggo1mmcr" path="res://assets/Commerical Buildings/Models/OBJ format/building-skyscraper-a.obj" id="25_0ony3"]
+[ext_resource type="ArrayMesh" uid="uid://6dyc34g1jmw4" path="res://assets/Commerical Buildings/Models/OBJ format/building-skyscraper-b.obj" id="26_r0qlh"]
+[ext_resource type="ArrayMesh" uid="uid://bq7iw3kaplccu" path="res://assets/Commerical Buildings/Models/OBJ format/building-skyscraper-d.obj" id="27_c8noq"]
+[ext_resource type="ArrayMesh" uid="uid://3ubcfg5q3ysh" path="res://assets/Industrial/Models/OBJ format/building-c.obj" id="28_qmylr"]
+[ext_resource type="ArrayMesh" uid="uid://dvsm20rxl0vsx" path="res://assets/Industrial/Models/OBJ format/building-d.obj" id="29_6d45c"]
+[ext_resource type="ArrayMesh" uid="uid://dvd33c66444cm" path="res://assets/Industrial/Models/OBJ format/building-e.obj" id="30_1x08f"]
+[ext_resource type="ArrayMesh" uid="uid://b23of2yio64hy" path="res://assets/Industrial/Models/OBJ format/building-a.obj" id="31_pqhd2"]
+[ext_resource type="ArrayMesh" uid="uid://5otav83l312d" path="res://assets/Commerical Buildings/Models/OBJ format/building-a.obj" id="32_876ee"]
+[ext_resource type="ArrayMesh" uid="uid://bgeybu88tcmjh" path="res://assets/Commerical Buildings/Models/OBJ format/building-b.obj" id="33_n0twm"]
+[ext_resource type="ArrayMesh" uid="uid://blw8b6sxvu84n" path="res://assets/Commerical Buildings/Models/OBJ format/building-d.obj" id="34_4tcbl"]
+[ext_resource type="ArrayMesh" uid="uid://5bis8bweno1o" path="res://assets/Commerical Buildings/Models/OBJ format/building-e.obj" id="35_l2lk6"]
+[ext_resource type="ArrayMesh" uid="uid://u30trg4rc8y5" path="res://assets/Commerical Buildings/Models/OBJ format/building-k.obj" id="36_sdi5b"]
+[ext_resource type="PackedScene" uid="uid://ckdscej2mu4q" path="res://scenes/car.tscn" id="37_6a858"]
+[ext_resource type="Texture2D" uid="uid://d2iwfin0566t7" path="res://dayskybox.jpg" id="38_jimkb"]
+[ext_resource type="Texture2D" uid="uid://nnajemstew1" path="res://assets/carCrashGameOver.jpg" id="39_fu1nr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eymau"]
+size = Vector3(153.841, 7.31528, 119.563)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ty15g"]
+panorama = ExtResource("38_jimkb")
+
+[sub_resource type="Sky" id="Sky_hqsjh"]
+sky_material = SubResource("PanoramaSkyMaterial_ty15g")
+
+[sub_resource type="Environment" id="Environment_gvso4"]
+background_mode = 2
+sky = SubResource("Sky_hqsjh")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqsjh"]
+size = Vector3(74.8002, 15.3754, 56.0815)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gvso4"]
+size = Vector3(44.7969, 21.3418, 42.3987)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oojtb"]
+size = Vector3(29.7617, 14.9861, 47.3359)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7e17u"]
+size = Vector3(33.9658, 18.8455, 49)
+
+[node name="givingWayScene1" type="Node3D"]
+script = ExtResource("1_m1che")
+
+[node name="Road-bend-sidewalk" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 3, 0, 0)
+mesh = ExtResource("2_1fxkv")
+skeleton = NodePath("Road-crossroad/Grass/Driveway-short")
+
+[node name="Road-bend-sidewalk3" type="MeshInstance3D" parent="Road-bend-sidewalk"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -3)
+mesh = ExtResource("2_1fxkv")
+skeleton = NodePath("../Road-crossroad/Grass/Driveway-short")
+
+[node name="Road-bend-sidewalk2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-bend-sidewalk3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, 0)
+mesh = ExtResource("2_1fxkv")
+
+[node name="Road-bend-sidewalk3" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-bend-sidewalk3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+mesh = ExtResource("2_1fxkv")
+skeleton = NodePath("../../..")
+
+[node name="Road-crossroad" type="MeshInstance3D" parent="Road-bend-sidewalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+mesh = ExtResource("3_wmb0a")
+skeleton = NodePath("../..")
+
+[node name="Lights" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.499779, 0.0023331, -0.997356)
+mesh = ExtResource("4_rnkdo")
+skeleton = NodePath("../../..")
+
+[node name="Light-curved4" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Lights"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.497356, -0.0023331, -1.49978)
+mesh = ExtResource("4_rnkdo")
+skeleton = NodePath("../../../..")
+
+[node name="Light-curved2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Lights"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.49736, -0.0023331, 0.500221)
+mesh = ExtResource("4_rnkdo")
+skeleton = NodePath("../../../..")
+
+[node name="Light-curved3" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Lights"]
+transform = Transform3D(-1, 0, 3.17865e-08, 0, 1, 0, -3.17865e-08, 0, -1, -1.99736, -0.0023331, -0.999779)
+mesh = ExtResource("4_rnkdo")
+skeleton = NodePath("../../../..")
+
+[node name="Road-straight" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("5_03ydp")
+skeleton = NodePath("../../..")
+
+[node name="Road-straight3" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Road-straight"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -1)
+mesh = ExtResource("5_03ydp")
+skeleton = NodePath("../Road-straight4")
+
+[node name="Road-straight2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Road-straight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = ExtResource("5_03ydp")
+skeleton = NodePath("../../../..")
+
+[node name="Road-straight4" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Road-straight"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.993, 0, 1)
+mesh = ExtResource("5_03ydp")
+skeleton = NodePath("../../../..")
+
+[node name="Road-crossroad-barrier" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Road-straight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = ExtResource("6_l6r23")
+skeleton = NodePath("../../../..")
+
+[node name="Road-straight5" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Road-straight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+mesh = ExtResource("5_03ydp")
+skeleton = NodePath("../Road-straight6")
+
+[node name="Road-straight7" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Road-straight"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, 2)
+mesh = ExtResource("5_03ydp")
+skeleton = NodePath("../../../..")
+
+[node name="Road-straight6" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Road-straight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("5_03ydp")
+skeleton = NodePath("../../../..")
+
+[node name="Tile-low" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh = ExtResource("7_c1a8t")
+skeleton = NodePath("../../..")
+
+[node name="Tile-low2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low3" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00779104, 0.0025773, -2.99967)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low3/Tile-low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low4" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.003, 0)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Tile-low2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low4/Tile-low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Road-straight8" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -2)
+mesh = ExtResource("5_03ydp")
+skeleton = NodePath("../../..")
+
+[node name="Grass" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+mesh = ExtResource("8_ddije")
+skeleton = NodePath("../../..")
+
+[node name="Grass" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+mesh = ExtResource("8_ddije")
+
+[node name="Grass2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -1)
+mesh = ExtResource("8_ddije")
+
+[node name="Grass" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass/Grass2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+mesh = ExtResource("8_ddije")
+
+[node name="Fence" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(4.5, 0, 0, 0, 1.025, 0, 0, 0, 1.025, -0.5, 0, -1.5)
+mesh = ExtResource("9_7fhx4")
+skeleton = NodePath("../..")
+
+[node name="Fence2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass/Fence"]
+transform = Transform3D(-4.37114e-08, 0, 0.227778, 0, 0.995122, 0, -4.39024, 0, -4.37114e-08, -0.222222, 0, 0.97561)
+mesh = ExtResource("9_7fhx4")
+
+[node name="Tree-large" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191757, 0, 0.114821)
+mesh = ExtResource("10_pflxb")
+
+[node name="Tree-small" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02135, 0, 0.280089)
+mesh = ExtResource("11_opl23")
+
+[node name="Tree-large2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.730259, 0, -0.713108)
+mesh = ExtResource("10_pflxb")
+
+[node name="Tree-large3" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317081, 0, -0.866969)
+mesh = ExtResource("10_pflxb")
+
+[node name="Tree-small2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281985, 0, 0.275941)
+mesh = ExtResource("11_opl23")
+
+[node name="Building-type-j" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.273078, 0, 2.01732)
+mesh = ExtResource("12_kcr2i")
+
+[node name="Building-type-i" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.316044, 0, 2.93898)
+mesh = ExtResource("13_mgpnc")
+
+[node name="Building-type-m" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42782, 0, -0.276606)
+mesh = ExtResource("14_4vd8e")
+
+[node name="Driveway-short" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.55988, 0.0189511, 1.84178)
+mesh = ExtResource("15_palwm")
+
+[node name="Driveway-short" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Grass/Driveway-short"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41, 0, 0)
+mesh = ExtResource("15_palwm")
+
+[node name="Building-type-n" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.3, 0, 1.5)
+mesh = ExtResource("16_oko4s")
+skeleton = NodePath("../../..")
+
+[node name="Building-f" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-type-n"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.52556, 0, -2.26511)
+mesh = ExtResource("17_828cp")
+skeleton = NodePath("../..")
+
+[node name="Building-g" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-type-n"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.46775, 0, -5.29091)
+mesh = ExtResource("18_78x0x")
+skeleton = NodePath("../..")
+
+[node name="Building-j" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-type-n"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.921593, 0, -5.53359)
+mesh = ExtResource("19_kg0hh")
+skeleton = NodePath("../..")
+
+[node name="Building-i" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-type-n"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.379951, -2.38419e-07, -4.22803)
+mesh = ExtResource("20_r7k4s")
+skeleton = NodePath("../..")
+
+[node name="Building-h" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-type-n"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.605205, 0, -4.06715)
+mesh = ExtResource("21_wylnf")
+skeleton = NodePath("../..")
+
+[node name="Building-f2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-type-n"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.33889, 0, -3.26889)
+mesh = ExtResource("17_828cp")
+skeleton = NodePath("../..")
+
+[node name="Building-l" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-type-n"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59603, 0, -2.48084)
+mesh = ExtResource("22_8t0rd")
+skeleton = NodePath("../..")
+
+[node name="Building-m" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0931038, 0, 4.15198)
+mesh = ExtResource("23_1ve36")
+
+[node name="Building-n" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92153, 0, -2.76774)
+mesh = ExtResource("24_fpavj")
+skeleton = NodePath("../..")
+
+[node name="Building-skyscraper-a" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.972011, 0, -1.00767)
+mesh = ExtResource("25_0ony3")
+skeleton = NodePath("../..")
+
+[node name="Building-skyscraper-b" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12625, 0, -1.04626)
+mesh = ExtResource("26_r0qlh")
+skeleton = NodePath("../..")
+
+[node name="Building-skyscraper-d" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96555, 0, -4.32531)
+mesh = ExtResource("27_c8noq")
+skeleton = NodePath("../..")
+
+[node name="Building-l" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86646, 2.38419e-07, -5.33302)
+mesh = ExtResource("22_8t0rd")
+skeleton = NodePath("../..")
+
+[node name="Building-j" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2048, 0, -6.44183)
+mesh = ExtResource("19_kg0hh")
+skeleton = NodePath("../..")
+
+[node name="Building-i" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01569, 0, -7.27632)
+mesh = ExtResource("20_r7k4s")
+skeleton = NodePath("../..")
+
+[node name="Building-h" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0963, 0, -7.70475)
+mesh = ExtResource("21_wylnf")
+skeleton = NodePath("../..")
+
+[node name="Tile-low" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(14.7487, 0, 0, 0, 1, 0, 0, 0, 12.9758, 1.329, -0.1, -3.585)
+mesh = ExtResource("7_c1a8t")
+
+[node name="Building-c" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32658, 4.76837e-07, -6.2747)
+mesh = ExtResource("28_qmylr")
+
+[node name="Building-d" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10491, 0, -8.02043)
+mesh = ExtResource("29_6d45c")
+
+[node name="Building-e" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21509, 0, -9.03038)
+mesh = ExtResource("30_1x08f")
+
+[node name="Building-a" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77077, 0, -7.93704)
+mesh = ExtResource("31_pqhd2")
+
+[node name="Building-a2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Building-m"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55969, 4.76837e-07, -8.47304)
+mesh = ExtResource("31_pqhd2")
+
+[node name="Building-a" type="MeshInstance3D" parent="Road-bend-sidewalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.052, 0, -3.933)
+mesh = ExtResource("32_876ee")
+skeleton = NodePath("../..")
+
+[node name="Building-b" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.930982, 0, 0.932914)
+mesh = ExtResource("33_n0twm")
+skeleton = NodePath("../../..")
+
+[node name="Building-d" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87567, 0, 0.89936)
+mesh = ExtResource("34_4tcbl")
+skeleton = NodePath("../../..")
+
+[node name="Building-e" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16588, 0, 0.815799)
+mesh = ExtResource("35_l2lk6")
+skeleton = NodePath("../../..")
+
+[node name="Building-f" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91979, 0, 2.89792)
+mesh = ExtResource("17_828cp")
+skeleton = NodePath("../../..")
+
+[node name="Building-g" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.98373, 0, 1.91501)
+mesh = ExtResource("18_78x0x")
+skeleton = NodePath("../../..")
+
+[node name="Building-skyscraper-d" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24022, 0, -0.258691)
+mesh = ExtResource("27_c8noq")
+skeleton = NodePath("../../..")
+
+[node name="Building-skyscraper-b" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29765, 0, 9.22648)
+mesh = ExtResource("26_r0qlh")
+skeleton = NodePath("../../..")
+
+[node name="Building-skyscraper-a" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30135, 0, 6.22321)
+mesh = ExtResource("25_0ony3")
+skeleton = NodePath("../../..")
+
+[node name="Building-skyscraper-b2" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7901, 0, 7.82022)
+mesh = ExtResource("26_r0qlh")
+skeleton = NodePath("../../..")
+
+[node name="Building-l" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44739, 0, -0.871336)
+mesh = ExtResource("22_8t0rd")
+skeleton = NodePath("../../..")
+
+[node name="Building-k" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5044, 0, 1.2469)
+mesh = ExtResource("36_sdi5b")
+skeleton = NodePath("../../..")
+
+[node name="Building-j" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a/Building-k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22966, 0, -2.72776)
+mesh = ExtResource("19_kg0hh")
+skeleton = NodePath("../../../..")
+
+[node name="Building-skyscraper-b3" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a/Building-k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15242, 0, 8.9018)
+mesh = ExtResource("26_r0qlh")
+skeleton = NodePath("../../../..")
+
+[node name="Building-m" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a/Building-k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98044, 0, 6.04718)
+mesh = ExtResource("23_1ve36")
+skeleton = NodePath("../../../..")
+
+[node name="Building-k2" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a/Building-k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5002, 0, 1.35729)
+mesh = ExtResource("36_sdi5b")
+skeleton = NodePath("../../../..")
+
+[node name="Building-l2" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a/Building-k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54806, 9.53674e-07, 4.40238)
+mesh = ExtResource("22_8t0rd")
+skeleton = NodePath("../../../..")
+
+[node name="Building-n" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a/Building-k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.46887, 0, 6.07744)
+mesh = ExtResource("24_fpavj")
+skeleton = NodePath("../../../..")
+
+[node name="Building-skyscraper-a2" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a/Building-k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.77342, 0, 0.478135)
+mesh = ExtResource("25_0ony3")
+skeleton = NodePath("../../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.8613, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4434, -29.221, 24.1486)
+shape = SubResource("BoxShape3D_eymau")
+
+[node name="car" parent="." instance=ExtResource("37_6a858")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.07945, 2.42471, 1.59751)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -26.6867, 28.2474, -4.7675e-07)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gvso4")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6687, 1.79046, -32.302)
+shape = SubResource("BoxShape3D_hqsjh")
+debug_color = Color(0.98788, 0.106947, 0, 0.42)
+
+[node name="Area3D2" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.0676)
+shape = SubResource("BoxShape3D_gvso4")
+debug_color = Color(0.902366, 0.000156906, 0.756532, 0.42)
+
+[node name="Area3D3" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.2906, 0, -28.8132)
+shape = SubResource("BoxShape3D_oojtb")
+debug_color = Color(0.93037, 2.83971e-05, 0.657044, 0.42)
+
+[node name="Area3D4" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.2286, 0, 29.0495)
+shape = SubResource("BoxShape3D_7e17u")
+debug_color = Color(0.933789, 2.31028e-05, 0.643223, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+position = Vector2(132, 102)
+scale = Vector2(0.67923, -0.0733473)
+zoom = Vector2(4.5, 3.7)
+
+[node name="gameOver" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -19.0
+offset_top = -33.0
+offset_right = 21.0
+offset_bottom = 7.0
+scale = Vector2(4.2363, 3.6505)
+
+[node name="CarCrashGameOver" type="Sprite2D" parent="CanvasLayer/gameOver"]
+position = Vector2(142, 99)
+texture = ExtResource("39_fu1nr")
+
+[node name="Label" type="Label" parent="CanvasLayer/gameOver"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 161.0
+offset_right = 185.0
+offset_bottom = 184.0
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="CanvasLayer/gameOver"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 158.0
+offset_right = 264.0
+offset_bottom = 189.0
+text = "QUIT"
+
+[node name="Button2" type="Button" parent="CanvasLayer/gameOver"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 156.0
+offset_right = 69.0
+offset_bottom = 187.0
+text = "RETRY"
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
+[connection signal="area_entered" from="Area3D3" to="." method="_on_area_3d_3_area_entered"]
+[connection signal="area_entered" from="Area3D4" to="." method="_on_area_3d_4_area_entered"]
+[connection signal="pressed" from="CanvasLayer/gameOver/Button2" to="." method="_on_button_2_pressed"]
