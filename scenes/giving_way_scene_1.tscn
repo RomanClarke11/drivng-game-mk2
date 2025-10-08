@@ -588,7 +588,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.23894, 1.61466, 0)
 curve = SubResource("Curve3D_hqsjh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.999834, 0, -0.0174256, 0, 1, 0, 0.0174256, 0, 0.999834, -19.537, 0, 21)
+transform = Transform3D(0.999834, 0, -0.0174254, 0, 1, 0, 0.0174254, 0, 0.999834, -19.537, 0, 21)
 rotation_mode = 4
 script = ExtResource("40_gvso4")
 
@@ -601,6 +601,8 @@ mesh = SubResource("BoxMesh_7e17u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/MeshInstance3D/enemyCar"]
 shape = SubResource("BoxShape3D_iuk7d")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
