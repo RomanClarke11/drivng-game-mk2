@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://ckdscej2mu4q"]
+[gd_scene load_steps=22 format=3 uid="uid://ckdscej2mu4q"]
 
 [ext_resource type="Script" uid="uid://cwu7yuxjqqsil" path="res://scripts/car.gd" id="1_c35m8"]
+[ext_resource type="Script" uid="uid://cieu4ierwpffe" path="res://scripts/area_3d.gd" id="2_qt2eu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qt2eu"]
 
@@ -141,6 +142,7 @@ mesh = SubResource("BoxMesh_c35m8")
 surface_material_override/0 = SubResource("StandardMaterial3D_qt2eu")
 
 [node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_qt2eu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200728, 0.0994081, -0.0300846)

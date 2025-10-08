@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://0ad68nkka2sg"]
+[gd_scene load_steps=55 format=3 uid="uid://0ad68nkka2sg"]
 
 [ext_resource type="ArrayMesh" uid="uid://bh1hyvjjld7ib" path="res://assets/Roads/Models/OBJ format/road-bend-sidewalk.obj" id="1_eymau"]
 [ext_resource type="Script" uid="uid://yf5tisf3gkf2" path="res://scripts/giving_way_scene_1.gd" id="1_ty15g"]
@@ -40,6 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://d2iwfin0566t7" path="res://dayskybox.jpg" id="37_63cg3"]
 [ext_resource type="Texture2D" uid="uid://nnajemstew1" path="res://assets/carCrashGameOver.jpg" id="39_hqsjh"]
 [ext_resource type="Script" uid="uid://yyqh8m3it3vf" path="res://scenes/enemyCar.gd" id="40_gvso4"]
+[ext_resource type="AudioStream" uid="uid://bf535xkd4iuty" path="res://deltarune explosion greenscreen.mp3" id="41_oojtb"]
+[ext_resource type="PackedScene" uid="uid://bniykqnv5uo50" path="res://scenes/control.tscn" id="43_iuk7d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eymau"]
 size = Vector3(153.841, 7.31528, 119.563)
@@ -84,6 +86,20 @@ albedo_color = Color(0.551936, 0, 0.153505, 1)
 
 [node name="givingWayScene1" type="Node3D"]
 script = ExtResource("1_ty15g")
+
+[node name="radio" parent="." instance=ExtResource("43_iuk7d")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+
+[node name="quit button" type="Button" parent="radio"]
+process_mode = 3
+layout_mode = 0
+offset_left = 193.0
+offset_top = 475.0
+offset_right = 291.0
+offset_bottom = 524.0
+text = "EXIT"
 
 [node name="Road-bend-sidewalk" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 3, 0, 0)
@@ -593,17 +609,22 @@ rotation_mode = 4
 script = ExtResource("40_gvso4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
-transform = Transform3D(3.25128, 0, 3.72529e-09, 0, 2.72765, 0, -1.11759e-08, 0, 3.23147, 0, 0, 0)
+transform = Transform3D(2.7258, 0, -3.72529e-09, 0, 2.37279, 0, 0, 0, 3.28555, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_oojtb")
 mesh = SubResource("BoxMesh_7e17u")
 
 [node name="enemyCar" type="Area3D" parent="Path3D/PathFollow3D/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/MeshInstance3D/enemyCar"]
+transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -7.45058e-09, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_iuk7d")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="explosion sfxx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("41_oojtb")
 
+[connection signal="pressed" from="radio/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
 [connection signal="area_entered" from="Area3D3" to="." method="_on_area_3d_3_area_entered"]

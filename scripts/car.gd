@@ -11,6 +11,9 @@ extends VehicleBody3D
 var forward = false
 var reversOrNot := true
 
+func isCar():
+	pass
+
 func _input(event):
 	if Input.is_action_just_pressed("q"):
 		reversOrNot = !reversOrNot   # flip gear

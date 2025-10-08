@@ -1,7 +1,8 @@
-[gd_scene load_steps=48 format=3 uid="uid://e6222ki85i2j"]
+[gd_scene load_steps=50 format=3 uid="uid://e6222ki85i2j"]
 
 [ext_resource type="Script" uid="uid://yf5tisf3gkf2" path="res://scripts/giving_way_scene_1.gd" id="1_m1che"]
 [ext_resource type="ArrayMesh" uid="uid://bh1hyvjjld7ib" path="res://assets/Roads/Models/OBJ format/road-bend-sidewalk.obj" id="2_1fxkv"]
+[ext_resource type="PackedScene" uid="uid://bniykqnv5uo50" path="res://scenes/control.tscn" id="2_wmb0a"]
 [ext_resource type="ArrayMesh" uid="uid://c84i7l878w00v" path="res://assets/Roads/Models/OBJ format/road-crossroad.obj" id="3_wmb0a"]
 [ext_resource type="ArrayMesh" uid="uid://d152dm4l3kdg8" path="res://assets/Roads/Models/OBJ format/light-curved.obj" id="4_rnkdo"]
 [ext_resource type="ArrayMesh" uid="uid://c1wagtgg7mqyg" path="res://assets/Roads/Models/OBJ format/road-straight.obj" id="5_03ydp"]
@@ -39,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://ckdscej2mu4q" path="res://scenes/car.tscn" id="37_6a858"]
 [ext_resource type="Texture2D" uid="uid://d2iwfin0566t7" path="res://dayskybox.jpg" id="38_jimkb"]
 [ext_resource type="Texture2D" uid="uid://nnajemstew1" path="res://assets/carCrashGameOver.jpg" id="39_fu1nr"]
+[ext_resource type="AudioStream" uid="uid://bf535xkd4iuty" path="res://deltarune explosion greenscreen.mp3" id="41_wmb0a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eymau"]
 size = Vector3(153.841, 7.31528, 119.563)
@@ -67,6 +69,19 @@ size = Vector3(33.9658, 18.8455, 49)
 
 [node name="givingWayScene1" type="Node3D"]
 script = ExtResource("1_m1che")
+
+[node name="radio" parent="." instance=ExtResource("2_wmb0a")]
+unique_name_in_owner = true
+process_mode = 3
+
+[node name="quit button" type="Button" parent="radio"]
+process_mode = 3
+layout_mode = 0
+offset_left = 193.0
+offset_top = 475.0
+offset_right = 291.0
+offset_bottom = 524.0
+text = "EXIT"
 
 [node name="Road-bend-sidewalk" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 3, 0, 0)
@@ -566,6 +581,12 @@ offset_right = 69.0
 offset_bottom = 187.0
 text = "RETRY"
 
+[node name="explosion sfxx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("41_wmb0a")
+
+[connection signal="pressed" from="radio/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
 [connection signal="area_entered" from="Area3D3" to="." method="_on_area_3d_3_area_entered"]

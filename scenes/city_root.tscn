@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5upujcme0c7q"]
+[gd_scene load_steps=11 format=3 uid="uid://5upujcme0c7q"]
 
 [ext_resource type="Script" uid="uid://dqa5ip2ukijf7" path="res://scripts/city_root.gd" id="1_tbb05"]
 [ext_resource type="Script" uid="uid://dn5u7kvkqsbof" path="res://scripts/rain_system.gd" id="3_4n4p7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0r2j0qyy7sq0" path="res://scenes/weather_control.tscn" id="5_4n4p7"]
 [ext_resource type="PackedScene" uid="uid://ds4vlc5p7xobw" path="res://Weather Systems/GPU Particles/rain_splash.tscn" id="5_g236f"]
 [ext_resource type="PackedScene" uid="uid://d4l3kytf4747m" path="res://Weather Systems/GPU Particles/mist.tscn" id="5_oox1h"]
+[ext_resource type="PackedScene" uid="uid://ckdscej2mu4q" path="res://scenes/car.tscn" id="7_g236f"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tbb05"]
 size = Vector3(55, 0.01, 55)
@@ -16,6 +17,7 @@ albedo_color = Color(2.52686e-07, 0.135569, 0.114974, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_tbb05"]
 
 [node name="CityRoot" type="MeshInstance3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 script = ExtResource("1_tbb05")
 spacing = 1.0
 
@@ -30,9 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.9814, 0)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="RigidBody3D"]
 use_collision = true
-
-[node name="Camera3D2" type="Camera3D" parent="RigidBody3D/CSGSphere3D"]
-transform = Transform3D(-0.824037, -0.112141, -0.555326, -0.0291713, 0.987312, -0.156088, 0.565784, -0.112423, -0.816853, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="RigidBody3D/CSGSphere3D"]
 transform = Transform3D(-0.384679, 0.449363, -0.806284, -0.18233, 0.819298, 0.543606, 0.904863, 0.356123, -0.233234, 13.1518, 16.6962, 34.7925)
@@ -74,3 +73,6 @@ emitting = false
 
 [node name="weather control" parent="." instance=ExtResource("5_4n4p7")]
 visible = false
+
+[node name="car" parent="." instance=ExtResource("7_g236f")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.113657, 0.362445, 6.11585)
