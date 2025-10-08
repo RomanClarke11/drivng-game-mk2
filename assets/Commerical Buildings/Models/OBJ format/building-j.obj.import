@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8jjg2se2g5n"
+path="res://.godot/imported/building-j.obj-2c4b677c92bfd10cbbf0154bee5542ed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building-j.obj-2c4b677c92bfd10cbbf0154bee5542ed.mesh"]
+
+source_file="res://assets/Commerical Buildings/Models/OBJ format/building-j.obj"
+dest_files=["res://.godot/imported/building-j.obj-2c4b677c92bfd10cbbf0154bee5542ed.mesh", "res://.godot/imported/building-j.obj-2c4b677c92bfd10cbbf0154bee5542ed.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

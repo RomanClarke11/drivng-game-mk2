@@ -1,0 +1,169 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0r2j0qyy7sq0"]
+
+[ext_resource type="Texture2D" uid="uid://b0egoj63dl0pv" path="res://assets/radio assets/menuBackground.png" id="1_d1gdr"]
+[ext_resource type="Script" uid="uid://dav8q2gydvlqu" path="res://scripts/weather_control.gd" id="1_jvu1o"]
+
+[node name="weather control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jvu1o")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_d1gdr")
+
+[node name="MenuButtonsMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 273.0
+offset_right = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 136
+theme_override_constants/margin_bottom = 8
+
+[node name="MenuButtonsContainer" type="Control" parent="MenuButtonsMargin"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="MenuButtonsMargin/MenuButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -346.5
+offset_right = 99.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+alignment = 1
+vertical = true
+
+[node name="Rain" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Rain"
+alignment = 1
+
+[node name="Mist" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Mist"
+alignment = 1
+
+[node name="Mist - Heavy" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Mist - Heavy"
+alignment = 1
+
+[node name="Snow" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Snow"
+alignment = 1
+
+[node name="Intense Sunlight" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Intense Sunlight"
+alignment = 1
+
+[node name="Storm" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Storm"
+alignment = 1
+
+[node name="Night" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Night"
+alignment = 1
+
+[node name="Random" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Random"
+alignment = 1
+
+[node name="TitleMargin" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 47.0
+offset_right = 596.0
+offset_bottom = 71.0
+theme_override_constants/margin_top = 24
+
+[node name="TitleContainer" type="Control" parent="TitleMargin"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="TitleMargin/TitleContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Virtual Ignition"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubTitleMargin" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 47.0
+offset_right = 596.0
+offset_bottom = 139.0
+theme_override_constants/margin_top = 92
+
+[node name="SubTitleContainer" type="Control" parent="SubTitleMargin"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SubTitleLabel" type="Label" parent="SubTitleMargin/SubTitleContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Choose Your Weather Conditions Or Go Random"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="toggled" from="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/Rain" to="." method="_on_rain_toggled"]
+[connection signal="toggled" from="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/Mist" to="." method="_on_mist_toggled"]
+[connection signal="toggled" from="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/Mist - Heavy" to="." method="_on_heavy_wind_toggled"]
+[connection signal="toggled" from="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/Snow" to="." method="_on_snow_toggled"]
+[connection signal="toggled" from="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/Intense Sunlight" to="." method="_on_intense_sunlight_toggled"]
+[connection signal="toggled" from="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/Storm" to="." method="_on_storm_toggled"]
+[connection signal="toggled" from="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/Night" to="." method="_on_night_toggled"]
+[connection signal="toggled" from="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/Random" to="." method="_on_random_toggled"]

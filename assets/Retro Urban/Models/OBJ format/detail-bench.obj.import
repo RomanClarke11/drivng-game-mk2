@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bo3l2dwyr5ypv"
+path="res://.godot/imported/detail-bench.obj-28c4a346d098fc8abcae4b325c7b5ecd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/detail-bench.obj-28c4a346d098fc8abcae4b325c7b5ecd.mesh"]
+
+source_file="res://assets/Retro Urban/Models/OBJ format/detail-bench.obj"
+dest_files=["res://.godot/imported/detail-bench.obj-28c4a346d098fc8abcae4b325c7b5ecd.mesh", "res://.godot/imported/detail-bench.obj-28c4a346d098fc8abcae4b325c7b5ecd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
