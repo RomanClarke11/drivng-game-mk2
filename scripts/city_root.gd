@@ -1,4 +1,3 @@
-@tool
 extends Node3D
 
 # --------------------
@@ -8,7 +7,7 @@ extends Node3D
 @export var grid_size_z: int = 50
 @export var spacing: float = 10.0
 @export var scaling: float = 0.9
-@export var save_scene: bool = true
+@export var save_scene: bool = false
 
 # --------------------
 # Variables

@@ -1,0 +1,2508 @@
+[gd_scene load_steps=31 format=3 uid="uid://ctp2m23i3h545"]
+
+[ext_resource type="Script" uid="uid://dqa5ip2ukijf7" path="res://scripts/city_root.gd" id="1_3fnxm"]
+[ext_resource type="Script" uid="uid://dn5u7kvkqsbof" path="res://scripts/rain_system.gd" id="2_oofft"]
+[ext_resource type="PackedScene" uid="uid://bo58qc60n6nqt" path="res://Weather Systems/GPU Particles/rain_main.tscn" id="3_yf7ym"]
+[ext_resource type="PackedScene" uid="uid://ds4vlc5p7xobw" path="res://Weather Systems/GPU Particles/rain_splash.tscn" id="4_sk8j3"]
+[ext_resource type="PackedScene" uid="uid://d4l3kytf4747m" path="res://Weather Systems/GPU Particles/mist.tscn" id="5_5i6by"]
+[ext_resource type="PackedScene" uid="uid://b0r2j0qyy7sq0" path="res://scenes/weather_control.tscn" id="6_8f6jy"]
+[ext_resource type="PackedScene" uid="uid://ckdscej2mu4q" path="res://scenes/car.tscn" id="7_5fksh"]
+[ext_resource type="PackedScene" uid="uid://7dhf1u6jomcv" path="res://scenes/Road/road_bend_2.tscn" id="8_rhiis"]
+[ext_resource type="PackedScene" uid="uid://bkyxawmdrbeoj" path="res://scenes/Road/road_straight_2.tscn" id="9_1alou"]
+[ext_resource type="PackedScene" uid="uid://b41mwcworr772" path="res://scenes/Road/road_intersection_path_2.tscn" id="10_8itwr"]
+[ext_resource type="PackedScene" uid="uid://c0pyxrewwgr44" path="res://scenes/Road/road_crossroad_path_2.tscn" id="11_bvbcg"]
+[ext_resource type="PackedScene" uid="uid://bbjc15cpc8mf0" path="res://scenes/Commercial Buildings/building_l_2.tscn" id="12_slsbt"]
+[ext_resource type="PackedScene" uid="uid://xwyyp4xyhrnx" path="res://scenes/Commercial Buildings/building_c_2.tscn" id="13_biohl"]
+[ext_resource type="PackedScene" uid="uid://dghsbdo2y4a3b" path="res://scenes/Commercial Buildings/building_a.tscn" id="14_fc07g"]
+[ext_resource type="PackedScene" uid="uid://q17ftovooynu" path="res://scenes/Commercial Buildings/building_m_2.tscn" id="15_j5wa2"]
+[ext_resource type="PackedScene" uid="uid://bdbcjs23ii45r" path="res://scenes/Commercial Buildings/building_skyscraper_a_2.tscn" id="16_xryux"]
+[ext_resource type="PackedScene" uid="uid://ct78esyyq0dca" path="res://scenes/Commercial Buildings/building_h_2.tscn" id="17_ovmmv"]
+[ext_resource type="PackedScene" uid="uid://e4wmceqbyfps" path="res://scenes/Commercial Buildings/building_skyscraper_b_2.tscn" id="18_a8y7s"]
+[ext_resource type="PackedScene" uid="uid://csho6vk7ys5t4" path="res://scenes/Commercial Buildings/building_d_2.tscn" id="19_mr21m"]
+[ext_resource type="PackedScene" uid="uid://b2s5244bhfini" path="res://scenes/Commercial Buildings/building_f_2.tscn" id="20_bsj8c"]
+[ext_resource type="PackedScene" uid="uid://b6lf0m6530g2p" path="res://scenes/Commercial Buildings/building_b.tscn" id="21_butdh"]
+[ext_resource type="PackedScene" uid="uid://ccsvlhyo4elip" path="res://scenes/Commercial Buildings/building_i_2.tscn" id="22_lcb4p"]
+[ext_resource type="PackedScene" uid="uid://ya3nb4u0wprr" path="res://scenes/Commercial Buildings/building_g_2.tscn" id="23_bgc7w"]
+[ext_resource type="PackedScene" uid="uid://c60rmbukp7lwu" path="res://scenes/Commercial Buildings/building_skyscraper_d_2.tscn" id="24_eya2s"]
+[ext_resource type="PackedScene" uid="uid://bto045euyc46f" path="res://scenes/Commercial Buildings/building_skyscraper_c_2.tscn" id="25_f8p18"]
+[ext_resource type="PackedScene" uid="uid://dmulllfd5uovq" path="res://vehicles.tscn" id="26_oofft"]
+[ext_resource type="Script" uid="uid://yyqh8m3it3vf" path="res://scenes/enemyCar.gd" id="26_yf7ym"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tbb05"]
+size = Vector3(55, 0.01, 55)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_karg6"]
+albedo_color = Color(2.52686e-07, 0.135569, 0.114974, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_3fnxm"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.111, 0, -0.331, 0, 0, 0, 0, 0, 0, -0.111905, 0, 4.86775, 0, 0, 0, 0, 0, 0, 18.8902, 0, 4.86936, 0, 0, 0, 0, 0, 0, 18.9383, 0, 35.1858, 0, 0, 0, 0, 0, 0, -0.397922, 0, 35.1638, 0, 0, 0, 0, 0, 0, -0.515712, 0, -0.553062),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[node name="CityRoot" type="MeshInstance3D"]
+transform = Transform3D(12.5, 0, 0, 0, 10, 0, 0, 0, 12.5, 0, 0, 0)
+script = ExtResource("1_3fnxm")
+grid_size_x = 20
+grid_size_z = 40
+spacing = 1.0
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 24)
+use_collision = true
+mesh = SubResource("BoxMesh_tbb05")
+material = SubResource("StandardMaterial3D_karg6")
+
+[node name="RainSystem" type="Node3D" parent="." node_paths=PackedStringArray("rain_main", "rain_splash")]
+process_mode = 3
+script = ExtResource("2_oofft")
+rain_main = NodePath("RainSplash")
+rain_splash = NodePath("RainSplash")
+weather_path = NodePath("../weather control")
+
+[node name="RainMain" parent="RainSystem" instance=ExtResource("3_yf7ym")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 12.2287, 24)
+emitting = false
+amount = 30000
+lifetime = 2.0
+
+[node name="RainSplash" parent="RainSystem" instance=ExtResource("4_sk8j3")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0.1, 24)
+emitting = false
+amount = 10000
+explosiveness = 0.0
+
+[node name="Mist" parent="RainSystem" instance=ExtResource("5_5i6by")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 24)
+emitting = false
+
+[node name="weather control" parent="." instance=ExtResource("6_8f6jy")]
+visible = false
+
+[node name="car" parent="." instance=ExtResource("7_5fksh")]
+transform = Transform3D(0.999994, 0.000184648, -0.00334458, -0.000184696, 1, -1.42976e-05, 0.00334458, 1.49153e-05, 0.999994, 16.3479, 2.18118, 75.2854)
+top_level = true
+sleeping = true
+linear_velocity = Vector3(-0.00939112, -0.0260022, -0.00037728)
+angular_velocity = Vector3(0.000422962, 3.02223e-05, -0.015637)
+
+[node name="GeneratedCity" type="Node3D" parent="."]
+
+[node name="Roads" type="Node3D" parent="GeneratedCity"]
+
+[node name="road-bend2" parent="GeneratedCity/Roads" instance=ExtResource("8_rhiis")]
+
+[node name="road-straight2" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1)
+
+[node name="_Node3D_2" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 2)
+
+[node name="_Node3D_3" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 3)
+
+[node name="_Node3D_4" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 4)
+
+[node name="_Node3D_5" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 5)
+
+[node name="road-intersection-path2" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 6)
+
+[node name="_Node3D_6" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 7)
+
+[node name="_Node3D_7" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 8)
+
+[node name="_Node3D_8" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 9)
+
+[node name="_Node3D_9" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 10)
+
+[node name="_Node3D_10" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 11)
+
+[node name="_Node3D_11" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 12)
+
+[node name="_Node3D_12" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 13)
+
+[node name="_Node3D_13" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 14)
+
+[node name="_Node3D_14" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 15)
+
+[node name="_Node3D_15" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 16)
+
+[node name="_Node3D_16" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 17)
+
+[node name="_Node3D_17" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 18)
+
+[node name="_Node3D_18" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 19)
+
+[node name="_Node3D_19" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 20)
+
+[node name="_Node3D_20" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 21)
+
+[node name="_Node3D_21" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 22)
+
+[node name="_Node3D_22" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 23)
+
+[node name="_Node3D_23" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 24)
+
+[node name="_Node3D_24" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 25)
+
+[node name="_Node3D_25" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 26)
+
+[node name="_Node3D_26" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 27)
+
+[node name="_Node3D_27" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 28)
+
+[node name="_Node3D_28" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 29)
+
+[node name="_Node3D_29" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 30)
+
+[node name="_Node3D_30" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 31)
+
+[node name="_Node3D_31" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 32)
+
+[node name="_Node3D_32" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 33)
+
+[node name="_Node3D_33" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 34)
+
+[node name="_Node3D_34" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 35)
+
+[node name="_Node3D_35" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 36)
+
+[node name="_Node3D_36" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 37)
+
+[node name="_Node3D_37" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 38)
+
+[node name="_Node3D_38" parent="GeneratedCity/Roads" instance=ExtResource("8_rhiis")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 39)
+
+[node name="_Node3D_39" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="_Node3D_40" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 6)
+
+[node name="_Node3D_41" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 12)
+
+[node name="_Node3D_42" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 18)
+
+[node name="_Node3D_43" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 24)
+
+[node name="_Node3D_44" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 30)
+
+[node name="_Node3D_45" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 36)
+
+[node name="_Node3D_46" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 39)
+
+[node name="_Node3D_47" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="_Node3D_48" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+
+[node name="_Node3D_49" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 12)
+
+[node name="_Node3D_50" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 18)
+
+[node name="_Node3D_51" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 24)
+
+[node name="_Node3D_52" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 30)
+
+[node name="_Node3D_53" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 36)
+
+[node name="_Node3D_54" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 39)
+
+[node name="_Node3D_55" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="_Node3D_56" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
+
+[node name="_Node3D_57" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 12)
+
+[node name="_Node3D_58" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 18)
+
+[node name="_Node3D_59" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 24)
+
+[node name="_Node3D_60" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 30)
+
+[node name="_Node3D_61" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 36)
+
+[node name="_Node3D_62" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 39)
+
+[node name="_Node3D_63" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="_Node3D_64" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
+
+[node name="_Node3D_65" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 12)
+
+[node name="_Node3D_66" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 18)
+
+[node name="_Node3D_67" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 24)
+
+[node name="_Node3D_68" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 30)
+
+[node name="_Node3D_69" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 36)
+
+[node name="_Node3D_70" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 39)
+
+[node name="_Node3D_71" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="_Node3D_72" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 6)
+
+[node name="_Node3D_73" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 12)
+
+[node name="_Node3D_74" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 18)
+
+[node name="_Node3D_75" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 24)
+
+[node name="_Node3D_76" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 30)
+
+[node name="_Node3D_77" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 36)
+
+[node name="_Node3D_78" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 39)
+
+[node name="_Node3D_79" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="_Node3D_80" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+
+[node name="_Node3D_81" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 12)
+
+[node name="_Node3D_82" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 18)
+
+[node name="_Node3D_83" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 24)
+
+[node name="_Node3D_84" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 30)
+
+[node name="_Node3D_85" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 36)
+
+[node name="_Node3D_86" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 39)
+
+[node name="_Node3D_87" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="_Node3D_88" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 6)
+
+[node name="_Node3D_89" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 12)
+
+[node name="_Node3D_90" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 18)
+
+[node name="_Node3D_91" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 24)
+
+[node name="_Node3D_92" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 30)
+
+[node name="_Node3D_93" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 36)
+
+[node name="_Node3D_94" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 39)
+
+[node name="_Node3D_95" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="_Node3D_96" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 1)
+
+[node name="_Node3D_97" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 2)
+
+[node name="_Node3D_98" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 3)
+
+[node name="_Node3D_99" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 4)
+
+[node name="_Node3D_100" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 5)
+
+[node name="road-crossroad-path2" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6)
+
+[node name="_Node3D_101" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 7)
+
+[node name="_Node3D_102" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 8)
+
+[node name="_Node3D_103" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 9)
+
+[node name="_Node3D_104" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 10)
+
+[node name="_Node3D_105" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 11)
+
+[node name="_Node3D_106" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 12)
+
+[node name="_Node3D_107" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 13)
+
+[node name="_Node3D_108" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 14)
+
+[node name="_Node3D_109" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 15)
+
+[node name="_Node3D_110" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 16)
+
+[node name="_Node3D_111" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 17)
+
+[node name="_Node3D_112" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 18)
+
+[node name="_Node3D_113" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 19)
+
+[node name="_Node3D_114" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 20)
+
+[node name="_Node3D_115" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 21)
+
+[node name="_Node3D_116" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 22)
+
+[node name="_Node3D_117" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 23)
+
+[node name="_Node3D_118" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 24)
+
+[node name="_Node3D_119" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 25)
+
+[node name="_Node3D_120" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 26)
+
+[node name="_Node3D_121" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 27)
+
+[node name="_Node3D_122" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 28)
+
+[node name="_Node3D_123" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 29)
+
+[node name="_Node3D_124" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 30)
+
+[node name="_Node3D_125" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 31)
+
+[node name="_Node3D_126" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 32)
+
+[node name="_Node3D_127" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 33)
+
+[node name="_Node3D_128" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 34)
+
+[node name="_Node3D_129" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 35)
+
+[node name="_Node3D_130" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 36)
+
+[node name="_Node3D_131" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 37)
+
+[node name="_Node3D_132" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 38)
+
+[node name="_Node3D_133" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 0, 39)
+
+[node name="_Node3D_134" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="_Node3D_135" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 6)
+
+[node name="_Node3D_136" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 12)
+
+[node name="_Node3D_137" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 18)
+
+[node name="_Node3D_138" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 24)
+
+[node name="_Node3D_139" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 30)
+
+[node name="_Node3D_140" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 36)
+
+[node name="_Node3D_141" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 39)
+
+[node name="_Node3D_142" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="_Node3D_143" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6)
+
+[node name="_Node3D_144" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 12)
+
+[node name="_Node3D_145" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 18)
+
+[node name="_Node3D_146" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 24)
+
+[node name="_Node3D_147" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 30)
+
+[node name="_Node3D_148" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 36)
+
+[node name="_Node3D_149" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 39)
+
+[node name="_Node3D_150" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+
+[node name="_Node3D_151" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 6)
+
+[node name="_Node3D_152" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 12)
+
+[node name="_Node3D_153" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 18)
+
+[node name="_Node3D_154" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 24)
+
+[node name="_Node3D_155" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 30)
+
+[node name="_Node3D_156" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 36)
+
+[node name="_Node3D_157" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 39)
+
+[node name="_Node3D_158" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="_Node3D_159" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 6)
+
+[node name="_Node3D_160" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12)
+
+[node name="_Node3D_161" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 18)
+
+[node name="_Node3D_162" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 24)
+
+[node name="_Node3D_163" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 30)
+
+[node name="_Node3D_164" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 36)
+
+[node name="_Node3D_165" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 39)
+
+[node name="_Node3D_166" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0)
+
+[node name="_Node3D_167" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 6)
+
+[node name="_Node3D_168" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 12)
+
+[node name="_Node3D_169" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 18)
+
+[node name="_Node3D_170" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 24)
+
+[node name="_Node3D_171" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 30)
+
+[node name="_Node3D_172" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 36)
+
+[node name="_Node3D_173" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 39)
+
+[node name="_Node3D_174" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="_Node3D_175" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 6)
+
+[node name="_Node3D_176" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 12)
+
+[node name="_Node3D_177" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 18)
+
+[node name="_Node3D_178" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 24)
+
+[node name="_Node3D_179" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 30)
+
+[node name="_Node3D_180" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 36)
+
+[node name="_Node3D_181" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 39)
+
+[node name="_Node3D_182" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="_Node3D_183" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 6)
+
+[node name="_Node3D_184" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 12)
+
+[node name="_Node3D_185" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 18)
+
+[node name="_Node3D_186" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 24)
+
+[node name="_Node3D_187" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 30)
+
+[node name="_Node3D_188" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 36)
+
+[node name="_Node3D_189" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 39)
+
+[node name="_Node3D_190" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="_Node3D_191" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 1)
+
+[node name="_Node3D_192" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 2)
+
+[node name="_Node3D_193" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 3)
+
+[node name="_Node3D_194" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 4)
+
+[node name="_Node3D_195" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 5)
+
+[node name="_Node3D_196" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 6)
+
+[node name="_Node3D_197" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 7)
+
+[node name="_Node3D_198" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 8)
+
+[node name="_Node3D_199" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 9)
+
+[node name="_Node3D_200" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 10)
+
+[node name="_Node3D_201" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 11)
+
+[node name="_Node3D_202" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 12)
+
+[node name="_Node3D_203" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 13)
+
+[node name="_Node3D_204" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 14)
+
+[node name="_Node3D_205" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 15)
+
+[node name="_Node3D_206" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 16)
+
+[node name="_Node3D_207" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 17)
+
+[node name="_Node3D_208" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 18)
+
+[node name="_Node3D_209" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 19)
+
+[node name="_Node3D_210" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 20)
+
+[node name="_Node3D_211" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 21)
+
+[node name="_Node3D_212" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 22)
+
+[node name="_Node3D_213" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 23)
+
+[node name="_Node3D_214" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 24)
+
+[node name="_Node3D_215" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 25)
+
+[node name="_Node3D_216" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 26)
+
+[node name="_Node3D_217" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 27)
+
+[node name="_Node3D_218" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 28)
+
+[node name="_Node3D_219" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 29)
+
+[node name="_Node3D_220" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 30)
+
+[node name="_Node3D_221" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 31)
+
+[node name="_Node3D_222" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 32)
+
+[node name="_Node3D_223" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 33)
+
+[node name="_Node3D_224" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 34)
+
+[node name="_Node3D_225" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 35)
+
+[node name="_Node3D_226" parent="GeneratedCity/Roads" instance=ExtResource("11_bvbcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 36)
+
+[node name="_Node3D_227" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 37)
+
+[node name="_Node3D_228" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 38)
+
+[node name="_Node3D_229" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 0, 39)
+
+[node name="_Node3D_230" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
+
+[node name="_Node3D_231" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 6)
+
+[node name="_Node3D_232" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 12)
+
+[node name="_Node3D_233" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 18)
+
+[node name="_Node3D_234" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 24)
+
+[node name="_Node3D_235" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 30)
+
+[node name="_Node3D_236" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 36)
+
+[node name="_Node3D_237" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 39)
+
+[node name="_Node3D_238" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="_Node3D_239" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 6)
+
+[node name="_Node3D_240" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 12)
+
+[node name="_Node3D_241" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 18)
+
+[node name="_Node3D_242" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 24)
+
+[node name="_Node3D_243" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 30)
+
+[node name="_Node3D_244" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 36)
+
+[node name="_Node3D_245" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 39)
+
+[node name="_Node3D_246" parent="GeneratedCity/Roads" instance=ExtResource("8_rhiis")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 0)
+
+[node name="_Node3D_247" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 1)
+
+[node name="_Node3D_248" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 2)
+
+[node name="_Node3D_249" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 3)
+
+[node name="_Node3D_250" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 4)
+
+[node name="_Node3D_251" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 5)
+
+[node name="_Node3D_252" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 19, 0, 6)
+
+[node name="_Node3D_253" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 7)
+
+[node name="_Node3D_254" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 8)
+
+[node name="_Node3D_255" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 9)
+
+[node name="_Node3D_256" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 10)
+
+[node name="_Node3D_257" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 11)
+
+[node name="_Node3D_258" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 19, 0, 12)
+
+[node name="_Node3D_259" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 13)
+
+[node name="_Node3D_260" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 14)
+
+[node name="_Node3D_261" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 15)
+
+[node name="_Node3D_262" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 16)
+
+[node name="_Node3D_263" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 17)
+
+[node name="_Node3D_264" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 19, 0, 18)
+
+[node name="_Node3D_265" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 19)
+
+[node name="_Node3D_266" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 20)
+
+[node name="_Node3D_267" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 21)
+
+[node name="_Node3D_268" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 22)
+
+[node name="_Node3D_269" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 23)
+
+[node name="_Node3D_270" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 19, 0, 24)
+
+[node name="_Node3D_271" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 25)
+
+[node name="_Node3D_272" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 26)
+
+[node name="_Node3D_273" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 27)
+
+[node name="_Node3D_274" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 28)
+
+[node name="_Node3D_275" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 29)
+
+[node name="_Node3D_276" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 19, 0, 30)
+
+[node name="_Node3D_277" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 31)
+
+[node name="_Node3D_278" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 32)
+
+[node name="_Node3D_279" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 33)
+
+[node name="_Node3D_280" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 34)
+
+[node name="_Node3D_281" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 35)
+
+[node name="_Node3D_282" parent="GeneratedCity/Roads" instance=ExtResource("10_8itwr")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 19, 0, 36)
+
+[node name="_Node3D_283" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 37)
+
+[node name="_Node3D_284" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 38)
+
+[node name="_Node3D_285" parent="GeneratedCity/Roads" instance=ExtResource("8_rhiis")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 19, 0, 39)
+
+[node name="Buildings" type="Node3D" parent="GeneratedCity"]
+
+[node name="building-l2" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 1)
+
+[node name="building-c2" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 2)
+
+[node name="_Node3D_286" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 3)
+
+[node name="building-a2" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 4)
+
+[node name="building-m2" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 5)
+
+[node name="_Node3D_287" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 7)
+
+[node name="_Node3D_288" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 8)
+
+[node name="building-skyscraper-a2" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 9)
+
+[node name="_Node3D_289" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 10)
+
+[node name="building-h2" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 11)
+
+[node name="building-skyscraper-b2" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 13)
+
+[node name="_Node3D_290" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 14)
+
+[node name="_Node3D_291" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 15)
+
+[node name="building-d2" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 16)
+
+[node name="_Node3D_292" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 17)
+
+[node name="building-f2" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 19)
+
+[node name="_Node3D_293" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 20)
+
+[node name="_Node3D_294" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 21)
+
+[node name="_Node3D_295" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 22)
+
+[node name="_Node3D_296" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 23)
+
+[node name="_Node3D_297" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 25)
+
+[node name="building-b2" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 26)
+
+[node name="building-i2" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 27)
+
+[node name="_Node3D_298" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 28)
+
+[node name="_Node3D_299" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 29)
+
+[node name="_Node3D_300" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 31)
+
+[node name="_Node3D_301" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 32)
+
+[node name="_Node3D_302" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 33)
+
+[node name="_Node3D_303" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 34)
+
+[node name="_Node3D_304" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 1, 0, 35)
+
+[node name="_Node3D_305" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 37)
+
+[node name="_Node3D_306" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 1, 0, 38)
+
+[node name="_Node3D_307" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 1)
+
+[node name="_Node3D_308" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 2)
+
+[node name="building-g2" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 3)
+
+[node name="_Node3D_309" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 4)
+
+[node name="_Node3D_310" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 5)
+
+[node name="_Node3D_311" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 7)
+
+[node name="_Node3D_312" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 8)
+
+[node name="_Node3D_313" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 9)
+
+[node name="_Node3D_314" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 10)
+
+[node name="_Node3D_315" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 11)
+
+[node name="_Node3D_316" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 13)
+
+[node name="_Node3D_317" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 14)
+
+[node name="_Node3D_318" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 15)
+
+[node name="_Node3D_319" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 16)
+
+[node name="_Node3D_320" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 17)
+
+[node name="_Node3D_321" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 19)
+
+[node name="_Node3D_322" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 20)
+
+[node name="_Node3D_323" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 21)
+
+[node name="_Node3D_324" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 22)
+
+[node name="_Node3D_325" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 23)
+
+[node name="_Node3D_326" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 25)
+
+[node name="_Node3D_327" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 26)
+
+[node name="_Node3D_328" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 27)
+
+[node name="_Node3D_329" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 28)
+
+[node name="building-skyscraper-d2" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 29)
+
+[node name="_Node3D_330" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 31)
+
+[node name="_Node3D_331" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 32)
+
+[node name="_Node3D_332" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 33)
+
+[node name="_Node3D_333" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 34)
+
+[node name="_Node3D_334" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 2, 0, 35)
+
+[node name="_Node3D_335" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 37)
+
+[node name="_Node3D_336" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 2, 0, 38)
+
+[node name="_Node3D_337" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 1)
+
+[node name="_Node3D_338" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 2)
+
+[node name="_Node3D_339" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 3)
+
+[node name="_Node3D_340" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 4)
+
+[node name="_Node3D_341" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 5)
+
+[node name="_Node3D_342" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 7)
+
+[node name="_Node3D_343" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 8)
+
+[node name="_Node3D_344" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 9)
+
+[node name="_Node3D_345" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 10)
+
+[node name="_Node3D_346" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 11)
+
+[node name="_Node3D_347" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 13)
+
+[node name="_Node3D_348" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 14)
+
+[node name="_Node3D_349" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 15)
+
+[node name="_Node3D_350" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 16)
+
+[node name="_Node3D_351" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 17)
+
+[node name="_Node3D_352" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 19)
+
+[node name="building-skyscraper-c2" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 20)
+
+[node name="_Node3D_353" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 21)
+
+[node name="_Node3D_354" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 22)
+
+[node name="_Node3D_355" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 23)
+
+[node name="_Node3D_356" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 25)
+
+[node name="_Node3D_357" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 26)
+
+[node name="_Node3D_358" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 27)
+
+[node name="_Node3D_359" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 28)
+
+[node name="_Node3D_360" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 29)
+
+[node name="_Node3D_361" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 31)
+
+[node name="_Node3D_362" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 32)
+
+[node name="_Node3D_363" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 33)
+
+[node name="_Node3D_364" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 3, 0, 34)
+
+[node name="_Node3D_365" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 35)
+
+[node name="_Node3D_366" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 37)
+
+[node name="_Node3D_367" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 3, 0, 38)
+
+[node name="_Node3D_368" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 1)
+
+[node name="_Node3D_369" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 2)
+
+[node name="_Node3D_370" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 3)
+
+[node name="_Node3D_371" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 4)
+
+[node name="_Node3D_372" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 5)
+
+[node name="_Node3D_373" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 7)
+
+[node name="_Node3D_374" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 8)
+
+[node name="_Node3D_375" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 9)
+
+[node name="_Node3D_376" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 10)
+
+[node name="_Node3D_377" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 11)
+
+[node name="_Node3D_378" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 13)
+
+[node name="_Node3D_379" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 14)
+
+[node name="_Node3D_380" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 15)
+
+[node name="_Node3D_381" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 16)
+
+[node name="_Node3D_382" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 17)
+
+[node name="_Node3D_383" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 19)
+
+[node name="_Node3D_384" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 20)
+
+[node name="_Node3D_385" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 21)
+
+[node name="_Node3D_386" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 22)
+
+[node name="_Node3D_387" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 23)
+
+[node name="_Node3D_388" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 25)
+
+[node name="_Node3D_389" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 26)
+
+[node name="_Node3D_390" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 27)
+
+[node name="_Node3D_391" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 28)
+
+[node name="_Node3D_392" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 29)
+
+[node name="_Node3D_393" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 31)
+
+[node name="_Node3D_394" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 32)
+
+[node name="_Node3D_395" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 33)
+
+[node name="_Node3D_396" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 34)
+
+[node name="_Node3D_397" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 35)
+
+[node name="_Node3D_398" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 4, 0, 37)
+
+[node name="_Node3D_399" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 4, 0, 38)
+
+[node name="_Node3D_400" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 1)
+
+[node name="_Node3D_401" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 2)
+
+[node name="_Node3D_402" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 3)
+
+[node name="_Node3D_403" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 4)
+
+[node name="_Node3D_404" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 5)
+
+[node name="_Node3D_405" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 7)
+
+[node name="_Node3D_406" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 8)
+
+[node name="_Node3D_407" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 9)
+
+[node name="_Node3D_408" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 10)
+
+[node name="_Node3D_409" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 11)
+
+[node name="_Node3D_410" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 13)
+
+[node name="_Node3D_411" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 14)
+
+[node name="_Node3D_412" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 15)
+
+[node name="_Node3D_413" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 16)
+
+[node name="_Node3D_414" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 17)
+
+[node name="_Node3D_415" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 19)
+
+[node name="_Node3D_416" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 20)
+
+[node name="_Node3D_417" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 21)
+
+[node name="_Node3D_418" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 22)
+
+[node name="_Node3D_419" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 23)
+
+[node name="_Node3D_420" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 25)
+
+[node name="_Node3D_421" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 26)
+
+[node name="_Node3D_422" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 27)
+
+[node name="_Node3D_423" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 28)
+
+[node name="_Node3D_424" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 29)
+
+[node name="_Node3D_425" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 31)
+
+[node name="_Node3D_426" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 32)
+
+[node name="_Node3D_427" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 33)
+
+[node name="_Node3D_428" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 34)
+
+[node name="_Node3D_429" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 35)
+
+[node name="_Node3D_430" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 5, 0, 37)
+
+[node name="_Node3D_431" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 5, 0, 38)
+
+[node name="_Node3D_432" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 1)
+
+[node name="_Node3D_433" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 2)
+
+[node name="_Node3D_434" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 3)
+
+[node name="_Node3D_435" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 4)
+
+[node name="_Node3D_436" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 5)
+
+[node name="_Node3D_437" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 7)
+
+[node name="_Node3D_438" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 8)
+
+[node name="_Node3D_439" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 9)
+
+[node name="_Node3D_440" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 10)
+
+[node name="_Node3D_441" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 11)
+
+[node name="_Node3D_442" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 13)
+
+[node name="_Node3D_443" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 14)
+
+[node name="_Node3D_444" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 15)
+
+[node name="_Node3D_445" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 16)
+
+[node name="_Node3D_446" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 17)
+
+[node name="_Node3D_447" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 19)
+
+[node name="_Node3D_448" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 20)
+
+[node name="_Node3D_449" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 21)
+
+[node name="_Node3D_450" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 22)
+
+[node name="_Node3D_451" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 23)
+
+[node name="_Node3D_452" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 25)
+
+[node name="_Node3D_453" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 26)
+
+[node name="_Node3D_454" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 27)
+
+[node name="_Node3D_455" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 28)
+
+[node name="_Node3D_456" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 29)
+
+[node name="_Node3D_457" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 31)
+
+[node name="_Node3D_458" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 32)
+
+[node name="_Node3D_459" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 33)
+
+[node name="_Node3D_460" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 34)
+
+[node name="_Node3D_461" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 35)
+
+[node name="_Node3D_462" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 6, 0, 37)
+
+[node name="_Node3D_463" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 6, 0, 38)
+
+[node name="_Node3D_464" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 1)
+
+[node name="_Node3D_465" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 2)
+
+[node name="_Node3D_466" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 3)
+
+[node name="_Node3D_467" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 4)
+
+[node name="_Node3D_468" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 5)
+
+[node name="_Node3D_469" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 7)
+
+[node name="_Node3D_470" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 8)
+
+[node name="_Node3D_471" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 9)
+
+[node name="_Node3D_472" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 10)
+
+[node name="_Node3D_473" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 11)
+
+[node name="_Node3D_474" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 13)
+
+[node name="_Node3D_475" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 14)
+
+[node name="_Node3D_476" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 15)
+
+[node name="_Node3D_477" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 16)
+
+[node name="_Node3D_478" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 17)
+
+[node name="_Node3D_479" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 19)
+
+[node name="_Node3D_480" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 20)
+
+[node name="_Node3D_481" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 21)
+
+[node name="_Node3D_482" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 22)
+
+[node name="_Node3D_483" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 23)
+
+[node name="_Node3D_484" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 25)
+
+[node name="_Node3D_485" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 26)
+
+[node name="_Node3D_486" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 27)
+
+[node name="_Node3D_487" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 28)
+
+[node name="_Node3D_488" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 29)
+
+[node name="_Node3D_489" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 7, 0, 31)
+
+[node name="_Node3D_490" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 32)
+
+[node name="_Node3D_491" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 33)
+
+[node name="_Node3D_492" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 34)
+
+[node name="_Node3D_493" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 35)
+
+[node name="_Node3D_494" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 37)
+
+[node name="_Node3D_495" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 7, 0, 38)
+
+[node name="_Node3D_496" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 1)
+
+[node name="_Node3D_497" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 2)
+
+[node name="_Node3D_498" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 3)
+
+[node name="_Node3D_499" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 4)
+
+[node name="_Node3D_500" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 5)
+
+[node name="_Node3D_501" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 7)
+
+[node name="_Node3D_502" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 8)
+
+[node name="_Node3D_503" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 9)
+
+[node name="_Node3D_504" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 10)
+
+[node name="_Node3D_505" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 11)
+
+[node name="_Node3D_506" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 13)
+
+[node name="_Node3D_507" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 14)
+
+[node name="_Node3D_508" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 15)
+
+[node name="_Node3D_509" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 16)
+
+[node name="_Node3D_510" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 17)
+
+[node name="_Node3D_511" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 19)
+
+[node name="_Node3D_512" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 20)
+
+[node name="_Node3D_513" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 21)
+
+[node name="_Node3D_514" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 22)
+
+[node name="_Node3D_515" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 23)
+
+[node name="_Node3D_516" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 25)
+
+[node name="_Node3D_517" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 26)
+
+[node name="_Node3D_518" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 27)
+
+[node name="_Node3D_519" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 28)
+
+[node name="_Node3D_520" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 29)
+
+[node name="_Node3D_521" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 31)
+
+[node name="_Node3D_522" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 32)
+
+[node name="_Node3D_523" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 33)
+
+[node name="_Node3D_524" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 34)
+
+[node name="_Node3D_525" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 35)
+
+[node name="_Node3D_526" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 9, 0, 37)
+
+[node name="_Node3D_527" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 9, 0, 38)
+
+[node name="_Node3D_528" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 1)
+
+[node name="_Node3D_529" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 2)
+
+[node name="_Node3D_530" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 3)
+
+[node name="_Node3D_531" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 4)
+
+[node name="_Node3D_532" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 5)
+
+[node name="_Node3D_533" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 7)
+
+[node name="_Node3D_534" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 8)
+
+[node name="_Node3D_535" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 9)
+
+[node name="_Node3D_536" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 10)
+
+[node name="_Node3D_537" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 11)
+
+[node name="_Node3D_538" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 13)
+
+[node name="_Node3D_539" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 14)
+
+[node name="_Node3D_540" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 15)
+
+[node name="_Node3D_541" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 16)
+
+[node name="_Node3D_542" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 17)
+
+[node name="_Node3D_543" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 19)
+
+[node name="_Node3D_544" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 20)
+
+[node name="_Node3D_545" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 21)
+
+[node name="_Node3D_546" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 22)
+
+[node name="_Node3D_547" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 23)
+
+[node name="_Node3D_548" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 25)
+
+[node name="_Node3D_549" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 26)
+
+[node name="_Node3D_550" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 27)
+
+[node name="_Node3D_551" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 28)
+
+[node name="_Node3D_552" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 29)
+
+[node name="_Node3D_553" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 31)
+
+[node name="_Node3D_554" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 32)
+
+[node name="_Node3D_555" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 33)
+
+[node name="_Node3D_556" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 10, 0, 34)
+
+[node name="_Node3D_557" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 35)
+
+[node name="_Node3D_558" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 37)
+
+[node name="_Node3D_559" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 10, 0, 38)
+
+[node name="_Node3D_560" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 1)
+
+[node name="_Node3D_561" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 2)
+
+[node name="_Node3D_562" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 3)
+
+[node name="_Node3D_563" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 4)
+
+[node name="_Node3D_564" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 5)
+
+[node name="_Node3D_565" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 7)
+
+[node name="_Node3D_566" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 8)
+
+[node name="_Node3D_567" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 9)
+
+[node name="_Node3D_568" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 10)
+
+[node name="_Node3D_569" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 11)
+
+[node name="_Node3D_570" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 13)
+
+[node name="_Node3D_571" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 14)
+
+[node name="_Node3D_572" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 15)
+
+[node name="_Node3D_573" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 16)
+
+[node name="_Node3D_574" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 17)
+
+[node name="_Node3D_575" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 19)
+
+[node name="_Node3D_576" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 20)
+
+[node name="_Node3D_577" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 21)
+
+[node name="_Node3D_578" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 22)
+
+[node name="_Node3D_579" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 23)
+
+[node name="_Node3D_580" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 25)
+
+[node name="_Node3D_581" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 26)
+
+[node name="_Node3D_582" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 27)
+
+[node name="_Node3D_583" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 28)
+
+[node name="_Node3D_584" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 29)
+
+[node name="_Node3D_585" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 31)
+
+[node name="_Node3D_586" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 32)
+
+[node name="_Node3D_587" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 33)
+
+[node name="_Node3D_588" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 34)
+
+[node name="_Node3D_589" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 35)
+
+[node name="_Node3D_590" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 11, 0, 37)
+
+[node name="_Node3D_591" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 11, 0, 38)
+
+[node name="_Node3D_592" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 1)
+
+[node name="_Node3D_593" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 2)
+
+[node name="_Node3D_594" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 3)
+
+[node name="_Node3D_595" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 4)
+
+[node name="_Node3D_596" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 5)
+
+[node name="_Node3D_597" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 7)
+
+[node name="_Node3D_598" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 8)
+
+[node name="_Node3D_599" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 9)
+
+[node name="_Node3D_600" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 10)
+
+[node name="_Node3D_601" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 11)
+
+[node name="_Node3D_602" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 13)
+
+[node name="_Node3D_603" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 14)
+
+[node name="_Node3D_604" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 15)
+
+[node name="_Node3D_605" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 16)
+
+[node name="_Node3D_606" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 17)
+
+[node name="_Node3D_607" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 19)
+
+[node name="_Node3D_608" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 20)
+
+[node name="_Node3D_609" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 21)
+
+[node name="_Node3D_610" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 22)
+
+[node name="_Node3D_611" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 23)
+
+[node name="_Node3D_612" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 25)
+
+[node name="_Node3D_613" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 26)
+
+[node name="_Node3D_614" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 27)
+
+[node name="_Node3D_615" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 28)
+
+[node name="_Node3D_616" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 29)
+
+[node name="_Node3D_617" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 31)
+
+[node name="_Node3D_618" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 32)
+
+[node name="_Node3D_619" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 33)
+
+[node name="_Node3D_620" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 12, 0, 34)
+
+[node name="_Node3D_621" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 35)
+
+[node name="_Node3D_622" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 37)
+
+[node name="_Node3D_623" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 12, 0, 38)
+
+[node name="_Node3D_624" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 1)
+
+[node name="_Node3D_625" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 2)
+
+[node name="_Node3D_626" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 3)
+
+[node name="_Node3D_627" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 4)
+
+[node name="_Node3D_628" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 5)
+
+[node name="_Node3D_629" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 7)
+
+[node name="_Node3D_630" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 8)
+
+[node name="_Node3D_631" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 9)
+
+[node name="_Node3D_632" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 10)
+
+[node name="_Node3D_633" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 11)
+
+[node name="_Node3D_634" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 13)
+
+[node name="_Node3D_635" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 14)
+
+[node name="_Node3D_636" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 15)
+
+[node name="_Node3D_637" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 16)
+
+[node name="_Node3D_638" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 17)
+
+[node name="_Node3D_639" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 19)
+
+[node name="_Node3D_640" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 20)
+
+[node name="_Node3D_641" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 21)
+
+[node name="_Node3D_642" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 22)
+
+[node name="_Node3D_643" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 23)
+
+[node name="_Node3D_644" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 25)
+
+[node name="_Node3D_645" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 26)
+
+[node name="_Node3D_646" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 27)
+
+[node name="_Node3D_647" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 28)
+
+[node name="_Node3D_648" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 29)
+
+[node name="_Node3D_649" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 31)
+
+[node name="_Node3D_650" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 32)
+
+[node name="_Node3D_651" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 13, 0, 33)
+
+[node name="_Node3D_652" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 34)
+
+[node name="_Node3D_653" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 35)
+
+[node name="_Node3D_654" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 37)
+
+[node name="_Node3D_655" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 13, 0, 38)
+
+[node name="_Node3D_656" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 1)
+
+[node name="_Node3D_657" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 2)
+
+[node name="_Node3D_658" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 3)
+
+[node name="_Node3D_659" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 4)
+
+[node name="_Node3D_660" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 5)
+
+[node name="_Node3D_661" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 7)
+
+[node name="_Node3D_662" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 8)
+
+[node name="_Node3D_663" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 9)
+
+[node name="_Node3D_664" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 10)
+
+[node name="_Node3D_665" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 11)
+
+[node name="_Node3D_666" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 13)
+
+[node name="_Node3D_667" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 14)
+
+[node name="_Node3D_668" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 15)
+
+[node name="_Node3D_669" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 16)
+
+[node name="_Node3D_670" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 17)
+
+[node name="_Node3D_671" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 19)
+
+[node name="_Node3D_672" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 20)
+
+[node name="_Node3D_673" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 21)
+
+[node name="_Node3D_674" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 22)
+
+[node name="_Node3D_675" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 23)
+
+[node name="_Node3D_676" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 25)
+
+[node name="_Node3D_677" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 26)
+
+[node name="_Node3D_678" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 27)
+
+[node name="_Node3D_679" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 28)
+
+[node name="_Node3D_680" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 29)
+
+[node name="_Node3D_681" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 31)
+
+[node name="_Node3D_682" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 32)
+
+[node name="_Node3D_683" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 33)
+
+[node name="_Node3D_684" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 14, 0, 34)
+
+[node name="_Node3D_685" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 35)
+
+[node name="_Node3D_686" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 37)
+
+[node name="_Node3D_687" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 14, 0, 38)
+
+[node name="_Node3D_688" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 1)
+
+[node name="_Node3D_689" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 2)
+
+[node name="_Node3D_690" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 3)
+
+[node name="_Node3D_691" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 4)
+
+[node name="_Node3D_692" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 5)
+
+[node name="_Node3D_693" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 7)
+
+[node name="_Node3D_694" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 8)
+
+[node name="_Node3D_695" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 9)
+
+[node name="_Node3D_696" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 10)
+
+[node name="_Node3D_697" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 11)
+
+[node name="_Node3D_698" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 13)
+
+[node name="_Node3D_699" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 14)
+
+[node name="_Node3D_700" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 15)
+
+[node name="_Node3D_701" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 16)
+
+[node name="_Node3D_702" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 17)
+
+[node name="_Node3D_703" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 19)
+
+[node name="_Node3D_704" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 20)
+
+[node name="_Node3D_705" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 21)
+
+[node name="_Node3D_706" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 22)
+
+[node name="_Node3D_707" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 23)
+
+[node name="_Node3D_708" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 25)
+
+[node name="_Node3D_709" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 26)
+
+[node name="_Node3D_710" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 27)
+
+[node name="_Node3D_711" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 28)
+
+[node name="_Node3D_712" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 29)
+
+[node name="_Node3D_713" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 31)
+
+[node name="_Node3D_714" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 32)
+
+[node name="_Node3D_715" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 15, 0, 33)
+
+[node name="_Node3D_716" parent="GeneratedCity/Buildings" instance=ExtResource("24_eya2s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 34)
+
+[node name="_Node3D_717" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 35)
+
+[node name="_Node3D_718" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 37)
+
+[node name="_Node3D_719" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 15, 0, 38)
+
+[node name="_Node3D_720" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 1)
+
+[node name="_Node3D_721" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 2)
+
+[node name="_Node3D_722" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 3)
+
+[node name="_Node3D_723" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 4)
+
+[node name="_Node3D_724" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 5)
+
+[node name="_Node3D_725" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 7)
+
+[node name="_Node3D_726" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 8)
+
+[node name="_Node3D_727" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 9)
+
+[node name="_Node3D_728" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 10)
+
+[node name="_Node3D_729" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 11)
+
+[node name="_Node3D_730" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 13)
+
+[node name="_Node3D_731" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 14)
+
+[node name="_Node3D_732" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 15)
+
+[node name="_Node3D_733" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 16)
+
+[node name="_Node3D_734" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 17)
+
+[node name="_Node3D_735" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 19)
+
+[node name="_Node3D_736" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 20)
+
+[node name="_Node3D_737" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 21)
+
+[node name="_Node3D_738" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 22)
+
+[node name="_Node3D_739" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 23)
+
+[node name="_Node3D_740" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 25)
+
+[node name="_Node3D_741" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 26)
+
+[node name="_Node3D_742" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 27)
+
+[node name="_Node3D_743" parent="GeneratedCity/Buildings" instance=ExtResource("14_fc07g")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 28)
+
+[node name="_Node3D_744" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 29)
+
+[node name="_Node3D_745" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 31)
+
+[node name="_Node3D_746" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 32)
+
+[node name="_Node3D_747" parent="GeneratedCity/Buildings" instance=ExtResource("18_a8y7s")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 33)
+
+[node name="_Node3D_748" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 34)
+
+[node name="_Node3D_749" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 35)
+
+[node name="_Node3D_750" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 17, 0, 37)
+
+[node name="_Node3D_751" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 17, 0, 38)
+
+[node name="_Node3D_752" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 1)
+
+[node name="_Node3D_753" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 2)
+
+[node name="_Node3D_754" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 3)
+
+[node name="_Node3D_755" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 4)
+
+[node name="_Node3D_756" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 5)
+
+[node name="_Node3D_757" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 7)
+
+[node name="_Node3D_758" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 8)
+
+[node name="_Node3D_759" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 9)
+
+[node name="_Node3D_760" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 10)
+
+[node name="_Node3D_761" parent="GeneratedCity/Buildings" instance=ExtResource("17_ovmmv")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 11)
+
+[node name="_Node3D_762" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 13)
+
+[node name="_Node3D_763" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 14)
+
+[node name="_Node3D_764" parent="GeneratedCity/Buildings" instance=ExtResource("22_lcb4p")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 15)
+
+[node name="_Node3D_765" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 16)
+
+[node name="_Node3D_766" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 17)
+
+[node name="_Node3D_767" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 19)
+
+[node name="_Node3D_768" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 20)
+
+[node name="_Node3D_769" parent="GeneratedCity/Buildings" instance=ExtResource("16_xryux")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 21)
+
+[node name="_Node3D_770" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 22)
+
+[node name="_Node3D_771" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 23)
+
+[node name="_Node3D_772" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 25)
+
+[node name="_Node3D_773" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 26)
+
+[node name="_Node3D_774" parent="GeneratedCity/Buildings" instance=ExtResource("21_butdh")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 27)
+
+[node name="_Node3D_775" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 28)
+
+[node name="_Node3D_776" parent="GeneratedCity/Buildings" instance=ExtResource("23_bgc7w")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 29)
+
+[node name="_Node3D_777" parent="GeneratedCity/Buildings" instance=ExtResource("15_j5wa2")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 31)
+
+[node name="_Node3D_778" parent="GeneratedCity/Buildings" instance=ExtResource("19_mr21m")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 32)
+
+[node name="_Node3D_779" parent="GeneratedCity/Buildings" instance=ExtResource("13_biohl")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 33)
+
+[node name="_Node3D_780" parent="GeneratedCity/Buildings" instance=ExtResource("12_slsbt")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 34)
+
+[node name="_Node3D_781" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 35)
+
+[node name="_Node3D_782" parent="GeneratedCity/Buildings" instance=ExtResource("25_f8p18")]
+transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452, 18, 0, 37)
+
+[node name="_Node3D_783" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 38)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.276062, 0.142603, 0.960032)
+curve = SubResource("Curve3D_3fnxm")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.999931, 0, 0.000173946, 0, 0.999993, 0, -0.000173946, 0, -0.999932, -0.111, 0, -0.331)
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Path3D/PathFollow3D" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

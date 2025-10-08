@@ -1,8 +1,8 @@
 extends VehicleBody3D
 
-@export var MAX_steering = 0.7
+@export var MAX_steering = 0.3
 @export var HORSE_power = 2000
-@export var BREAK_power = 1000
+@export var BREAK_power = 400
 @onready var front_left_wheel = $"front left" 
 @onready var front_right_wheel = $"front right"
 @onready var rear_left_wheel = $"back left2"
@@ -47,3 +47,5 @@ func _physics_process(delta):
 	rear_right_wheel.engine_force = throttle
 	rear_left_wheel.brake = break_force
 	rear_right_wheel.brake = break_force
+	front_left_wheel.brake = break_force
+	front_right_wheel.brake = break_force

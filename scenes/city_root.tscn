@@ -17,8 +17,10 @@ albedo_color = Color(2.52686e-07, 0.135569, 0.114974, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_tbb05"]
 
 [node name="CityRoot" type="MeshInstance3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(12.5, 0, 0, 0, 10, 0, 0, 0, 12.5, 0, 0, 0)
 script = ExtResource("1_tbb05")
+grid_size_x = 20
+grid_size_z = 40
 spacing = 1.0
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
@@ -75,4 +77,5 @@ emitting = false
 visible = false
 
 [node name="car" parent="." instance=ExtResource("7_g236f")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.113657, 0.362445, 6.11585)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2671, 10.8104, 75.3017)
+top_level = true
