@@ -314,12 +314,14 @@ offset_bottom = 132.0
 text = "LEVEL 1"
 
 [node name="Button" type="Button" parent="Button"]
+layout_mode = 0
 offset_left = 159.0
 offset_right = 273.0
 offset_bottom = 36.0
 text = "LEVEL 2"
 
 [node name="Button" type="Button" parent="Button/Button"]
+layout_mode = 0
 offset_left = 159.0
 offset_right = 273.0
 offset_bottom = 36.0
