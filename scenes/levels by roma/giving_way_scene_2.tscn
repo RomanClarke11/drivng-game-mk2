@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dqia7uc31ha44"]
+[gd_scene load_steps=63 format=3 uid="uid://dqia7uc31ha44"]
 
 [ext_resource type="Script" uid="uid://yf5tisf3gkf2" path="res://scripts/giving_way_scene_1.gd" id="1_s716o"]
 [ext_resource type="PackedScene" uid="uid://bniykqnv5uo50" path="res://scenes/control.tscn" id="2_2tcmq"]
@@ -92,9 +92,19 @@ _data = {
 }
 point_count = 7
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3o8e2"]
+albedo_color = Color(0.825525, 0, 0.308672, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_gt4ff"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hvwyy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gt4ff"]
+albedo_color = Color(0, 0.752941, 0.294118, 0.223529)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hvwyy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hq56w"]
 
 [node name="givingWayScene2" type="Node3D"]
 script = ExtResource("1_s716o")
@@ -650,12 +660,24 @@ script = ExtResource("43_3o8e2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D2/PathFollow3D"]
 transform = Transform3D(2.17262, -4.84943e-09, 3.72529e-09, 7.43603e-09, 1.81897, -3.72529e-09, -9.31323e-10, 2.79397e-09, 4.59094, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_3o8e2")
 mesh = SubResource("BoxMesh_gt4ff")
 
 [node name="Area3D" type="Area3D" parent="Path3D2/PathFollow3D/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D/MeshInstance3D/Area3D"]
 shape = SubResource("BoxShape3D_hvwyy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.34901, 0, 0, 0, -4.8515, 0, 0, 0, 2.15233, -46.3214, 2.27498, 1.83534)
+material_override = SubResource("StandardMaterial3D_gt4ff")
+mesh = SubResource("BoxMesh_hvwyy")
+skeleton = NodePath("")
+
+[node name="win area" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/win area"]
+shape = SubResource("BoxShape3D_hq56w")
 
 [connection signal="pressed" from="radio/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
@@ -665,3 +687,4 @@ shape = SubResource("BoxShape3D_hvwyy")
 [connection signal="pressed" from="CanvasLayer/gameOver/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="Path3D2/PathFollow3D/MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="MeshInstance3D/win area" to="." method="_on_win_area_area_entered"]
