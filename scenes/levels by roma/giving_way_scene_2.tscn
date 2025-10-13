@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dqia7uc31ha44"]
+[gd_scene load_steps=59 format=3 uid="uid://dqia7uc31ha44"]
 
 [ext_resource type="Script" uid="uid://yf5tisf3gkf2" path="res://scripts/giving_way_scene_1.gd" id="1_s716o"]
 [ext_resource type="PackedScene" uid="uid://bniykqnv5uo50" path="res://scenes/control.tscn" id="2_2tcmq"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://nnajemstew1" path="res://assets/carCrashGameOver.jpg" id="40_52oqv"]
 [ext_resource type="AudioStream" uid="uid://bf535xkd4iuty" path="res://deltarune explosion greenscreen.mp3" id="41_vmjlw"]
 [ext_resource type="Script" uid="uid://ba5skxrq1hyxd" path="res://scenes/levels by roma/enemyCar2.gd" id="42_2tcmq"]
+[ext_resource type="Script" uid="uid://ckr0lauk5ermf" path="res://scripts/ECar2.gd" id="43_3o8e2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eymau"]
 size = Vector3(153.841, 7.31528, 119.563)
@@ -82,6 +83,18 @@ albedo_color = Color(0.583193, 0, 0.323423, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_3o8e2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gt4ff"]
+
+[sub_resource type="Curve3D" id="Curve3D_2tcmq"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.09631, 0.438049, 55.7244, 0, 0, 0, 0, 0, 0, 0.170248, 0.2, 46.4238, 0, 0, 0, 0, 0, 0, 0, 0, 2.83851, 0, 0, 0, 0, 0, 0, -0.14838, 0, -5.65346, 0, 0, 0, 0, 0, 0, 2.57489, -0.50916, -7.52232, 0, 0, 0, 0, 0, 0, 5.51412, -2.16899, -5.87, 0, 0, 0, 0, 0, 0, 5.60913, -4.65125, 60.4138),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="BoxMesh" id="BoxMesh_gt4ff"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hvwyy"]
 
 [node name="givingWayScene2" type="Node3D"]
 script = ExtResource("1_s716o")
@@ -612,7 +625,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.718, 1.17545, 20.1377)
 curve = SubResource("Curve3D_s716o")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.999992, 0, 0.00399272, 0, 1, 0, -0.00399272, 0, 0.999992, -2.53799, 0, 0)
+transform = Transform3D(0.99999, 0, 0.00399275, 0, 1, 0, -0.00399275, 0, 0.99999, -2.53799, 0, 0)
 script = ExtResource("42_2tcmq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
@@ -626,6 +639,24 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/MeshInstance3D/Area3D"]
 shape = SubResource("BoxShape3D_gt4ff")
 
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4049, 0.829664, -23.4395)
+curve = SubResource("Curve3D_2tcmq")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(0.999825, -0.0066713, 0.0174703, 0.00667235, 0.999972, 2.69799e-11, -0.0174699, 0.000116567, 0.999845, -0.102847, 0, -3.04757)
+progress = 60.0
+script = ExtResource("43_3o8e2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D2/PathFollow3D"]
+transform = Transform3D(2.17262, -4.84943e-09, 3.72529e-09, 7.43603e-09, 1.81897, -3.72529e-09, -9.31323e-10, 2.79397e-09, 4.59094, 0, 0, 0)
+mesh = SubResource("BoxMesh_gt4ff")
+
+[node name="Area3D" type="Area3D" parent="Path3D2/PathFollow3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D/MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_hvwyy")
+
 [connection signal="pressed" from="radio/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
@@ -633,3 +664,4 @@ shape = SubResource("BoxShape3D_gt4ff")
 [connection signal="area_entered" from="Area3D4" to="." method="_on_area_3d_4_area_entered"]
 [connection signal="pressed" from="CanvasLayer/gameOver/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="Path3D2/PathFollow3D/MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
