@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://e6222ki85i2j"]
+[gd_scene load_steps=53 format=3 uid="uid://e6222ki85i2j"]
 
 [ext_resource type="Script" uid="uid://yf5tisf3gkf2" path="res://scripts/giving_way_scene_1.gd" id="1_xxg5e"]
 [ext_resource type="PackedScene" uid="uid://bniykqnv5uo50" path="res://scenes/control.tscn" id="2_tiy7g"]
@@ -66,6 +66,13 @@ size = Vector3(29.7617, 14.9861, 47.3359)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7e17u"]
 size = Vector3(33.9658, 18.8455, 49)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxg5e"]
+albedo_color = Color(0, 0.752941, 0.294118, 0.223529)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tiy7g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_82uy4"]
 
 [node name="givingWayScene1" type="Node3D"]
 script = ExtResource("1_xxg5e")
@@ -586,6 +593,17 @@ text = "RETRY"
 unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("41_rwhox")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.34901, 0, 0, 0, -4.8515, 0, 0, 0, 2.15233, -27.2884, 2.27498, 1.83534)
+material_override = SubResource("StandardMaterial3D_xxg5e")
+mesh = SubResource("BoxMesh_tiy7g")
+skeleton = NodePath("")
+
+[node name="win area" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/win area"]
+shape = SubResource("BoxShape3D_82uy4")
 
 [connection signal="pressed" from="radio/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

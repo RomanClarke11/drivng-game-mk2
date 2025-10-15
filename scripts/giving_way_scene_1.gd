@@ -51,3 +51,8 @@ func _on_quit_button_pressed():
 	get_tree().paused = false
 	%radio.visible = false
 	radioOpen = false
+
+
+func _on_win_area_area_entered(area):
+	if area.has_method("isCar"):
+		print("win")
