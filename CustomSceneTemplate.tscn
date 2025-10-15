@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ctp2m23i3h545"]
+[gd_scene load_steps=32 format=3 uid="uid://ctp2m23i3h545"]
 
 [ext_resource type="Script" uid="uid://dqa5ip2ukijf7" path="res://scripts/city_root.gd" id="1_3fnxm"]
 [ext_resource type="Script" uid="uid://dn5u7kvkqsbof" path="res://scripts/rain_system.gd" id="2_oofft"]
@@ -41,6 +41,14 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_yf7ym"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="CityRoot" type="MeshInstance3D"]
 transform = Transform3D(12.5, 0, 0, 0, 10, 0, 0, 0, 12.5, 0, 0, 0)
@@ -96,6 +104,7 @@ angular_velocity = Vector3(0.000422962, 3.02223e-05, -0.015637)
 [node name="Roads" type="Node3D" parent="GeneratedCity"]
 
 [node name="road-bend2" parent="GeneratedCity/Roads" instance=ExtResource("8_rhiis")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="road-straight2" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1)
@@ -212,7 +221,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 38)
 
 [node name="_Node3D_38" parent="GeneratedCity/Roads" instance=ExtResource("8_rhiis")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 39)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 39)
 
 [node name="_Node3D_39" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
@@ -839,7 +848,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 36)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 39)
 
 [node name="_Node3D_246" parent="GeneratedCity/Roads" instance=ExtResource("8_rhiis")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
 [node name="_Node3D_247" parent="GeneratedCity/Roads" instance=ExtResource("9_1alou")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 1)
@@ -956,7 +965,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0,
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 38)
 
 [node name="_Node3D_285" parent="GeneratedCity/Roads" instance=ExtResource("8_rhiis")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 19, 0, 39)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19, 0, 39)
 
 [node name="Buildings" type="Node3D" parent="GeneratedCity"]
 
@@ -2501,8 +2510,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.276062, 0.142603, 0.960032)
 curve = SubResource("Curve3D_3fnxm")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.999931, 0, 0.000173946, 0, 0.999993, 0, -0.000173946, 0, -0.999932, -0.111, 0, -0.331)
+transform = Transform3D(-0.999931, 0, 0.000174185, 0, 0.999993, 0, -0.000174185, 0, -0.999932, -0.111, 0, -0.331)
+visible = false
 script = ExtResource("26_yf7ym")
 
 [node name="Vehicles" parent="Path3D/PathFollow3D" instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.18047)
+curve = SubResource("Curve3D_yf7ym")
