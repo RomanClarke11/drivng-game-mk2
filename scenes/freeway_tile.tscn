@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://sgmqu6ccu35u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb50m"]
+albedo_color = Color(0.529412, 0.572549, 0.678431, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15uqu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bu1fy"]
+albedo_color = Color(0.792152, 0.150489, 0.354446, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pmn4"]
+
+[node name="Freeway Tile" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_lb50m")
+size = Vector3(1, 0.01, 2.4)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000963092, 0.0120001, 0.998793)
+material_override = SubResource("StandardMaterial3D_15uqu")
+size = Vector3(1, 0.01, 0.11)
+material = SubResource("StandardMaterial3D_bu1fy")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000963092, 0.0120001, -1.00121)
+material_override = SubResource("StandardMaterial3D_15uqu")
+size = Vector3(1, 0.01, 0.11)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.001, 0.345)
+material_override = SubResource("StandardMaterial3D_3pmn4")
+size = Vector3(0.3, 0.01, 0.05)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.001, -0.345)
+material_override = SubResource("StandardMaterial3D_3pmn4")
+size = Vector3(0.3, 0.01, 0.05)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.001, 0.345)
+material_override = SubResource("StandardMaterial3D_3pmn4")
+size = Vector3(0.3, 0.01, 0.05)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.001, -0.345)
+material_override = SubResource("StandardMaterial3D_3pmn4")
+size = Vector3(0.3, 0.01, 0.05)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000963092, 0.0120001, 0.998793)
+material_override = SubResource("StandardMaterial3D_15uqu")
+size = Vector3(1, 0.01, 0.11)
+material = SubResource("StandardMaterial3D_bu1fy")

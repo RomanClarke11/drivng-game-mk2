@@ -1,0 +1,212 @@
+[gd_scene load_steps=6 format=3 uid="uid://catckn1so0yir"]
+
+[ext_resource type="PackedScene" uid="uid://sgmqu6ccu35u" path="res://scenes/freeway_tile.tscn" id="1_pe0lp"]
+[ext_resource type="PackedScene" uid="uid://d02poy6hvvbhq" path="res://assets/Roads/Models/GLB format/road-end-round.glb" id="2_d7h1i"]
+[ext_resource type="PackedScene" uid="uid://byodio4esk5u4" path="res://assets/Roads/Models/GLB format/road-straight.glb" id="3_sf0uv"]
+[ext_resource type="PackedScene" uid="uid://dcki0jox32p7i" path="res://assets/Roads/Models/GLB format/road-roundabout.glb" id="4_nm3vy"]
+[ext_resource type="PackedScene" uid="uid://cbvnu1nhpb03i" path="res://assets/Roads/Models/GLB format/road-slant-curve.glb" id="5_56und"]
+
+[node name="Freeway" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+use_collision = true
+size = Vector3(100, 0.1, 100)
+
+[node name="Freeway Tile" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223, 0, 0.664)
+
+[node name="Freeway Tile2" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.223, 0, 0.664)
+
+[node name="Freeway Tile3" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.223, 0, 0.664)
+
+[node name="Freeway Tile4" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.223, 0, 0.664)
+
+[node name="Freeway Tile5" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.223, 0, 0.664)
+
+[node name="Freeway Tile6" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.223, 0, 0.664)
+
+[node name="Freeway Tile7" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.223, 0, 0.664)
+
+[node name="Freeway Tile8" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.223, 0, 0.664)
+
+[node name="Freeway Tile9" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.223, 0, 0.664)
+
+[node name="Freeway Tile10" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.223, 0, 0.664)
+
+[node name="Freeway Tile11" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.223, 0, 0.664)
+
+[node name="Freeway Tile12" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.777, 0, 0.664)
+
+[node name="Freeway Tile13" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.777, 0, 0.664)
+
+[node name="Freeway Tile14" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.777, 0, 0.664)
+
+[node name="Freeway Tile15" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.777, 0, 0.664)
+
+[node name="Freeway Tile16" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.777, 0, 0.664)
+
+[node name="Freeway Tile17" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.777, 0, 0.664)
+
+[node name="Freeway Tile18" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.777, 0, 0.664)
+
+[node name="Freeway Tile19" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.777, 0, 0.664)
+
+[node name="Freeway Tile20" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.777, 0, 0.664)
+
+[node name="Freeway Tile21" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.777, 0, 0.664)
+
+[node name="Freeway Tile22" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.777, 0, 0.664)
+
+[node name="Freeway Tile23" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.223, 0, 0.664)
+
+[node name="Freeway Tile24" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.223, 0, 0.664)
+
+[node name="Freeway Tile25" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.223, 0, 0.664)
+
+[node name="Freeway Tile26" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.223, 0, 0.664)
+
+[node name="Freeway Tile27" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.223, 0, 0.664)
+
+[node name="Freeway Tile28" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.223, 0, 0.664)
+
+[node name="Freeway Tile29" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.223, 0, 0.664)
+
+[node name="Freeway Tile30" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.223, 0, 0.664)
+
+[node name="Freeway Tile31" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.223, 0, 0.664)
+
+[node name="Freeway Tile32" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.223, 0, 0.664)
+
+[node name="Freeway Tile33" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.223, 0, 0.664)
+
+[node name="Freeway Tile34" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.223, 0, 0.664)
+
+[node name="Freeway Tile35" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.223, 0, 0.664)
+
+[node name="Freeway Tile36" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.223, 0, 0.664)
+
+[node name="Freeway Tile37" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.223, 0, 0.664)
+
+[node name="Freeway Tile38" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.223, 0, 0.664)
+
+[node name="Freeway Tile39" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.223, 0, 0.664)
+
+[node name="Freeway Tile40" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.223, 0, 0.664)
+
+[node name="Freeway Tile41" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.223, 0, 0.664)
+
+[node name="Freeway Tile42" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.223, 0, 0.664)
+
+[node name="Freeway Tile43" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.223, 0, 0.664)
+
+[node name="Freeway Tile56" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.223, 0, 0.664)
+
+[node name="Freeway Tile57" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.223, 0, 0.664)
+
+[node name="Freeway Tile44" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.223, 0, 0.664)
+
+[node name="Freeway Tile45" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.777, 0, 0.664)
+
+[node name="Freeway Tile46" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.777, 0, 0.664)
+
+[node name="Freeway Tile47" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.777, 0, 0.664)
+
+[node name="Freeway Tile48" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.777, 0, 0.664)
+
+[node name="Freeway Tile49" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.777, 0, 0.664)
+
+[node name="Freeway Tile50" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.777, 0, 0.664)
+
+[node name="Freeway Tile51" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.777, 0, 0.664)
+
+[node name="Freeway Tile52" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.777, 0, 0.664)
+
+[node name="Freeway Tile53" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.777, 0, 0.664)
+
+[node name="Freeway Tile54" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.777, 0, 0.664)
+
+[node name="Freeway Tile55" parent="." instance=ExtResource("1_pe0lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.777, 0, 0.664)
+
+[node name="road-end-round2" parent="." instance=ExtResource("2_d7h1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 17)
+
+[node name="road-straight2" parent="." instance=ExtResource("3_sf0uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 17)
+
+[node name="road-straight3" parent="." instance=ExtResource("3_sf0uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 17)
+
+[node name="road-straight4" parent="." instance=ExtResource("3_sf0uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 17)
+
+[node name="road-roundabout2" parent="." instance=ExtResource("4_nm3vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 18)
+
+[node name="road-roundabout3" parent="." instance=ExtResource("4_nm3vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 16)
+
+[node name="road-slant-curve2" parent="." instance=ExtResource("5_56und")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 30, 0, 1.89002)
+
+[node name="road-end-round3" parent="." instance=ExtResource("2_d7h1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7149, 0, 1)
+
+[node name="road-end-round4" parent="." instance=ExtResource("2_d7h1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7149, 0, 1)
