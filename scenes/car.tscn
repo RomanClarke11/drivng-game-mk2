@@ -53,7 +53,7 @@ size = Vector3(3.42627, 1.29248, 2.02087)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.290891, 0, 0)
 mass = 500.0
 center_of_mass_mode = 1
-center_of_mass = Vector3(0, -1, 0)
+angular_damp = 8.081
 constant_force = Vector3(0, -100, 0)
 script = ExtResource("1_c35m8")
 

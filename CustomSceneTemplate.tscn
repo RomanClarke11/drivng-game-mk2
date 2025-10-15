@@ -1,6 +1,5 @@
-[gd_scene load_steps=32 format=3 uid="uid://ctp2m23i3h545"]
+[gd_scene load_steps=31 format=3 uid="uid://ctp2m23i3h545"]
 
-[ext_resource type="Script" uid="uid://dqa5ip2ukijf7" path="res://scripts/city_root.gd" id="1_3fnxm"]
 [ext_resource type="Script" uid="uid://dn5u7kvkqsbof" path="res://scripts/rain_system.gd" id="2_oofft"]
 [ext_resource type="PackedScene" uid="uid://bo58qc60n6nqt" path="res://Weather Systems/GPU Particles/rain_main.tscn" id="3_yf7ym"]
 [ext_resource type="PackedScene" uid="uid://ds4vlc5p7xobw" path="res://Weather Systems/GPU Particles/rain_splash.tscn" id="4_sk8j3"]
@@ -45,17 +44,13 @@ point_count = 6
 [sub_resource type="Curve3D" id="Curve3D_yf7ym"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.328618, 0, 0.325862, 0, 0, 0, 0, 0, 0, 0.324597, 0, 0.323014, 0, 0, 0, 0, 0, 0, 0.318791, 0, 38.9291, 0, 0, 0, 0, 0, 0, 7.96358, 0, 38.8909, 0, 0, 0, 0, 0, 0, 7.99, 0, 0.253963),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-point_count = 2
+point_count = 5
 
-[node name="CityRoot" type="MeshInstance3D"]
+[node name="CityRoot" type="Node3D"]
 transform = Transform3D(12.5, 0, 0, 0, 10, 0, 0, 0, 12.5, 0, 0, 0)
-script = ExtResource("1_3fnxm")
-grid_size_x = 20
-grid_size_z = 40
-spacing = 1.0
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 24)
@@ -63,23 +58,24 @@ use_collision = true
 mesh = SubResource("BoxMesh_tbb05")
 material = SubResource("StandardMaterial3D_karg6")
 
-[node name="RainSystem" type="Node3D" parent="." node_paths=PackedStringArray("rain_main", "rain_splash")]
+[node name="RainSystem" type="Node3D" parent="." node_paths=PackedStringArray("rain_main", "rain_splash", "player")]
 process_mode = 3
 script = ExtResource("2_oofft")
 rain_main = NodePath("RainSplash")
 rain_splash = NodePath("RainSplash")
+player = NodePath("../car")
 weather_path = NodePath("../weather control")
 
 [node name="RainMain" parent="RainSystem" instance=ExtResource("3_yf7ym")]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 12.2287, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0.338293, 24)
 emitting = false
-amount = 30000
+amount = 50000
 lifetime = 2.0
 
 [node name="RainSplash" parent="RainSystem" instance=ExtResource("4_sk8j3")]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0.1, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0.236216, 24)
 emitting = false
 amount = 10000
 explosiveness = 0.0
@@ -87,17 +83,19 @@ explosiveness = 0.0
 [node name="Mist" parent="RainSystem" instance=ExtResource("5_5i6by")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 24)
-emitting = false
+amount = 100000
 
 [node name="weather control" parent="." instance=ExtResource("6_8f6jy")]
 visible = false
 
 [node name="car" parent="." instance=ExtResource("7_5fksh")]
-transform = Transform3D(0.999994, 0.000184648, -0.00334458, -0.000184696, 1, -1.42976e-05, 0.00334458, 1.49153e-05, 0.999994, 16.3479, 2.18118, 75.2854)
+transform = Transform3D(0.00739366, 1.56628e-05, 0.999972, -0.000184696, 1, -1.42976e-05, -0.999972, -0.000184586, 0.00739366, 1.93068, 2.18118, 82.7979)
 top_level = true
 sleeping = true
 linear_velocity = Vector3(-0.00939112, -0.0260022, -0.00037728)
 angular_velocity = Vector3(0.000422962, 3.02223e-05, -0.015637)
+HORSE_power = 3000
+BREAK_power = 35
 
 [node name="GeneratedCity" type="Node3D" parent="."]
 
@@ -2505,18 +2503,563 @@ transform = Transform3D(0.899452, 0, 0.0314095, 0, 1, 0, -0.0314095, 0, 0.899452
 [node name="_Node3D_783" parent="GeneratedCity/Buildings" instance=ExtResource("20_bsj8c")]
 transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 18, 0, 38)
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="Outer Traffic" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.276062, 0.142603, 0.960032)
 curve = SubResource("Curve3D_3fnxm")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.999931, 0, 0.000174185, 0, 0.999993, 0, -0.000174185, 0, -0.999932, -0.111, 0, -0.331)
-visible = false
+[node name="PathFollow3D" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.999931, 0, -0.000174185, 0, 0.999993, 0, 0.000174185, 0, 0.999932, -0.111, 0, -0.331)
+use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Path3D/PathFollow3D" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D" instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
-[node name="Path3D2" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.18047)
+[node name="PathFollow3D2" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.999862, 0, -0.000174173, 0, 0.999986, 0, 0.000174173, 0, 0.999864, -0.11187, 0, 4.66746)
+progress = 5.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D2" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(8.46765e-05, 0, 0.999932, 0, 0.999993, 0, -0.999931, 0, 8.46765e-05, 1.68886, 0, 4.8679)
+progress = 7.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D3" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(8.46765e-05, 0, 0.999932, 0, 0.999993, 0, -0.999931, 0, 8.46765e-05, 3.68907, 0, 4.86807)
+progress = 9.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D4" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(8.46765e-05, 0, 0.999932, 0, 0.999993, 0, -0.999931, 0, 8.46765e-05, 8.68934, 0, 4.8685)
+progress = 14.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D5" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D6" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(8.46765e-05, 0, 0.999932, 0, 0.999993, 0, -0.999931, 0, 8.46765e-05, 10.6894, 0, 4.86866)
+progress = 16.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D6" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D7" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(8.46765e-05, 0, 0.999932, 0, 0.999993, 0, -0.999931, 0, 8.46765e-05, 14.6895, 0, 4.869)
+progress = 20.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D7" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D8" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(8.47957e-05, 0, 0.999932, 0, 0.999993, 0, -0.999931, 0, 8.47957e-05, 17.6899, 0, 4.86926)
+progress = 23.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D8" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D9" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.99993, 0, 0.00158648, 0, 0.999993, 0, -0.00158648, 0, 0.999931, 18.8923, 0, 6.16841)
+progress = 25.5
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D9" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D10" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.99993, 0, 0.00158648, 0, 0.999993, 0, -0.00158648, 0, 0.999931, 18.8946, 0, 7.66849)
+progress = 27.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D10" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D11" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.99993, 0, 0.00158648, 0, 0.999993, 0, -0.00158648, 0, 0.999931, 18.9026, 0, 12.6685)
+progress = 32.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D11" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D12" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.99993, 0, 0.00158648, 0, 0.999993, 0, -0.00158648, 0, 0.999931, 18.9073, 0, 15.6685)
+progress = 35.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D12" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D13" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.99993, 0, 0.00158648, 0, 0.999993, 0, -0.00158648, 0, 0.999931, 18.9137, 0, 19.6685)
+progress = 39.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D13" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D14" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.99993, 0, 0.00158648, 0, 0.999993, 0, -0.00158648, 0, 0.999931, 18.9184, 0, 22.6685)
+progress = 42.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D14" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D15" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.99993, 0, 0.00158648, 0, 0.999993, 0, -0.00158648, 0, 0.999931, 18.9232, 0, 25.6685)
+progress = 45.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D15" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D16" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.99993, 0, 0.00158648, 0, 0.999993, 0, -0.00158648, 0, 0.999931, 18.9311, 0, 30.6686)
+progress = 50.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D16" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D17" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(0.99993, 0, 0.00158648, 0, 0.999993, 0, -0.00158648, 0, 0.999931, 18.9343, 0, 32.6686)
+progress = 52.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D17" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D18" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.00113761, 0, -0.999931, 0, 0.999993, 0, 0.99993, 0, -0.00113761, 18.456, 0, 35.1852)
+progress = 55.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D18" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D19" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.00113761, 0, -0.999931, 0, 0.999993, 0, 0.99993, 0, -0.00113761, 15.4561, 0, 35.1818)
+progress = 58.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D19" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D20" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.00113761, 0, -0.999931, 0, 0.999993, 0, 0.99993, 0, -0.00113761, 14.4557, 0, 35.1807)
+progress = 59.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D20" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D21" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.00113761, 0, -0.999931, 0, 0.999993, 0, 0.99993, 0, -0.00113761, 11.4558, 0, 35.1773)
+progress = 62.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D21" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D22" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.00113761, 0, -0.999931, 0, 0.999993, 0, 0.99993, 0, -0.00113761, 3.45543, 0, 35.1682)
+progress = 70.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D22" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D23" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.00113761, 0, -0.999931, 0, 0.999993, 0, 0.99993, 0, -0.00113761, 0.461458, 0, 35.1648)
+progress = 73.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D23" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D24" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.405, 0, 33.0177)
+progress = 76.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D24" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D25" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.414893, 0, 30.0177)
+progress = 79.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D25" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D26" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.418191, 0, 29.0177)
+progress = 80.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D26" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D27" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.428085, 0, 26.0177)
+progress = 83.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D27" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D28" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.434681, 0, 24.0176)
+progress = 85.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D28" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D29" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.447873, 0, 20.0176)
+progress = 89.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D29" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D30" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.461064, 0, 16.0176)
+progress = 93.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D30" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D31" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.474255, 0, 12.0176)
+progress = 97.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D31" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D32" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.484149, 0, 9.01763)
+progress = 100.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D32" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D33" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.500639, 0, 4.01746)
+progress = 105.0
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D33" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D34" type="PathFollow3D" parent="Outer Traffic"]
+transform = Transform3D(-0.999926, 0, -0.00329764, 0, 0.999993, 0, 0.00329764, 0, -0.999927, -0.508884, 0, 1.51738)
+progress = 107.5
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D34" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Inner Traffic" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.823, 0.1, -0.136)
 curve = SubResource("Curve3D_yf7ym")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.57795, 0, -0.815988, 0, 0.999993, 0, 0.815988, 0, -0.57795, 0.328618, 0, 0.325862)
+use_model_front = true
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.324147, 0, 3.31786)
+progress = 3.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D2" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.323545, 0, 7.31788)
+progress = 7.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D3" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.323244, 0, 9.31798)
+progress = 9.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D4" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.322793, 0, 12.3181)
+progress = 12.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D5" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D6" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.322342, 0, 15.3181)
+progress = 15.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D6" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D7" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.321891, 0, 18.3181)
+progress = 18.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D7" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D8" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.32144, 0, 21.3181)
+progress = 21.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D8" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D9" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.320988, 0, 24.3181)
+progress = 24.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D9" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D10" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.320537, 0, 27.3181)
+progress = 27.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D10" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D11" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.320086, 0, 30.3182)
+progress = 30.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D11" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D12" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.319635, 0, 33.3183)
+progress = 33.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D12" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D13" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344, 0, -0.999932, 0.319184, 0, 36.3184)
+progress = 36.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D13" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D14" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.00499649, 0, -0.999919, 0, 0.999993, 0, 0.999919, 0, 0.00499649, 0.708259, 0, 38.9272)
+progress = 39.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D14" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D15" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.00499649, 0, -0.999919, 0, 0.999993, 0, 0.999919, 0, 0.00499649, 3.70763, 0, 38.9122)
+progress = 42.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D15" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D16" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.00499649, 0, -0.999919, 0, 0.999993, 0, 0.999919, 0, 0.00499649, 6.70838, 0, 38.8972)
+progress = 45.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D16" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D17" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.96477, 0, 37.1459)
+progress = 48.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D17" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D18" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.96682, 0, 34.1468)
+progress = 51.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D18" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D19" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.96887, 0, 31.147)
+progress = 54.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D19" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D20" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.97093, 0, 28.1468)
+progress = 57.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D20" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D21" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.97298, 0, 25.1469)
+progress = 60.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D21" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D22" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.97503, 0, 22.1469)
+progress = 63.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D22" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D23" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.97708, 0, 19.1469)
+progress = 66.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D23" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D24" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.97913, 0, 16.1469)
+progress = 69.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D24" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D25" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.98118, 0, 13.1469)
+progress = 72.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D25" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D26" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.98323, 0, 10.1469)
+progress = 75.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D26" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D27" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.98529, 0, 7.14687)
+progress = 78.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D27" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D28" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.98734, 0, 4.14669)
+progress = 81.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D28" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D29" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 0, 0.999932, 7.98939, 0, 1.14552)
+progress = 84.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D29" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D30" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.00938352, 0, 0.999887, 0, 0.999993, 0, -0.999886, 0, -0.00938353, 5.8832, 0, 0.273734)
+progress = 87.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D30" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="PathFollow3D31" type="PathFollow3D" parent="Inner Traffic"]
+transform = Transform3D(-0.00938364, 0, 0.999887, 0, 0.999993, 0, -0.999886, 0, -0.00938365, 2.88297, 0, 0.30189)
+progress = 90.0
+script = ExtResource("26_yf7ym")
+
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D31" instance=ExtResource("26_oofft")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

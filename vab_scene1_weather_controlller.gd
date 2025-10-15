@@ -3,7 +3,7 @@ extends Node3D
 @export var rain_main: GPUParticles3D
 @export var rain_splash: GPUParticles3D
 @export var player: Node3D    # your player or camera node
-@export var coverage: Vector2 = Vector2(20, 40) # how wide the rain box should be
+@export var coverage: Vector2 = Vector2(50, 50) # how wide the rain box should be
 @onready var weather_control: Control = $"../weather control"
 
 @export var rain_height: float = 50.0
@@ -17,9 +17,9 @@ var mistheavy = false
 
 func _ready():
 	#setup_rain()
-	$RainMain.emitting = false
-	$RainSplash.emitting = false
-	$Mist.emitting = false
+	$RainSystem/RainMain.emitting = false
+	$RainSystem/RainSplash.emitting = false
+	$RainSystem/Mist.emitting = false
 	weather = get_node(weather_path)
 	weather.weather_switch.connect(_on_weather_switch)
 	weather_control.hide()
@@ -31,7 +31,7 @@ func _on_weather_switch(weather_type: String):
 		#print("ON")
 	elif weather_type == 'RainOff':
 		rain = false
-		$RainMain.emitting = false
+		$RainSystem/RainMain.emitting = false
 		rain_splash.emitting = false
 	elif weather_type == 'Mist':
 		mist = true
@@ -40,7 +40,7 @@ func _on_weather_switch(weather_type: String):
 		pass
 	elif weather_type == 'MistOff':
 		mist = false
-		$Mist.emitting = false
+		$RainSystem/Mist.emitting = false
 		pass
 	elif weather_type == 'Mist - Heavy':
 		mistheavy = true
@@ -48,17 +48,17 @@ func _on_weather_switch(weather_type: String):
 		pass
 	elif weather_type == 'Mist - HeavyOff':
 		mistheavy = false
-		$Mist.emitting = false
+		$RainSystem/Mist.emitting = false
 		pass
 
 func setup_rain():
 	# Setup emission shapes
 	if rain:
-		$RainMain.emitting = true
+		$RainSystem/RainMain.emitting = true
 		rain_splash.emitting = true
 		#rain = true
-		if $RainMain and $RainMain.process_material:
-			var mat: ParticleProcessMaterial = $RainMain.process_material
+		if $RainSystem/RainMain and $RainSystem/RainMain.process_material:
+			var mat: ParticleProcessMaterial = $RainSystem/RainMain.process_material
 			mat.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
 			mat.emission_box_extents = Vector3(coverage.x / 2.0, 0.0, coverage.y / 2.0)
 
@@ -69,17 +69,17 @@ func setup_rain():
 
 func setup_mist():
 	if mist:
-		$Mist.amount = 800000
-		$Mist.emitting = true
-		if $Mist and $Mist.process_material:
-			var mat: ParticleProcessMaterial = $Mist.process_material
+		$RainSystem/Mist.amount = 8000
+		$RainSystem/Mist.emitting = true
+		if $RainSystem/Mist and $RainSystem/Mist.process_material:
+			var mat: ParticleProcessMaterial = $RainSystem/Mist.process_material
 			mat.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
 			mat.emission_box_extents = Vector3(coverage.x / 2.0, 2.5, coverage.y / 2.0)
 	if mistheavy:
-		$Mist.amount = 1500000
-		$Mist.emitting = true
-		if $Mist and $Mist.process_material:
-			var mat: ParticleProcessMaterial = $Mist.process_material
+		$RainSystem/Mist.amount = 15000
+		$RainSystem/Mist.emitting = true
+		if $RainSystem/Mist and $RainSystem/Mist.process_material:
+			var mat: ParticleProcessMaterial = $RainSystem/Mist.process_material
 			mat.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
 			mat.emission_box_extents = Vector3(coverage.x / 2.0, 2.5, coverage.y / 2.0)
 
@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 	if mist or mistheavy:
 		var player_pos = player.global_position
 		#print("HOWDY")
-		$Mist.global_position = Vector3(player_pos.x, 2, player_pos.z)
+		$RainSystem/Mist.global_position = Vector3(player_pos.x, 2, player_pos.z)
 	
 	if Input.is_action_just_pressed("Escape"):
 		if paused:
