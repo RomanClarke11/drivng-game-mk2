@@ -56,6 +56,7 @@ center_of_mass_mode = 1
 angular_damp = 8.081
 constant_force = Vector3(0, -100, 0)
 script = ExtResource("1_c35m8")
+MAX_steering = 0.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.8, 0, 0, 0, 1, 0, 0, 0, 1.6, 0, -0.156586, 0)
