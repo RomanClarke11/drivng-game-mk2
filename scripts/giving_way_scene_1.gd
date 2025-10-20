@@ -56,3 +56,8 @@ func _on_quit_button_pressed():
 func _on_win_area_area_entered(area):
 	if area.has_method("isCar"):
 		print("win")
+
+
+func _on_button_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
