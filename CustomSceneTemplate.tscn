@@ -1,5 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://ctp2m23i3h545"]
+[gd_scene load_steps=39 format=3 uid="uid://ctp2m23i3h545"]
 
+[ext_resource type="Script" uid="uid://bobnfq3nqmade" path="res://custom_scene_template.gd" id="1_sk8j3"]
 [ext_resource type="Script" uid="uid://dn5u7kvkqsbof" path="res://scripts/rain_system.gd" id="2_oofft"]
 [ext_resource type="PackedScene" uid="uid://bo58qc60n6nqt" path="res://Weather Systems/GPU Particles/rain_main.tscn" id="3_yf7ym"]
 [ext_resource type="PackedScene" uid="uid://ds4vlc5p7xobw" path="res://Weather Systems/GPU Particles/rain_splash.tscn" id="4_sk8j3"]
@@ -26,6 +27,10 @@
 [ext_resource type="PackedScene" uid="uid://bto045euyc46f" path="res://scenes/Commercial Buildings/building_skyscraper_c_2.tscn" id="25_f8p18"]
 [ext_resource type="PackedScene" uid="uid://dmulllfd5uovq" path="res://vehicles.tscn" id="26_oofft"]
 [ext_resource type="Script" uid="uid://yyqh8m3it3vf" path="res://scenes/enemyCar.gd" id="26_yf7ym"]
+[ext_resource type="Texture2D" uid="uid://b0egoj63dl0pv" path="res://assets/radio assets/menuBackground.png" id="27_yf7ym"]
+[ext_resource type="PackedScene" uid="uid://dssi8p5b464go" path="res://arrow.tscn" id="29_5i6by"]
+[ext_resource type="Texture2D" uid="uid://nnajemstew1" path="res://assets/carCrashGameOver.jpg" id="30_5fksh"]
+[ext_resource type="AudioStream" uid="uid://bf535xkd4iuty" path="res://deltarune explosion greenscreen.mp3" id="31_rhiis"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tbb05"]
 size = Vector3(55, 0.01, 55)
@@ -49,8 +54,22 @@ _data = {
 }
 point_count = 5
 
-[node name="CityRoot" type="Node3D"]
+[sub_resource type="LabelSettings" id="LabelSettings_sk8j3"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_5i6by"]
+font_size = 20
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5i6by"]
+size = Vector3(0.491699, 1, 2.95105)
+
+[node name="Scene1 - Vaibhav" type="Node3D"]
 transform = Transform3D(12.5, 0, 0, 0, 10, 0, 0, 0, 12.5, 0, 0, 0)
+script = ExtResource("1_sk8j3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.899558, -0.436508, 0.016006, 0, 0.0366437, 0.999328, -0.436802, 0.898954, -0.0329631, 0, 0, 0)
+shadow_enabled = true
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 24)
@@ -83,6 +102,7 @@ explosiveness = 0.0
 [node name="Mist" parent="RainSystem" instance=ExtResource("5_5i6by")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 24)
+emitting = false
 amount = 100000
 
 [node name="weather control" parent="." instance=ExtResource("6_8f6jy")]
@@ -2512,7 +2532,7 @@ transform = Transform3D(0.999931, 0, -0.000174185, 0, 0.999993, 0, 0.000174185, 
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="Outer Traffic"]
@@ -2521,7 +2541,7 @@ progress = 5.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D2" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D2" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D3" type="PathFollow3D" parent="Outer Traffic"]
@@ -2530,7 +2550,7 @@ progress = 7.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D3" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D3" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D4" type="PathFollow3D" parent="Outer Traffic"]
@@ -2539,7 +2559,7 @@ progress = 9.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D4" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D4" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D5" type="PathFollow3D" parent="Outer Traffic"]
@@ -2548,7 +2568,7 @@ progress = 14.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D5" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D5" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D6" type="PathFollow3D" parent="Outer Traffic"]
@@ -2557,7 +2577,7 @@ progress = 16.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D6" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D6" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D7" type="PathFollow3D" parent="Outer Traffic"]
@@ -2566,7 +2586,7 @@ progress = 20.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D7" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D7" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D8" type="PathFollow3D" parent="Outer Traffic"]
@@ -2575,7 +2595,7 @@ progress = 23.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D8" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D8" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D9" type="PathFollow3D" parent="Outer Traffic"]
@@ -2584,7 +2604,7 @@ progress = 25.5
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D9" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D9" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D10" type="PathFollow3D" parent="Outer Traffic"]
@@ -2593,7 +2613,7 @@ progress = 27.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D10" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D10" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D11" type="PathFollow3D" parent="Outer Traffic"]
@@ -2602,7 +2622,7 @@ progress = 32.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D11" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D11" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D12" type="PathFollow3D" parent="Outer Traffic"]
@@ -2611,7 +2631,7 @@ progress = 35.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D12" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D12" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D13" type="PathFollow3D" parent="Outer Traffic"]
@@ -2620,7 +2640,7 @@ progress = 39.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D13" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D13" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D14" type="PathFollow3D" parent="Outer Traffic"]
@@ -2629,7 +2649,7 @@ progress = 42.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D14" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D14" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D15" type="PathFollow3D" parent="Outer Traffic"]
@@ -2638,7 +2658,7 @@ progress = 45.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D15" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D15" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D16" type="PathFollow3D" parent="Outer Traffic"]
@@ -2647,7 +2667,7 @@ progress = 50.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D16" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D16" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D17" type="PathFollow3D" parent="Outer Traffic"]
@@ -2656,7 +2676,7 @@ progress = 52.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D17" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D17" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D18" type="PathFollow3D" parent="Outer Traffic"]
@@ -2665,7 +2685,7 @@ progress = 55.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D18" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D18" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D19" type="PathFollow3D" parent="Outer Traffic"]
@@ -2674,7 +2694,7 @@ progress = 58.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D19" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D19" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D20" type="PathFollow3D" parent="Outer Traffic"]
@@ -2683,7 +2703,7 @@ progress = 59.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D20" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D20" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D21" type="PathFollow3D" parent="Outer Traffic"]
@@ -2692,7 +2712,7 @@ progress = 62.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D21" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D21" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D22" type="PathFollow3D" parent="Outer Traffic"]
@@ -2701,7 +2721,7 @@ progress = 70.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D22" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D22" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D23" type="PathFollow3D" parent="Outer Traffic"]
@@ -2710,7 +2730,7 @@ progress = 73.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D23" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D23" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D24" type="PathFollow3D" parent="Outer Traffic"]
@@ -2719,7 +2739,7 @@ progress = 76.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D24" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D24" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D25" type="PathFollow3D" parent="Outer Traffic"]
@@ -2728,7 +2748,7 @@ progress = 79.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D25" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D25" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D26" type="PathFollow3D" parent="Outer Traffic"]
@@ -2737,7 +2757,7 @@ progress = 80.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D26" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D26" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D27" type="PathFollow3D" parent="Outer Traffic"]
@@ -2746,7 +2766,7 @@ progress = 83.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D27" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D27" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D28" type="PathFollow3D" parent="Outer Traffic"]
@@ -2755,7 +2775,7 @@ progress = 85.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D28" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D28" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D29" type="PathFollow3D" parent="Outer Traffic"]
@@ -2764,7 +2784,7 @@ progress = 89.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D29" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D29" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D30" type="PathFollow3D" parent="Outer Traffic"]
@@ -2773,7 +2793,7 @@ progress = 93.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D30" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D30" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D31" type="PathFollow3D" parent="Outer Traffic"]
@@ -2782,7 +2802,7 @@ progress = 97.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D31" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D31" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D32" type="PathFollow3D" parent="Outer Traffic"]
@@ -2791,7 +2811,7 @@ progress = 100.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D32" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D32" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D33" type="PathFollow3D" parent="Outer Traffic"]
@@ -2800,7 +2820,7 @@ progress = 105.0
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D33" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D33" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D34" type="PathFollow3D" parent="Outer Traffic"]
@@ -2809,7 +2829,7 @@ progress = 107.5
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Outer Traffic/PathFollow3D34" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Outer Traffic/PathFollow3D34" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Inner Traffic" type="Path3D" parent="."]
@@ -2821,7 +2841,7 @@ transform = Transform3D(-0.57795, 0, -0.815988, 0, 0.999993, 0, 0.815988, 0, -0.
 use_model_front = true
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="Inner Traffic"]
@@ -2829,7 +2849,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 3.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D2" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D2" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D3" type="PathFollow3D" parent="Inner Traffic"]
@@ -2837,7 +2857,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 7.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D3" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D3" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D4" type="PathFollow3D" parent="Inner Traffic"]
@@ -2845,7 +2865,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 9.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D4" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D4" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D5" type="PathFollow3D" parent="Inner Traffic"]
@@ -2853,7 +2873,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 12.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D5" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D5" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D6" type="PathFollow3D" parent="Inner Traffic"]
@@ -2861,7 +2881,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 15.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D6" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D6" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D7" type="PathFollow3D" parent="Inner Traffic"]
@@ -2869,7 +2889,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 18.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D7" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D7" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D8" type="PathFollow3D" parent="Inner Traffic"]
@@ -2877,7 +2897,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 21.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D8" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D8" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D9" type="PathFollow3D" parent="Inner Traffic"]
@@ -2885,7 +2905,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 24.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D9" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D9" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D10" type="PathFollow3D" parent="Inner Traffic"]
@@ -2893,7 +2913,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 27.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D10" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D10" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D11" type="PathFollow3D" parent="Inner Traffic"]
@@ -2901,7 +2921,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 30.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D11" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D11" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D12" type="PathFollow3D" parent="Inner Traffic"]
@@ -2909,7 +2929,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 33.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D12" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D12" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D13" type="PathFollow3D" parent="Inner Traffic"]
@@ -2917,7 +2937,7 @@ transform = Transform3D(-0.999931, 0, 0.000150344, 0, 0.999993, 0, -0.000150344,
 progress = 36.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D13" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D13" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D14" type="PathFollow3D" parent="Inner Traffic"]
@@ -2925,7 +2945,7 @@ transform = Transform3D(0.00499649, 0, -0.999919, 0, 0.999993, 0, 0.999919, 0, 0
 progress = 39.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D14" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D14" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D15" type="PathFollow3D" parent="Inner Traffic"]
@@ -2933,7 +2953,7 @@ transform = Transform3D(0.00499649, 0, -0.999919, 0, 0.999993, 0, 0.999919, 0, 0
 progress = 42.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D15" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D15" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D16" type="PathFollow3D" parent="Inner Traffic"]
@@ -2941,7 +2961,7 @@ transform = Transform3D(0.00499649, 0, -0.999919, 0, 0.999993, 0, 0.999919, 0, 0
 progress = 45.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D16" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D16" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D17" type="PathFollow3D" parent="Inner Traffic"]
@@ -2949,7 +2969,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 48.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D17" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D17" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D18" type="PathFollow3D" parent="Inner Traffic"]
@@ -2957,7 +2977,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 51.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D18" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D18" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D19" type="PathFollow3D" parent="Inner Traffic"]
@@ -2965,7 +2985,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 54.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D19" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D19" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D20" type="PathFollow3D" parent="Inner Traffic"]
@@ -2973,7 +2993,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 57.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D20" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D20" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D21" type="PathFollow3D" parent="Inner Traffic"]
@@ -2981,7 +3001,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 60.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D21" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D21" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D22" type="PathFollow3D" parent="Inner Traffic"]
@@ -2989,7 +3009,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 63.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D22" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D22" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D23" type="PathFollow3D" parent="Inner Traffic"]
@@ -2997,7 +3017,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 66.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D23" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D23" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D24" type="PathFollow3D" parent="Inner Traffic"]
@@ -3005,7 +3025,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 69.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D24" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D24" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D25" type="PathFollow3D" parent="Inner Traffic"]
@@ -3013,7 +3033,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 72.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D25" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D25" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D26" type="PathFollow3D" parent="Inner Traffic"]
@@ -3021,7 +3041,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 75.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D26" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D26" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D27" type="PathFollow3D" parent="Inner Traffic"]
@@ -3029,7 +3049,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 78.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D27" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D27" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D28" type="PathFollow3D" parent="Inner Traffic"]
@@ -3037,7 +3057,7 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 81.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D28" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D28" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D29" type="PathFollow3D" parent="Inner Traffic"]
@@ -3045,21 +3065,436 @@ transform = Transform3D(0.999931, 0, -0.000683746, 0, 0.999993, 0, 0.000683745, 
 progress = 84.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D29" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D29" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D30" type="PathFollow3D" parent="Inner Traffic"]
-transform = Transform3D(-0.00938352, 0, 0.999887, 0, 0.999993, 0, -0.999886, 0, -0.00938353, 5.8832, 0, 0.273734)
+transform = Transform3D(-0.00938351, 0, 0.999886, 0, 0.999993, 0, -0.999885, 0, -0.00938352, 5.8832, 0, 0.273734)
 progress = 87.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D30" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D30" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="PathFollow3D31" type="PathFollow3D" parent="Inner Traffic"]
-transform = Transform3D(-0.00938364, 0, 0.999887, 0, 0.999993, 0, -0.999886, 0, -0.00938365, 2.88297, 0, 0.30189)
+transform = Transform3D(-0.00938363, 0, 0.999886, 0, 0.999993, 0, -0.999885, 0, -0.00938364, 2.88297, 0, 0.30189)
 progress = 90.0
 script = ExtResource("26_yf7ym")
 
-[node name="Vehicles" parent="Inner Traffic/PathFollow3D31" instance=ExtResource("26_oofft")]
+[node name="Vehicles" parent="Inner Traffic/PathFollow3D31" groups=["Traffic_triggers"] instance=ExtResource("26_oofft")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Objective Text" type="Control" parent="."]
+process_mode = 1
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+
+[node name="TextureRect" type="TextureRect" parent="Objective Text"]
+modulate = Color(0.29219, 0.29219, 0.29219, 1)
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 645.0
+texture = ExtResource("27_yf7ym")
+
+[node name="Title" type="Label" parent="Objective Text"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.063
+anchor_bottom = 0.036
+offset_left = 457.0
+offset_top = 42.0
+offset_right = 611.298
+offset_bottom = 87.6
+text = "Objective"
+label_settings = SubResource("LabelSettings_sk8j3")
+
+[node name="Objective" type="Label" parent="Objective Text"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 141.0
+offset_right = 791.0
+offset_bottom = 200.0
+text = "Navigate Through Traffic To Reach Endpoint.
+Follow Arrows For Directions.
+You are currently on wrong side of road. It is suggested you switch sides once you start."
+label_settings = SubResource("LabelSettings_5i6by")
+horizontal_alignment = 1
+
+[node name="Lvl End" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lvl End"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25415, 0, 2.16695)
+shape = SubResource("BoxShape3D_5i6by")
+
+[node name="Arrows" type="Node" parent="."]
+
+[node name="Arrow" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.76958, 0, -2.42252, 0, 3, 0, 2.42252, 0, -1.76958, 2.14806, 0.2, 76.3958)
+
+[node name="Arrow2" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 7.64805, 0.2, 73.0743)
+
+[node name="Arrow3" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 18.0966, 0.2, 73.0743)
+
+[node name="Arrow4" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 42.4102, 0.2, 73.0743)
+
+[node name="Arrow5" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 51.1793, 0.2, 73.0743)
+
+[node name="Arrow6" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 38.5172, 0.2, 73.0743)
+
+[node name="Arrow7" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 63.6759, 0.2, 73.0743)
+
+[node name="Arrow8" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 80.3081, 0.2, 73.0743)
+
+[node name="Arrow9" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 91.9029, 0.2, 73.0743)
+
+[node name="Arrow10" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 99.8975, 0.2, 73.0743)
+
+[node name="Arrow11" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 115.63, 0.2, 73.0743)
+
+[node name="Arrow12" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 133.54, 0.2, 73.0743)
+
+[node name="Arrow13" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 147.775, 0.2, 73.0743)
+
+[node name="Arrow14" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 163.6, 0.2, 73.0743)
+
+[node name="Arrow15" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 182.514, 0.2, 73.0743)
+
+[node name="Arrow16" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 200.127, 0.2, 73.0743)
+
+[node name="Arrow17" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 218.485, 0.2, 73.0743)
+
+[node name="Arrow18" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.99961, 0, -0.0485352, 0, 3, 0, 0.0485352, 0, -2.99961, 231.623, 0.2, 73.0743)
+
+[node name="Arrow36" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-2.17046, 0, 2.07102, 0, 3, 0, -2.07102, 0, -2.17046, 238.377, 0.2, 74.5437)
+
+[node name="Arrow37" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 78.915)
+
+[node name="Arrow38" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 91.1906)
+
+[node name="Arrow39" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 103.519)
+
+[node name="Arrow40" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 116.676)
+
+[node name="Arrow41" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 128.249)
+
+[node name="Arrow42" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 135.946)
+
+[node name="Arrow43" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 145.287)
+
+[node name="Arrow44" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 156.159)
+
+[node name="Arrow45" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 162.383)
+
+[node name="Arrow46" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 173.272)
+
+[node name="Arrow47" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 181.344)
+
+[node name="Arrow48" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 192.207)
+
+[node name="Arrow49" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 210.856)
+
+[node name="Arrow50" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 226.259)
+
+[node name="Arrow51" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 246.198)
+
+[node name="Arrow52" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 264.906)
+
+[node name="Arrow53" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 280.238)
+
+[node name="Arrow54" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 294.518)
+
+[node name="Arrow55" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 309.314)
+
+[node name="Arrow56" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 320.546)
+
+[node name="Arrow57" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 330.765)
+
+[node name="Arrow58" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 344.832)
+
+[node name="Arrow59" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 360.236)
+
+[node name="Arrow60" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 375.75)
+
+[node name="Arrow61" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 392.204)
+
+[node name="Arrow62" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 405.107)
+
+[node name="Arrow63" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 416.813)
+
+[node name="Arrow64" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 428.347)
+
+[node name="Arrow65" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 438.217)
+
+[node name="Arrow66" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-0.15068, 0, 2.99621, 0, 3, 0, -2.99621, 0, -0.15068, 239.36, 0.2, 446.062)
+
+[node name="Arrow67" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 78.915)
+
+[node name="Arrow98" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 72.9581)
+
+[node name="Arrow99" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 65.7454)
+
+[node name="Arrow100" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 58.6781)
+
+[node name="Arrow101" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 50.9654)
+
+[node name="Arrow102" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 41.4858)
+
+[node name="Arrow103" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 34.5049)
+
+[node name="Arrow68" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 91.1906)
+
+[node name="Arrow69" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 103.519)
+
+[node name="Arrow70" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 116.676)
+
+[node name="Arrow71" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 128.249)
+
+[node name="Arrow72" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 135.946)
+
+[node name="Arrow73" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 145.287)
+
+[node name="Arrow74" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 156.159)
+
+[node name="Arrow75" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 162.383)
+
+[node name="Arrow76" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 173.272)
+
+[node name="Arrow77" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 181.344)
+
+[node name="Arrow78" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 192.207)
+
+[node name="Arrow79" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 210.856)
+
+[node name="Arrow80" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 226.259)
+
+[node name="Arrow81" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 246.198)
+
+[node name="Arrow82" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 264.906)
+
+[node name="Arrow83" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 280.238)
+
+[node name="Arrow84" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 294.518)
+
+[node name="Arrow85" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 309.314)
+
+[node name="Arrow86" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 320.546)
+
+[node name="Arrow87" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 330.765)
+
+[node name="Arrow88" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 344.832)
+
+[node name="Arrow89" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 360.236)
+
+[node name="Arrow90" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 375.75)
+
+[node name="Arrow91" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 392.204)
+
+[node name="Arrow92" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 405.107)
+
+[node name="Arrow93" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 416.813)
+
+[node name="Arrow94" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 428.347)
+
+[node name="Arrow95" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 438.217)
+
+[node name="Arrow96" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -2.21397, 0.2, 446.062)
+
+[node name="Arrow19" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.64805, 0.2, 452.05)
+
+[node name="Arrow97" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(2.60189, 0, -1.49337, 0, 3, 0, 1.49337, 0, 2.60189, 0.622264, 0.2, 451.361)
+
+[node name="Arrow20" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 18.0966, 0.2, 452.05)
+
+[node name="Arrow21" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 42.4102, 0.2, 452.05)
+
+[node name="Arrow22" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 51.1793, 0.2, 452.05)
+
+[node name="Arrow23" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 38.5172, 0.2, 452.05)
+
+[node name="Arrow24" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 63.6759, 0.2, 452.05)
+
+[node name="Arrow25" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 80.3081, 0.2, 452.05)
+
+[node name="Arrow26" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 91.9029, 0.2, 452.05)
+
+[node name="Arrow27" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 99.8975, 0.2, 452.05)
+
+[node name="Arrow28" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 115.63, 0.2, 452.05)
+
+[node name="Arrow29" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 133.54, 0.2, 452.05)
+
+[node name="Arrow30" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 147.775, 0.2, 452.05)
+
+[node name="Arrow31" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 163.6, 0.2, 452.05)
+
+[node name="Arrow32" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 182.514, 0.2, 452.05)
+
+[node name="Arrow33" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 200.127, 0.2, 452.05)
+
+[node name="Arrow34" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 218.485, 0.2, 452.05)
+
+[node name="Arrow35" parent="Arrows" instance=ExtResource("29_5i6by")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 231.623, 0.2, 452.05)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+position = Vector2(132, 102)
+scale = Vector2(0.67923, -0.0733473)
+zoom = Vector2(4.5, 3.7)
+
+[node name="gameOver" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -19.0
+offset_top = -33.0
+offset_right = 21.0
+offset_bottom = 7.0
+scale = Vector2(4.2363, 3.6505)
+
+[node name="CarCrashGameOver" type="Sprite2D" parent="CanvasLayer/gameOver"]
+position = Vector2(142, 99)
+texture = ExtResource("30_5fksh")
+
+[node name="Label" type="Label" parent="CanvasLayer/gameOver"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 161.0
+offset_right = 185.0
+offset_bottom = 184.0
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="CanvasLayer/gameOver"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 158.0
+offset_right = 264.0
+offset_bottom = 189.0
+text = "QUIT"
+
+[node name="Button2" type="Button" parent="CanvasLayer/gameOver"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 156.0
+offset_right = 69.0
+offset_bottom = 187.0
+text = "RETRY"
+
+[node name="explosion sfxx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("31_rhiis")
+
+[connection signal="body_entered" from="car" to="." method="_on_car_body_entered"]
+[connection signal="body_entered" from="Lvl End" to="." method="_on_area_3d_body_entered"]
+[connection signal="pressed" from="CanvasLayer/gameOver/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/gameOver/Button2" to="." method="_on_button_2_pressed"]
