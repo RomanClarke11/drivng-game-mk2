@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://3gsvq5opgld4"]
+[gd_scene load_steps=9 format=3 uid="uid://3gsvq5opgld4"]
 
+[ext_resource type="Script" uid="uid://b1nnjowo56rwy" path="res://scripts/ROMAN_level_menu.gd" id="1_2go0k"]
 [ext_resource type="Texture2D" uid="uid://c8vjp7ep2w2jw" path="res://assets/levelOneThumbNail.png" id="1_teein"]
 [ext_resource type="Texture2D" uid="uid://bkskt6bnor1gs" path="res://assets/levelTwothumbNail.png" id="2_k08aj"]
 [ext_resource type="Texture2D" uid="uid://d4iqlxtyapmap" path="res://assets/level3 pic.png" id="3_2go0k"]
 [ext_resource type="Texture2D" uid="uid://cmhth4w1q2fmo" path="res://assets/level 4 pic.png" id="4_qdp46"]
 [ext_resource type="Texture2D" uid="uid://bguu6mvff0kji" path="res://assets/l5 pic.png" id="5_u0fjm"]
 [ext_resource type="Texture2D" uid="uid://dwtu6o1uhrukv" path="res://assets/dj static.png" id="6_k08aj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2go0k"]
+font_size = 80
+outline_size = 2
+outline_color = Color(0.137255, 0.266667, 1, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.933333)
 
 [node name="level menu" type="Control"]
 layout_mode = 3
@@ -14,8 +22,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2go0k")
 
-[node name="5" type="Button" parent="."]
+[node name="five" type="Button" parent="."]
 layout_mode = 0
 offset_left = 683.0
 offset_top = 47.0
@@ -24,28 +33,32 @@ offset_bottom = 154.0
 scale = Vector2(0.8, 1)
 text = "LEVEL 4"
 
-[node name="4" type="Button" parent="5"]
+[node name="four" type="Button" parent="five"]
+layout_mode = 0
 offset_left = 257.5
 offset_top = -1.0
 offset_right = 486.5
 offset_bottom = 106.0
 text = "LEVEL 5"
 
-[node name="3" type="Button" parent="5/4"]
+[node name="three" type="Button" parent="five/four"]
+layout_mode = 0
 offset_left = -512.5
 offset_top = -1.0
 offset_right = -283.5
 offset_bottom = 106.0
 text = "LEVEL 3"
 
-[node name="2" type="Button" parent="5/4/3"]
+[node name="two" type="Button" parent="five/four/three"]
+layout_mode = 0
 offset_left = -252.5
 offset_top = -1.0
 offset_right = -23.5
 offset_bottom = 106.0
 text = "LEVEL 2"
 
-[node name="1" type="Button" parent="5/4/3/2"]
+[node name="one" type="Button" parent="five/four/three/two"]
+layout_mode = 0
 offset_left = -248.75
 offset_top = -1.0
 offset_right = -19.75
@@ -56,53 +69,80 @@ text = "LEVEL 1"
 position = Vector2(163, 276)
 texture = ExtResource("1_teein")
 
-[node name="LevelTwothumbNail" type="Sprite2D" parent="."]
-position = Vector2(374, 276)
+[node name="LevelTwothumbNail" type="Sprite2D" parent="LevelOneThumbNail"]
+position = Vector2(211, 0)
 texture = ExtResource("2_k08aj")
 
-[node name="Level3Pic" type="Sprite2D" parent="."]
-position = Vector2(582, 273)
+[node name="Level3Pic" type="Sprite2D" parent="LevelOneThumbNail/LevelTwothumbNail"]
+position = Vector2(208, -3)
 texture = ExtResource("3_2go0k")
 
-[node name="Level4Pic" type="Sprite2D" parent="."]
-position = Vector2(798, 268)
+[node name="Level4Pic" type="Sprite2D" parent="LevelOneThumbNail/LevelTwothumbNail/Level3Pic"]
+position = Vector2(216, -5)
 texture = ExtResource("4_qdp46")
 
-[node name="L5Pic" type="Sprite2D" parent="."]
-position = Vector2(1005, 273)
+[node name="L5Pic" type="Sprite2D" parent="LevelOneThumbNail/LevelTwothumbNail/Level3Pic/Level4Pic"]
+position = Vector2(207, 5)
 texture = ExtResource("5_u0fjm")
 
-[node name="DjStatic" type="Sprite2D" parent="."]
-position = Vector2(269, 302)
-scale = Vector2(0.04, 1.54224)
-texture = ExtResource("6_k08aj")
-
 [node name="DjStatic2" type="Sprite2D" parent="."]
-position = Vector2(467, 302)
-scale = Vector2(0.04, 1.54224)
+position = Vector2(469, 330)
+scale = Vector2(0.07, 2.698)
 texture = ExtResource("6_k08aj")
 
-[node name="DjStatic3" type="Sprite2D" parent="."]
-position = Vector2(676, 302)
-scale = Vector2(0.04, 1.54224)
+[node name="DjStatic3" type="Sprite2D" parent="DjStatic2"]
+position = Vector2(2985.71, 0)
+scale = Vector2(1, 1.00037)
 texture = ExtResource("6_k08aj")
 
-[node name="DjStatic4" type="Sprite2D" parent="."]
-position = Vector2(878, 320)
-scale = Vector2(0.04, 1.54224)
+[node name="DjStatic4" type="Sprite2D" parent="DjStatic2/DjStatic3"]
+position = Vector2(2885.71, 6.66914)
+scale = Vector2(1, 0.99963)
 texture = ExtResource("6_k08aj")
 
-[node name="DjStatic5" type="Sprite2D" parent="."]
-position = Vector2(76, 296)
-scale = Vector2(0.04, 1.54224)
+[node name="DjStatic5" type="Sprite2D" parent="DjStatic2/DjStatic3/DjStatic4"]
+position = Vector2(-11457.1, -8.89548)
 texture = ExtResource("6_k08aj")
 
-[node name="DjStatic6" type="Sprite2D" parent="."]
-position = Vector2(1066, 316)
-scale = Vector2(0.04, 1.54224)
+[node name="DjStatic6" type="Sprite2D" parent="DjStatic2/DjStatic3/DjStatic4/DjStatic5"]
+position = Vector2(14142.9, 7.4129)
+texture = ExtResource("6_k08aj")
+
+[node name="DjStatic" type="Sprite2D" parent="DjStatic2"]
+position = Vector2(-2828.57, 0)
 texture = ExtResource("6_k08aj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 371)
 scale = Vector2(1.78283, 1.94287)
 zoom = Vector2(1.2, 1)
+
+[node name="loading" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="ColorRect" type="ColorRect" parent="loading"]
+unique_name_in_owner = true
+visible = false
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1158.0
+offset_bottom = 728.0
+color = Color(0.294118, 0.294118, 0.294118, 0.85098)
+
+[node name="Label" type="Label" parent="loading/ColorRect"]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 246.0
+offset_right = 778.0
+offset_bottom = 479.0
+text = "LOADING"
+label_settings = SubResource("LabelSettings_2go0k")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[connection signal="pressed" from="five" to="." method="_on_five_pressed"]
+[connection signal="pressed" from="five/four" to="." method="_on_four_pressed"]
+[connection signal="pressed" from="five/four/three" to="." method="_on_three_pressed"]
+[connection signal="button_up" from="five/four/three/two" to="." method="_on_two_button_up"]
+[connection signal="pressed" from="five/four/three/two/one" to="." method="_on_one_pressed"]

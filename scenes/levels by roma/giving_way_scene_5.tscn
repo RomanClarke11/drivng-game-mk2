@@ -701,6 +701,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -26.23
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
 [connection signal="area_entered" from="Area3D3" to="." method="_on_area_3d_3_area_entered"]
 [connection signal="area_entered" from="Area3D4" to="." method="_on_area_3d_4_area_entered"]
+[connection signal="pressed" from="CanvasLayer/gameOver/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/gameOver/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="area_entered" from="MeshInstance3D/win area" to="." method="_on_win_area_area_entered"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
