@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3gsvq5opgld4"]
+[gd_scene load_steps=23 format=3 uid="uid://3gsvq5opgld4"]
 
 [ext_resource type="Script" uid="uid://b1nnjowo56rwy" path="res://scripts/ROMAN_level_menu.gd" id="1_2go0k"]
 [ext_resource type="Texture2D" uid="uid://c8vjp7ep2w2jw" path="res://assets/levelOneThumbNail.png" id="1_teein"]
@@ -7,6 +7,92 @@
 [ext_resource type="Texture2D" uid="uid://cmhth4w1q2fmo" path="res://assets/level 4 pic.png" id="4_qdp46"]
 [ext_resource type="Texture2D" uid="uid://bguu6mvff0kji" path="res://assets/l5 pic.png" id="5_u0fjm"]
 [ext_resource type="Texture2D" uid="uid://dwtu6o1uhrukv" path="res://assets/dj static.png" id="6_k08aj"]
+[ext_resource type="AudioStream" uid="uid://5romhqnoat6i" path="res://game menu theme.mp3" id="8_qdp46"]
+[ext_resource type="Texture2D" uid="uid://cygqenuglsl23" path="res://assets/bubbles-blue-ezgif.com-gif-to-sprite-converter.png" id="9_u0fjm"]
+[ext_resource type="Texture2D" uid="uid://kvhdy75errej" path="res://assets/dithermenygame.png" id="10_6flmm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6flmm"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(0, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxgv2"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(498, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frxpb"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(996, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35reb"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(1494, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yedrf"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(1992, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkofx"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(0, 498, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc6d6"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(498, 498, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojubo"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(996, 498, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmg3d"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(1494, 498, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxfj8"]
+atlas = ExtResource("9_u0fjm")
+region = Rect2(1992, 498, 498, 498)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_373su"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6flmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxgv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frxpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35reb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yedrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkofx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc6d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojubo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmg3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxfj8")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 20.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2go0k"]
 font_size = 80
@@ -23,6 +109,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2go0k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(310, 446)
+sprite_frames = SubResource("SpriteFrames_373su")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(512, -7)
+scale = Vector2(1.04217, 1)
+sprite_frames = SubResource("SpriteFrames_373su")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(249, -14.0001)
+rotation = 1.5708
+scale = Vector2(9.36809, 0.863636)
+texture = ExtResource("10_6flmm")
 
 [node name="five" type="Button" parent="."]
 layout_mode = 0
@@ -66,7 +171,7 @@ offset_bottom = 106.0
 text = "LEVEL 1"
 
 [node name="LevelOneThumbNail" type="Sprite2D" parent="."]
-position = Vector2(163, 276)
+position = Vector2(161, 211)
 texture = ExtResource("1_teein")
 
 [node name="LevelTwothumbNail" type="Sprite2D" parent="LevelOneThumbNail"]
@@ -86,26 +191,26 @@ position = Vector2(207, 5)
 texture = ExtResource("5_u0fjm")
 
 [node name="DjStatic2" type="Sprite2D" parent="."]
-position = Vector2(469, 330)
+position = Vector2(469, -555)
 scale = Vector2(0.07, 2.698)
 texture = ExtResource("6_k08aj")
 
 [node name="DjStatic3" type="Sprite2D" parent="DjStatic2"]
-position = Vector2(2985.71, 0)
+position = Vector2(2757.14, -0.370645)
 scale = Vector2(1, 1.00037)
 texture = ExtResource("6_k08aj")
 
 [node name="DjStatic4" type="Sprite2D" parent="DjStatic2/DjStatic3"]
-position = Vector2(2885.71, 6.66914)
+position = Vector2(3028.57, 1.85254)
 scale = Vector2(1, 0.99963)
 texture = ExtResource("6_k08aj")
 
 [node name="DjStatic5" type="Sprite2D" parent="DjStatic2/DjStatic3/DjStatic4"]
-position = Vector2(-11457.1, -8.89548)
+position = Vector2(-11185.7, -1.48258)
 texture = ExtResource("6_k08aj")
 
 [node name="DjStatic6" type="Sprite2D" parent="DjStatic2/DjStatic3/DjStatic4/DjStatic5"]
-position = Vector2(14142.9, 7.4129)
+position = Vector2(14142.9, 1.48258)
 texture = ExtResource("6_k08aj")
 
 [node name="DjStatic" type="Sprite2D" parent="DjStatic2"]
@@ -140,6 +245,15 @@ label_settings = SubResource("LabelSettings_2go0k")
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 162
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_qdp46")
+autoplay = true
+
+[node name="DjStatic" type="Sprite2D" parent="."]
+position = Vector2(633, 279)
+scale = Vector2(2.49024, 0.0407166)
+texture = ExtResource("6_k08aj")
 
 [connection signal="pressed" from="five" to="." method="_on_five_pressed"]
 [connection signal="pressed" from="five/four" to="." method="_on_four_pressed"]
