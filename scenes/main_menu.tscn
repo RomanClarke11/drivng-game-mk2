@@ -1,0 +1,193 @@
+[gd_scene load_steps=23 format=3 uid="uid://cyw6y0gvohtav"]
+
+[ext_resource type="Script" uid="uid://cqydu524kegqp" path="res://scripts/main_menu.gd" id="1_hstxw"]
+[ext_resource type="Texture2D" uid="uid://dpb62aotiq82l" path="res://assets/main menu animation/2.png" id="2_flqon"]
+[ext_resource type="Texture2D" uid="uid://ci6svwiuks874" path="res://assets/main menu animation/3.png" id="3_rcqid"]
+[ext_resource type="Texture2D" uid="uid://bb7nvdqyjdvmi" path="res://assets/main menu animation/4.png" id="4_1ajci"]
+[ext_resource type="Texture2D" uid="uid://11ny0qlpnf4n" path="res://assets/main menu animation/5.png" id="5_7b55j"]
+[ext_resource type="Texture2D" uid="uid://sqwkhu3g4bu1" path="res://assets/main menu animation/6.png" id="6_5pajh"]
+[ext_resource type="Texture2D" uid="uid://cvj2u2tymxljh" path="res://assets/main menu animation/7.png" id="7_j7ex8"]
+[ext_resource type="Texture2D" uid="uid://b1r1gk8xav4wt" path="res://assets/main menu animation/8.png" id="8_a8gd2"]
+[ext_resource type="Texture2D" uid="uid://giik0upfvgps" path="res://assets/main menu animation/9.png" id="9_hstxw"]
+[ext_resource type="Texture2D" uid="uid://cq7fbf5f8eu08" path="res://assets/main menu animation/10.png" id="10_8egab"]
+[ext_resource type="Texture2D" uid="uid://b35hddv3e1vex" path="res://assets/main menu animation/ignition part of logo.png" id="11_a8gd2"]
+[ext_resource type="Texture2D" uid="uid://4vbmngyt52ve" path="res://assets/main menu animation/11.png" id="11_gw5y6"]
+[ext_resource type="Texture2D" uid="uid://fvvp5vjxf3fu" path="res://assets/main menu animation/virtual1.png" id="12_hstxw"]
+[ext_resource type="Texture2D" uid="uid://c3tuahm5khyxn" path="res://assets/main menu animation/virtual2.png" id="13_8egab"]
+[ext_resource type="Texture2D" uid="uid://cujmgglqpg1cn" path="res://assets/main menu animation/virtual3.png" id="14_gw5y6"]
+[ext_resource type="Texture2D" uid="uid://bf7sst01gg1ko" path="res://assets/main menu animation/virtual4.png" id="15_svtp6"]
+[ext_resource type="Texture2D" uid="uid://ccrjgd6o2jxe8" path="res://assets/main menu animation/virtual5.png" id="16_1dfpl"]
+[ext_resource type="Texture2D" uid="uid://bqmeon6cncv27" path="res://assets/main menu animation/virtual6.png" id="17_qywvv"]
+[ext_resource type="Texture2D" uid="uid://v4mhxd8y27tc" path="res://assets/main menu animation/virtual7.png" id="18_3wgol"]
+[ext_resource type="Texture2D" uid="uid://cn2kytw26hmcv" path="res://assets/button.png" id="20_8egab"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svtp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_flqon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rcqid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1ajci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7b55j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5pajh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j7ex8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j7ex8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_a8gd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hstxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8egab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gw5y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8egab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hstxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_a8gd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j7ex8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5pajh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7b55j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1ajci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rcqid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_flqon")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1acrt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_hstxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8egab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gw5y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_svtp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1dfpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qywvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3wgol")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="main menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hstxw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-600, -3)
+sprite_frames = SubResource("SpriteFrames_svtp6")
+autoplay = "default"
+frame = 17
+frame_progress = 0.420399
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(1200, 0)
+scale = Vector2(-1.00115, 0.996447)
+sprite_frames = SubResource("SpriteFrames_svtp6")
+autoplay = "default"
+frame = 17
+frame_progress = 0.420399
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-9, -12)
+zoom = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-251, 326)
+scale = Vector2(2.50168, 2.06134)
+texture = ExtResource("11_a8gd2")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-357, 28)
+scale = Vector2(2.125, 2.23971)
+sprite_frames = SubResource("SpriteFrames_1acrt")
+autoplay = "default"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 94.0
+offset_top = 101.0
+offset_right = 732.0
+offset_bottom = 437.0
+theme_override_font_sizes/font_size = 70
+text = "QUIT"
+icon = ExtResource("20_8egab")
+icon_alignment = 1
+
+[node name="play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 94.0
+offset_top = -435.0
+offset_right = 732.0
+offset_bottom = -99.0
+theme_override_font_sizes/font_size = 80
+text = "PLAY"
+icon = ExtResource("20_8egab")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -969.0
+offset_top = 427.0
+offset_right = -880.0
+offset_bottom = 528.0
+text = "A GAME BY 
+ROMAN 
+VAHBOUV 
+BEN"
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]

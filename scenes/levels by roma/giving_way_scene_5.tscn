@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cv3pexocc8psr"]
+[gd_scene load_steps=63 format=3 uid="uid://ud53jfe3voc3"]
 
 [ext_resource type="Script" uid="uid://yf5tisf3gkf2" path="res://scripts/giving_way_scene_1.gd" id="1_1t53e"]
 [ext_resource type="PackedScene" uid="uid://bniykqnv5uo50" path="res://scenes/control.tscn" id="2_tqba3"]
@@ -41,8 +41,8 @@
 [ext_resource type="Texture2D" uid="uid://d2iwfin0566t7" path="res://dayskybox.jpg" id="39_h1avc"]
 [ext_resource type="Texture2D" uid="uid://nnajemstew1" path="res://assets/carCrashGameOver.jpg" id="40_gt2ux"]
 [ext_resource type="AudioStream" uid="uid://bf535xkd4iuty" path="res://deltarune explosion greenscreen.mp3" id="41_pcirq"]
-[ext_resource type="Script" path="res://scripts/l5b1.gd" id="42_t654y"]
-[ext_resource type="Script" path="res://scripts/L5b2.gd" id="43_tqba3"]
+[ext_resource type="Script" uid="uid://bl8e44qyf76gn" path="res://scripts/l5b1.gd" id="42_t654y"]
+[ext_resource type="Script" uid="uid://ceq1j1jfqw8qh" path="res://scripts/L5b2.gd" id="43_tqba3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jf6ib"]
 size = Vector3(153.841, 7.31528, 119.563)
