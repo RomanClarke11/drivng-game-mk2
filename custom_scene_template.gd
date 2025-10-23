@@ -2,12 +2,16 @@ extends Node3D
 
 @onready var game_over: Control = %gameOver
 
-signal _on_any_area_body_entered
-
 func _ready():
 	for area in get_tree().get_nodes_in_group("Traffic_triggers"):
-		area.body_entered.connect(_on_any_area_body_entered.bind(area))
+		area.body_entered.connect(Callable(self, "_on_any_area_body_entered").bind(area))
 
+func _on_any_area_body_entered(body, area) -> void:
+	if body == $car:
+		%gameOver.visible = true
+		%"explosion sfxx".play()
+		get_tree().paused = true
+	#pass
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == $car:

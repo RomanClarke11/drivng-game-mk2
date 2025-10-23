@@ -23,6 +23,7 @@ func _ready():
 	weather = get_node(weather_path)
 	weather.weather_switch.connect(_on_weather_switch)
 	weather_control.hide()
+	
 
 func _on_weather_switch(weather_type: String):
 	if weather_type == 'Rain':
