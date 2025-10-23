@@ -100,10 +100,12 @@ func _process(delta: float) -> void:
 			get_tree().paused = false
 			weather_control.hide()
 			paused = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			get_tree().paused = not get_tree().paused
 			weather_control.visible = get_tree().paused
 			paused = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	setup_rain()
 	setup_mist()

@@ -15,3 +15,9 @@ mesh = SubResource("BoxMesh_q752e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_lxh63")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.274252, 0.5)
+target_position = Vector3(0, -17, 0)
+collide_with_areas = true
+debug_shape_thickness = 5
