@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cyw6y0gvohtav"]
+[gd_scene load_steps=24 format=3 uid="uid://cyw6y0gvohtav"]
 
 [ext_resource type="Script" uid="uid://cqydu524kegqp" path="res://scripts/main_menu.gd" id="1_hstxw"]
 [ext_resource type="Texture2D" uid="uid://dpb62aotiq82l" path="res://assets/main menu animation/2.png" id="2_flqon"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bqmeon6cncv27" path="res://assets/main menu animation/virtual6.png" id="17_qywvv"]
 [ext_resource type="Texture2D" uid="uid://v4mhxd8y27tc" path="res://assets/main menu animation/virtual7.png" id="18_3wgol"]
 [ext_resource type="Texture2D" uid="uid://cn2kytw26hmcv" path="res://assets/button.png" id="20_8egab"]
+[ext_resource type="AudioStream" uid="uid://dkepji7rgf6eh" path="res://assets/gameMenuTheme.mp3" id="21_gw5y6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_svtp6"]
 animations = [{
@@ -146,40 +147,22 @@ frame_progress = 0.420399
 position = Vector2(-9, -12)
 zoom = Vector2(0.6, 0.6)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-251, 326)
-scale = Vector2(2.50168, 2.06134)
-texture = ExtResource("11_a8gd2")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_gw5y6")
+autoplay = true
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(-357, 28)
-scale = Vector2(2.125, 2.23971)
-sprite_frames = SubResource("SpriteFrames_1acrt")
-autoplay = "default"
-
-[node name="quit" type="Button" parent="."]
-offset_left = 94.0
-offset_top = 101.0
-offset_right = 732.0
-offset_bottom = 437.0
-theme_override_font_sizes/font_size = 70
-text = "QUIT"
-icon = ExtResource("20_8egab")
-icon_alignment = 1
-
-[node name="play" type="Button" parent="."]
+[node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 94.0
-offset_top = -435.0
-offset_right = 732.0
-offset_bottom = -99.0
-theme_override_font_sizes/font_size = 80
-text = "PLAY"
-icon = ExtResource("20_8egab")
-icon_alignment = 1
+offset_left = 886.0
+offset_top = 495.0
+offset_right = 951.0
+offset_bottom = 526.0
+text = "SECRET"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
+[node name="buttons" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Label" type="Label" parent="buttons"]
 offset_left = -969.0
 offset_top = 427.0
 offset_right = -880.0
@@ -189,5 +172,47 @@ ROMAN
 VAHBOUV 
 BEN"
 
-[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[node name="play" type="Button" parent="buttons"]
+offset_left = 94.0
+offset_top = -435.0
+offset_right = 732.0
+offset_bottom = -99.0
+theme_override_font_sizes/font_size = 80
+text = "PLAY"
+icon = ExtResource("20_8egab")
+icon_alignment = 1
+
+[node name="quit" type="Button" parent="buttons"]
+offset_left = 94.0
+offset_top = 101.0
+offset_right = 732.0
+offset_bottom = 437.0
+theme_override_font_sizes/font_size = 70
+text = "QUIT"
+icon = ExtResource("20_8egab")
+icon_alignment = 1
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="buttons"]
+position = Vector2(-357, 28)
+scale = Vector2(2.125, 2.23971)
+sprite_frames = SubResource("SpriteFrames_1acrt")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="buttons"]
+position = Vector2(-251, 326)
+scale = Vector2(2.50168, 2.06134)
+texture = ExtResource("11_a8gd2")
+
+[node name="roman label" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -964.0
+offset_top = 501.0
+offset_right = -837.0
+offset_bottom = 524.0
+text = "art and music by Roman "
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="buttons/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]

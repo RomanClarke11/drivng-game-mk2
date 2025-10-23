@@ -618,6 +618,7 @@ offset_bottom = 184.0
 text = "GAME OVER"
 
 [node name="Button" type="Button" parent="CanvasLayer/gameOver"]
+process_mode = 3
 layout_mode = 0
 offset_left = 217.0
 offset_top = 158.0
@@ -672,7 +673,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5813, 0.226523, 24.2717)
 curve = SubResource("Curve3D_wbt7p")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-0.86264, 0, -0.505818, 0, 1, 0, 0.505818, 0, -0.86264, 0.924602, 0, 3.36804)
+transform = Transform3D(-0.86264, 0, -0.505818, 0, 1, 0, 0.505818, 0, -0.86264, 0.924623, 0, 3.36807)
 progress = 25.9177
 script = ExtResource("43_2yjqn")
 
@@ -694,6 +695,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -22.21
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
 [connection signal="area_entered" from="Area3D3" to="." method="_on_area_3d_3_area_entered"]
 [connection signal="area_entered" from="Area3D4" to="." method="_on_area_3d_4_area_entered"]
+[connection signal="pressed" from="CanvasLayer/gameOver/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/gameOver/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="area_entered" from="MeshInstance3D/win area" to="." method="_on_win_area_area_entered"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]

@@ -24,16 +24,20 @@ func _on_three_pressed():
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/levels by roma/giving_way_scene_3.tscn")
 
-
+#these two button names are wrong so wswitched them 
 func _on_four_pressed():
 	%ColorRect.visible = true
 	await get_tree().process_frame
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/levels by roma/giving_way_scene_4.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels by roma/giving_way_scene_5.tscn")
 
 
 func _on_five_pressed():
 	%ColorRect.visible = true
 	await get_tree().process_frame
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/levels by roma/giving_way_scene_5.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels by roma/giving_way_scene_4.tscn")
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
