@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://3gsvq5opgld4"]
+[gd_scene load_steps=24 format=3 uid="uid://3gsvq5opgld4"]
 
 [ext_resource type="Script" uid="uid://b1nnjowo56rwy" path="res://scripts/ROMAN_level_menu.gd" id="1_2go0k"]
 [ext_resource type="Texture2D" uid="uid://c8vjp7ep2w2jw" path="res://assets/levelOneThumbNail.png" id="1_teein"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://5romhqnoat6i" path="res://game menu theme.mp3" id="8_qdp46"]
 [ext_resource type="Texture2D" uid="uid://cygqenuglsl23" path="res://assets/bubbles-blue-ezgif.com-gif-to-sprite-converter.png" id="9_u0fjm"]
 [ext_resource type="Texture2D" uid="uid://kvhdy75errej" path="res://assets/dithermenygame.png" id="10_6flmm"]
+[ext_resource type="Texture2D" uid="uid://cn2kytw26hmcv" path="res://assets/button.png" id="11_wxgv2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6flmm"]
 atlas = ExtResource("9_u0fjm")
@@ -255,8 +256,21 @@ position = Vector2(633, 279)
 scale = Vector2(2.49024, 0.0407166)
 texture = ExtResource("6_k08aj")
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 599.0
+offset_right = 733.0
+offset_bottom = 935.0
+scale = Vector2(0.260967, 0.282147)
+theme_override_font_sizes/font_size = 130
+text = "BACK"
+icon = ExtResource("11_wxgv2")
+icon_alignment = 1
+
 [connection signal="pressed" from="five" to="." method="_on_five_pressed"]
 [connection signal="pressed" from="five/four" to="." method="_on_four_pressed"]
 [connection signal="pressed" from="five/four/three" to="." method="_on_three_pressed"]
 [connection signal="button_up" from="five/four/three/two" to="." method="_on_two_button_up"]
 [connection signal="pressed" from="five/four/three/two/one" to="." method="_on_one_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -614,6 +614,7 @@ offset_bottom = 189.0
 text = "QUIT"
 
 [node name="Button2" type="Button" parent="CanvasLayer/gameOver"]
+process_mode = 3
 layout_mode = 0
 offset_left = 13.0
 offset_top = 156.0
