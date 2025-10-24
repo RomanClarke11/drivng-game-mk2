@@ -217,4 +217,5 @@ scale = Vector2(1, 0.996033)
 text = "LEVEL 6"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="seven" to="." method="_on_seven_pressed"]
 [connection signal="pressed" from="six" to="." method="_on_six_pressed"]
