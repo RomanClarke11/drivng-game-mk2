@@ -268,9 +268,22 @@ text = "BACK"
 icon = ExtResource("11_wxgv2")
 icon_alignment = 1
 
+[node name="Lvl 2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 592.0
+offset_right = 1517.0
+offset_bottom = 928.0
+scale = Vector2(0.260967, 0.282147)
+theme_override_font_sizes/font_size = 130
+text = "Page 2"
+icon = ExtResource("11_wxgv2")
+icon_alignment = 1
+
 [connection signal="pressed" from="five" to="." method="_on_five_pressed"]
 [connection signal="pressed" from="five/four" to="." method="_on_four_pressed"]
 [connection signal="pressed" from="five/four/three" to="." method="_on_three_pressed"]
 [connection signal="button_up" from="five/four/three/two" to="." method="_on_two_button_up"]
 [connection signal="pressed" from="five/four/three/two/one" to="." method="_on_one_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Lvl 2" to="." method="_on_lvl_2_pressed"]

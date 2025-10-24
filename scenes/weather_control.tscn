@@ -82,6 +82,7 @@ text = "Mist - Heavy"
 alignment = 1
 
 [node name="Snow" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -89,6 +90,7 @@ text = "Snow"
 alignment = 1
 
 [node name="Intense Sunlight" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -96,6 +98,7 @@ text = "Intense Sunlight"
 alignment = 1
 
 [node name="Storm" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -103,6 +106,7 @@ text = "Storm"
 alignment = 1
 
 [node name="Night" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -110,6 +114,7 @@ text = "Night"
 alignment = 1
 
 [node name="Random" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18

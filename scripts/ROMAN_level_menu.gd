@@ -41,3 +41,24 @@ func _on_five_pressed():
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_lvl_2_pressed() -> void:
+	%ColorRect.visible = true
+	await get_tree().process_frame
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/level_menu2.tscn")
+
+
+func _on_six_pressed() -> void:
+	%ColorRect.visible = true
+	await get_tree().process_frame
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://CustomSceneTemplate.tscn")
+
+
+func _on_back_pressed() -> void:
+	%ColorRect.visible = true
+	await get_tree().process_frame
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/level_menu.tscn")

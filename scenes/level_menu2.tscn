@@ -1,0 +1,220 @@
+[gd_scene load_steps=18 format=3 uid="uid://cba35l6m52p37"]
+
+[ext_resource type="Script" uid="uid://b1nnjowo56rwy" path="res://scripts/ROMAN_level_menu.gd" id="1_0eefy"]
+[ext_resource type="Texture2D" uid="uid://cygqenuglsl23" path="res://assets/bubbles-blue-ezgif.com-gif-to-sprite-converter.png" id="2_gn3a0"]
+[ext_resource type="Texture2D" uid="uid://eogvduj4f7c1" path="res://assets/Lvl6 pic.png" id="3_rnqxk"]
+[ext_resource type="AudioStream" uid="uid://5romhqnoat6i" path="res://game menu theme.mp3" id="10_ub1m1"]
+[ext_resource type="Texture2D" uid="uid://cn2kytw26hmcv" path="res://assets/button.png" id="11_sip8m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6flmm"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(0, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxgv2"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(498, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frxpb"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(996, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35reb"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(1494, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yedrf"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(1992, 0, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkofx"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(0, 498, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc6d6"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(498, 498, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojubo"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(996, 498, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmg3d"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(1494, 498, 498, 498)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxfj8"]
+atlas = ExtResource("2_gn3a0")
+region = Rect2(1992, 498, 498, 498)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_373su"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6flmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxgv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frxpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35reb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yedrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkofx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc6d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojubo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmg3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxfj8")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 20.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2go0k"]
+font_size = 80
+outline_size = 2
+outline_color = Color(0.137255, 0.266667, 1, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.933333)
+
+[node name="level menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0eefy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(310, 369.5)
+scale = Vector2(1, 1.30723)
+sprite_frames = SubResource("SpriteFrames_373su")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(510.25, -0.499984)
+scale = Vector2(1.0492, 0.997992)
+sprite_frames = SubResource("SpriteFrames_373su")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="nine" type="Button" parent="."]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 50.0
+offset_right = 1102.0
+offset_bottom = 160.0
+scale = Vector2(0.8, 1)
+text = "LEVEL 9"
+
+[node name="LevelOneThumbNail" type="Sprite2D" parent="."]
+position = Vector2(213.2, 296.6)
+scale = Vector2(0.19699, 0.434951)
+texture = ExtResource("3_rnqxk")
+
+[node name="LevelOneThumbNail2" type="Sprite2D" parent="."]
+position = Vector2(451, 293)
+scale = Vector2(0.19699, 0.434951)
+texture = ExtResource("3_rnqxk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 371)
+scale = Vector2(1.78283, 1.94287)
+zoom = Vector2(1.2, 1)
+
+[node name="loading" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="ColorRect" type="ColorRect" parent="loading"]
+unique_name_in_owner = true
+visible = false
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1158.0
+offset_bottom = 728.0
+color = Color(0.294118, 0.294118, 0.294118, 0.85098)
+
+[node name="Label" type="Label" parent="loading/ColorRect"]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 246.0
+offset_right = 778.0
+offset_bottom = 479.0
+text = "LOADING"
+label_settings = SubResource("LabelSettings_2go0k")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ub1m1")
+autoplay = true
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 599.0
+offset_right = 733.0
+offset_bottom = 935.0
+scale = Vector2(0.260967, 0.282147)
+theme_override_font_sizes/font_size = 130
+text = "BACK"
+icon = ExtResource("11_sip8m")
+icon_alignment = 1
+
+[node name="ten" type="Button" parent="."]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 482.0
+offset_right = 587.0
+offset_bottom = 589.0
+text = "LEVEL 10"
+
+[node name="eight" type="Button" parent="."]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 51.0
+offset_right = 805.0
+offset_bottom = 158.0
+text = "LEVEL 8"
+
+[node name="seven" type="Button" parent="."]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 51.0
+offset_right = 567.0
+offset_bottom = 158.0
+text = "LEVEL 7"
+
+[node name="six" type="Button" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 49.0
+offset_right = 326.0
+offset_bottom = 156.0
+scale = Vector2(1, 0.996033)
+text = "LEVEL 6"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="six" to="." method="_on_six_pressed"]
