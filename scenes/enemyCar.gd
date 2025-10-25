@@ -18,7 +18,6 @@ func _ready():
 		if child.has_node("RayCast3D"):
 			ray = child.get_node("RayCast3D")
 			ray.enabled = true
-			#ray.debug = true
 	if not ray:
 		push_warning("⚠️ No RayCast3D found in vehicle " + str(name))
 
@@ -63,4 +62,3 @@ func _physics_process(delta):
 		current_speed = move_toward(current_speed, target_speed, acceleration * delta)
 
 	progress += current_speed * delta
-	#ray.debug = true
