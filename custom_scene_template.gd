@@ -2,6 +2,9 @@ extends Node3D
 
 @onready var game_over: Control = %gameOver
 @onready var objective_text: Control = $"Objective Text"
+var timer = Timer.new()
+@onready var title: Label = $"Objective Text/Title"
+@onready var objective: Label = $"Objective Text/Objective"
 
 func _ready():
 	for area in get_tree().get_nodes_in_group("Traffic_triggers"):
@@ -10,7 +13,10 @@ func _ready():
 	get_tree().paused = true
 	objective_text.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+	timer.wait_time = 600
+	timer.one_shot = true
+	add_child(timer)
+	timer.start()
 
 func _on_any_area_body_entered(body, area) -> void:
 	if body == $car:
@@ -23,9 +29,19 @@ func _on_any_area_body_entered(body, area) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == $car:
-		get_tree().paused = false
+		if get_tree().current_scene.name == "Lvl9":
+			if timer.is_stopped():
+				get_tree().paused = false
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
+			else:
+				objective.text = "Your minimum driving time isn't up yet."
+				objective_text.show()
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+				get_tree().paused = true
+		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
+		#get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
 
 
 

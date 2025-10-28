@@ -138,6 +138,11 @@ position = Vector2(451, 293)
 scale = Vector2(0.19699, 0.434951)
 texture = ExtResource("3_rnqxk")
 
+[node name="LevelOneThumbNail3" type="Sprite2D" parent="."]
+position = Vector2(690, 295)
+scale = Vector2(0.19699, 0.434951)
+texture = ExtResource("3_rnqxk")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 371)
 scale = Vector2(1.78283, 1.94287)
@@ -217,5 +222,6 @@ scale = Vector2(1, 0.996033)
 text = "LEVEL 6"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="eight" to="." method="_on_eight_pressed"]
 [connection signal="pressed" from="seven" to="." method="_on_seven_pressed"]
 [connection signal="pressed" from="six" to="." method="_on_six_pressed"]
