@@ -46,6 +46,7 @@ func _on_button_2_pressed():
 func _on_enemy_car_area_entered(area):
 	if area.has_method("isCar"):
 		isDead = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_quit_button_pressed():
 	get_tree().paused = false
@@ -56,6 +57,7 @@ func _on_quit_button_pressed():
 func _on_win_area_area_entered(area):
 	if area.has_method("isCar"):
 		get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _on_button_pressed():

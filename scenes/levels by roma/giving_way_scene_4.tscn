@@ -41,8 +41,8 @@
 [ext_resource type="Texture2D" uid="uid://d2iwfin0566t7" path="res://dayskybox.jpg" id="39_4g6jq"]
 [ext_resource type="Texture2D" uid="uid://nnajemstew1" path="res://assets/carCrashGameOver.jpg" id="40_ot0ie"]
 [ext_resource type="AudioStream" uid="uid://bf535xkd4iuty" path="res://deltarune explosion greenscreen.mp3" id="41_02mno"]
-[ext_resource type="Script" uid="uid://cf5i4uw2ixeww" path="res://scripts/carLv3C1.gd" id="42_xmqtp"]
-[ext_resource type="Script" uid="uid://dlk4ws03s1h0k" path="res://scripts/l3c3.gd" id="43_2yjqn"]
+[ext_resource type="Script" path="res://scripts/carLv3C1.gd" id="42_xmqtp"]
+[ext_resource type="Script" path="res://scripts/l3c3.gd" id="43_2yjqn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eymau"]
 size = Vector3(153.841, 7.31528, 119.563)
