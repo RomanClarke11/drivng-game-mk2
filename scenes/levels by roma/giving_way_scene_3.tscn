@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bj74axmvh6hqd"]
+[gd_scene load_steps=63 format=3 uid="uid://bj74axmvh6hqd"]
 
 [ext_resource type="Script" uid="uid://yf5tisf3gkf2" path="res://scripts/giving_way_scene_1.gd" id="1_8js73"]
 [ext_resource type="PackedScene" uid="uid://bniykqnv5uo50" path="res://scenes/control.tscn" id="2_u7dyv"]
@@ -41,6 +41,8 @@
 [ext_resource type="Texture2D" uid="uid://d2iwfin0566t7" path="res://dayskybox.jpg" id="39_hc4a8"]
 [ext_resource type="Texture2D" uid="uid://nnajemstew1" path="res://assets/carCrashGameOver.jpg" id="40_018cs"]
 [ext_resource type="AudioStream" uid="uid://bf535xkd4iuty" path="res://deltarune explosion greenscreen.mp3" id="41_exv1s"]
+[ext_resource type="Script" path="res://scripts/Ecar3.gd" id="42_u7dyv"]
+[ext_resource type="Script" path="res://scripts/carE4.gd" id="43_cxe8d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eymau"]
 size = Vector3(153.841, 7.31528, 119.563)
@@ -59,7 +61,7 @@ sky = SubResource("Sky_hqsjh")
 size = Vector3(74.8002, 15.3754, 56.0815)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gvso4"]
-size = Vector3(44.7969, 21.3418, 42.3987)
+size = Vector3(78.374, 21.3418, 42.3987)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oojtb"]
 size = Vector3(29.7617, 14.9861, 47.3359)
@@ -73,6 +75,36 @@ albedo_color = Color(0, 0.752941, 0.294118, 0.223529)
 [sub_resource type="BoxMesh" id="BoxMesh_tiy7g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_82uy4"]
+
+[sub_resource type="Curve3D" id="Curve3D_cxe8d"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.27195, 1, 0, 0, 0, 0, 0, 0, 0, 47.7609, 1, 0, 0, 0, 0, 0, 0, 0, 53.4942, 0, 4.00187, 0, 0, 0, 0, 0, 0, 51.4622, -9.57485, 10.9257, 0, 0, 0, 0, 0, 0, -9.23997, 0, 9.29022, 0, 0, 0, 0, 0, 0, -6.21659, 0, 1.63717),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyqvw"]
+albedo_color = Color(0.922144, 0, 0.400131, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m622l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_erlu5"]
+
+[sub_resource type="Curve3D" id="Curve3D_cyqvw"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.292799, 0, 20.6189, 0, 0, 0, 0, 0, 0, 0, 0, 17.1498, 0, 0, 0, 0, 0, 0, -0.072422, 0, 10.4321, 0, 0, 0, 0, 0, 0, -0.361773, 0, -2.06343, 0, 0, 0, 0, 0, 0, 3.0975, 0, -3.43425, 0, 0, 0, 0, 0, 0, 21.712, 0, 0, 0, 0, 0, 0, 0, 0, 24.998, 0, 16.43, 0, 0, 0, 0, 0, 0, 22.02, 0, 21.827, 0, 0, 0, 0, 0, 0, 2.852, 0, 22.736),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m622l"]
+albedo_color = Color(0.936284, 0, 0.344543, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_erlu5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_85qla"]
 
 [node name="givingWayScene3" type="Node3D"]
 script = ExtResource("1_8js73")
@@ -205,6 +237,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 mesh = ExtResource("8_rnfun")
 
 [node name="Tile-low2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low3/Tile-low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("8_rnfun")
+
+[node name="Tile-low" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low3/Tile-low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37011, 0, 1.88029)
+mesh = ExtResource("8_rnfun")
+
+[node name="Tile-low2" type="MeshInstance3D" parent="Road-bend-sidewalk/Road-crossroad/Tile-low/Tile-low3/Tile-low/Tile-low"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 mesh = ExtResource("8_rnfun")
 
@@ -473,6 +513,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15242, 0, 8.9018)
 mesh = ExtResource("27_46ury")
 skeleton = NodePath("../../../..")
 
+[node name="Building-skyscraper-b3" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a/Building-k/Building-skyscraper-b3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355581, 0, -5.03328)
+mesh = ExtResource("27_46ury")
+skeleton = NodePath("../../../..")
+
 [node name="Building-m" type="MeshInstance3D" parent="Road-bend-sidewalk/Building-a/Building-k"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98044, 0, 6.04718)
 mesh = ExtResource("24_lyc0p")
@@ -524,7 +569,7 @@ debug_color = Color(0.98788, 0.106947, 0, 0.42)
 [node name="Area3D2" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.0676)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7886, 0, 26.0676)
 shape = SubResource("BoxShape3D_gvso4")
 debug_color = Color(0.902366, 0.000156906, 0.756532, 0.42)
 
@@ -574,6 +619,7 @@ offset_bottom = 184.0
 text = "GAME OVER"
 
 [node name="Button" type="Button" parent="CanvasLayer/gameOver"]
+process_mode = 3
 layout_mode = 0
 offset_left = 217.0
 offset_top = 158.0
@@ -595,7 +641,7 @@ process_mode = 3
 stream = ExtResource("41_exv1s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(6.34901, 0, 0, 0, -4.8515, 0, 0, 0, 2.15233, -27.2884, 2.27498, 1.83534)
+transform = Transform3D(2.77524e-07, 0, -2.15233, 0, -4.8515, 0, 6.34901, 0, 9.40815e-08, -28.4134, 2.27498, -15.6739)
 material_override = SubResource("StandardMaterial3D_xxg5e")
 mesh = SubResource("BoxMesh_tiy7g")
 skeleton = NodePath("")
@@ -605,9 +651,49 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/win area"]
 shape = SubResource("BoxShape3D_82uy4")
 
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.9653, 1.392, -1.47665)
+curve = SubResource("Curve3D_cxe8d")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.92921, 0, 1, 0, -4.37114e-08, -2.27195, 1, 0)
+script = ExtResource("42_u7dyv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(2.95715, 0, 0, 0, 2.59963, 0, 1.42109e-14, 0, 4.30196, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_cyqvw")
+mesh = SubResource("BoxMesh_m622l")
+
+[node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_erlu5")
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.794, 1.40216, -24.3902)
+curve = SubResource("Curve3D_cyqvw")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(0.999732, 0, 0.0231502, 0, 1, 0, -0.0231502, 0, 0.999732, -0.196286, 0, 5.08309)
+progress = 15.55
+script = ExtResource("43_cxe8d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D2/PathFollow3D"]
+transform = Transform3D(2.38363, 0, 0, 0, 2.13817, 0, 7.45058e-09, 0, 4.83454, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_m622l")
+mesh = SubResource("BoxMesh_erlu5")
+
+[node name="Area3D" type="Area3D" parent="Path3D2/PathFollow3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D/MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_85qla")
+
 [connection signal="pressed" from="radio/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
 [connection signal="area_entered" from="Area3D3" to="." method="_on_area_3d_3_area_entered"]
 [connection signal="area_entered" from="Area3D4" to="." method="_on_area_3d_4_area_entered"]
+[connection signal="pressed" from="CanvasLayer/gameOver/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/gameOver/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="area_entered" from="MeshInstance3D/win area" to="." method="_on_win_area_area_entered"]
+[connection signal="area_entered" from="Path3D/PathFollow3D/MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]

@@ -48,21 +48,21 @@ size = Vector3(153.841, 7.31528, 119.563)
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ty15g"]
 panorama = ExtResource("39_kpx68")
 
-[sub_resource type="Sky" id="Sky_hqsjh"]
+[sub_resource type="Sky" id="Sky_xxg5e"]
 sky_material = SubResource("PanoramaSkyMaterial_ty15g")
 
 [sub_resource type="Environment" id="Environment_gvso4"]
 background_mode = 2
-sky = SubResource("Sky_hqsjh")
+sky = SubResource("Sky_xxg5e")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hqsjh"]
 size = Vector3(74.8002, 15.3754, 56.0815)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gvso4"]
-size = Vector3(44.7969, 21.3418, 42.3987)
+size = Vector3(62.5205, 21.3418, 42.3987)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oojtb"]
-size = Vector3(29.7617, 14.9861, 47.3359)
+size = Vector3(29.7617, 14.9861, 63.2202)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7e17u"]
 size = Vector3(33.9658, 18.8455, 49)
@@ -595,7 +595,7 @@ process_mode = 3
 stream = ExtResource("41_rwhox")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(6.34901, 0, 0, 0, -4.8515, 0, 0, 0, 2.15233, -27.2884, 2.27498, 1.83534)
+transform = Transform3D(2.77524e-07, 0, -2.15233, 0, -4.8515, 0, 6.34901, 0, 9.40813e-08, -27.2884, 2.27498, -17.199)
 material_override = SubResource("StandardMaterial3D_xxg5e")
 mesh = SubResource("BoxMesh_tiy7g")
 skeleton = NodePath("")

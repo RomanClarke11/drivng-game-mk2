@@ -3,7 +3,7 @@ extends Node3D
 @export var rain_main: GPUParticles3D
 @export var rain_splash: GPUParticles3D
 @export var player: Node3D    # your player or camera node
-@export var coverage: Vector2 = Vector2(50, 50) # how wide the rain box should be
+@export var coverage: Vector2 = Vector2(20, 40) # how wide the rain box should be
 @onready var weather_control: Control = $"../weather control"
 
 @export var rain_height: float = 50.0
@@ -23,6 +23,7 @@ func _ready():
 	weather = get_node(weather_path)
 	weather.weather_switch.connect(_on_weather_switch)
 	weather_control.hide()
+	
 
 func _on_weather_switch(weather_type: String):
 	if weather_type == 'Rain':
@@ -69,14 +70,14 @@ func setup_rain():
 
 func setup_mist():
 	if mist:
-		$Mist.amount = 8000
+		$Mist.amount = 800000
 		$Mist.emitting = true
 		if $Mist and $Mist.process_material:
 			var mat: ParticleProcessMaterial = $Mist.process_material
 			mat.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
 			mat.emission_box_extents = Vector3(coverage.x / 2.0, 2.5, coverage.y / 2.0)
 	if mistheavy:
-		$Mist.amount = 15000
+		$Mist.amount = 1500000
 		$Mist.emitting = true
 		if $Mist and $Mist.process_material:
 			var mat: ParticleProcessMaterial = $Mist.process_material
@@ -99,10 +100,12 @@ func _process(delta: float) -> void:
 			get_tree().paused = false
 			weather_control.hide()
 			paused = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			get_tree().paused = not get_tree().paused
 			weather_control.visible = get_tree().paused
 			paused = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	setup_rain()
 	setup_mist()

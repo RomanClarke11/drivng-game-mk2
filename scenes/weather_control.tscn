@@ -15,9 +15,12 @@ script = ExtResource("1_jvu1o")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.654902)
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_d1gdr")
 
 [node name="MenuButtonsMargin" type="MarginContainer" parent="."]
@@ -79,6 +82,7 @@ text = "Mist - Heavy"
 alignment = 1
 
 [node name="Snow" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -86,6 +90,7 @@ text = "Snow"
 alignment = 1
 
 [node name="Intense Sunlight" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -93,6 +98,7 @@ text = "Intense Sunlight"
 alignment = 1
 
 [node name="Storm" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -100,6 +106,7 @@ text = "Storm"
 alignment = 1
 
 [node name="Night" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -107,6 +114,7 @@ text = "Night"
 alignment = 1
 
 [node name="Random" type="CheckButton" parent="MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -114,11 +122,16 @@ text = "Random"
 alignment = 1
 
 [node name="TitleMargin" type="MarginContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 596.0
 offset_top = 47.0
-offset_right = 596.0
-offset_bottom = 71.0
+offset_right = -556.0
+offset_bottom = -577.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_top = 24
 
 [node name="TitleContainer" type="Control" parent="TitleMargin"]
@@ -137,11 +150,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SubTitleMargin" type="MarginContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 596.0
 offset_top = 47.0
-offset_right = 596.0
-offset_bottom = 139.0
+offset_right = -556.0
+offset_bottom = -509.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_top = 92
 
 [node name="SubTitleContainer" type="Control" parent="SubTitleMargin"]
