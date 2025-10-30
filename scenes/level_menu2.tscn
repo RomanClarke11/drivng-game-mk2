@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cba35l6m52p37"]
+[gd_scene load_steps=19 format=3 uid="uid://cba35l6m52p37"]
 
 [ext_resource type="Script" uid="uid://b1nnjowo56rwy" path="res://scripts/ROMAN_level_menu.gd" id="1_0eefy"]
 [ext_resource type="Texture2D" uid="uid://cygqenuglsl23" path="res://assets/bubbles-blue-ezgif.com-gif-to-sprite-converter.png" id="2_gn3a0"]
 [ext_resource type="Texture2D" uid="uid://eogvduj4f7c1" path="res://assets/Lvl6 pic.png" id="3_rnqxk"]
+[ext_resource type="Texture2D" uid="uid://4empavl3h4yn" path="res://assets/level 9 pic.png" id="6_jtasp"]
 [ext_resource type="AudioStream" uid="uid://5romhqnoat6i" path="res://game menu theme.mp3" id="10_ub1m1"]
 [ext_resource type="Texture2D" uid="uid://cn2kytw26hmcv" path="res://assets/button.png" id="11_sip8m"]
 
@@ -188,14 +189,6 @@ text = "BACK"
 icon = ExtResource("11_sip8m")
 icon_alignment = 1
 
-[node name="ten" type="Button" parent="."]
-layout_mode = 0
-offset_left = 358.0
-offset_top = 482.0
-offset_right = 587.0
-offset_bottom = 589.0
-text = "LEVEL 10"
-
 [node name="eight" type="Button" parent="."]
 layout_mode = 0
 offset_left = 576.0
@@ -221,6 +214,12 @@ offset_bottom = 156.0
 scale = Vector2(1, 0.996033)
 text = "LEVEL 6"
 
+[node name="Level9Pic" type="Sprite2D" parent="."]
+position = Vector2(943.5, 296.5)
+scale = Vector2(0.415858, 1.07347)
+texture = ExtResource("6_jtasp")
+
+[connection signal="pressed" from="nine" to="." method="_on_nine_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="eight" to="." method="_on_eight_pressed"]
 [connection signal="pressed" from="seven" to="." method="_on_seven_pressed"]

@@ -76,3 +76,10 @@ func _on_eight_pressed() -> void:
 	await get_tree().process_frame
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://Lvl9 - Timed Level.tscn")
+
+
+func _on_nine_pressed() -> void:
+	%ColorRect.visible = true
+	await get_tree().process_frame
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/freeway.tscn")
