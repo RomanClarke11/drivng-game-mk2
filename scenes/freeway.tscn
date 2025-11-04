@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://catckn1so0yir"]
+[gd_scene load_steps=16 format=3 uid="uid://catckn1so0yir"]
 
 [ext_resource type="PackedScene" uid="uid://sgmqu6ccu35u" path="res://scenes/freeway_tile.tscn" id="1_pe0lp"]
 [ext_resource type="PackedScene" uid="uid://d02poy6hvvbhq" path="res://assets/Roads/Models/GLB format/road-end-round.glb" id="2_d7h1i"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4vb7dy65601n" path="res://assets/Roads/Models/GLB format/construction-barrier.glb" id="6_56und"]
 [ext_resource type="PackedScene" uid="uid://ccqulmuhsoqpr" path="res://assets/Roads/Models/GLB format/construction-cone.glb" id="7_0cr0l"]
 [ext_resource type="PackedScene" uid="uid://ckdscej2mu4q" path="res://scenes/car.tscn" id="8_cykv6"]
+[ext_resource type="PackedScene" uid="uid://dmulllfd5uovq" path="res://vehicles.tscn" id="9_56und"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7h1i"]
 albedo_color = Color(0.515122, 0.581627, 0.721732, 1)
@@ -17,13 +18,29 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm3vy"]
 
-[sub_resource type="Curve3D" id="Curve3D_nm3vy"]
+[sub_resource type="Curve3D" id="Curve3D_0cr0l"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.69445, 0, 0, 0, 0, 0, 0, 0, 0, 531, 0.1, -0.0254064, 0, 0, 0, 0, 0, 0, 544.654, 0, -3.72764, 0, 0, 0, 0, 0, 0, 544.411, 0, -10.1252, 0, 0, 0, 0, 0, 0, 552.874, 0, -10.2652, 0, 0, 0, 0, 0, 0, 553.466, 0, 1.16896, 0, 0, 0, 0, 0, 0, 550.198, 0.1, 2.292, 0, 0, 0, 0, 0, 0, -2.575, 0.1, 1.49315),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.58228, 0, 0, 0, 0, 0, 0, 0, 0, 535.872, 0, 0, 0, 0, 0, 0, 0, 0, 545.692, 0, -2.29739, 0, 0, 0, 0, 0, 0, 546.922, 0, -4.79268, 0, 0, 0, 0, 0, 0, 546.576, 0, -9.24139, 0, 0, 0, 0, 0, 0, 553.421, 0, -9.53607, 0, 0, 0, 0, 0, 0, 554.91, 0, -7.74371, 0, 0, 0, 0, 0, 0, 555.067, 0, 0.365413, 0, 0, 0, 0, 0, 0, 553.742, 0, 2.33362, 0, 0, 0, 0, 0, 0, -1.45961, 0, 2.20601),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 8
+point_count = 10
+
+[sub_resource type="Curve3D" id="Curve3D_56und"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 4.9639, 0, 0, 0, 0, 0, 0, 0, 0, 526.307, 0, 0, 0, 0, 0, 0, 0, 0, 532.021, 0, -0.449612, 0, 0, 0, 0, 0, 0, 542.867, 0, -1.88868, 0, 0, 0, 0, 0, 0, 544.128, 0, -3.47647, 0, 0, 0, 0, 0, 0, 543.903, 0, -9.11937, 0, 0, 0, 0, 0, 0, 551.338, 0, -9.46211, 0, 0, 0, 0, 0, 0, 553.76, 0, -7.78354, 0, 0, 0, 0, 0, 0, 554.037, 0, 1.99657, 0, 0, 0, 0, 0, 0, 551.145, 0, 4.07671, 0, 0, 0, 0, 0, 0, 10.9891, 0, 4.22167, 0, 0, 0, 0, 0, 0, 4.40318, 0, 3.586, 0, 0, 0, 0, 0, 0, -3.46002, 0, 3.57926, 0, 0, 0, 0, 0, 0, -3.47447, 0, 0.777145, 0, 0, 0, 0, 0, 0, 2.15522, 0, 0.67605),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 15
+
+[sub_resource type="Curve3D" id="Curve3D_cykv6"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 504.788, 0, 0, 0, 0, 0, 0, 0, 0, 515, 0, -0.604674, 0, 0, 0, 0, 0, 0, 532.385, 0, -0.62695, 0, 0, 0, 0, 0, 0, 541.904, 0, -2.61389, 0, 0, 0, 0, 0, 0, 543.335, 0, -4.98748, 0, 0, 0, 0, 0, 0, 542.971, 0, -9.78249, 0, 0, 0, 0, 0, 0, 549.579, 0, -10.1732, 0, 0, 0, 0, 0, 0, 551.291, 0, -8.80545, 0, 0, 0, 0, 0, 0, 551.464, 0, -0.0199578, 0, 0, 0, 0, 0, 0, 549.36, -0.00216323, 1.80913, 0, 0, 0, 0, 0, 0, 547.309, 0, 2.21697, 0, 0, 0, 0, 0, 0, -5.06435, 0, 2.25009, 0, 0, 0, 0, 0, 0, -4.88922, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 14
 
 [node name="Freeway" type="Node3D"]
 transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, 0)
@@ -4260,13 +4277,735 @@ transform = Transform3D(2.48995, 0, 0, 0, 6.51285, 0, 0, 0, 3.22663, 521.708, -0
 transform = Transform3D(2.48995, 0, 0, 0, 6.51285, 0, 0, 0, 3.22663, 521.628, -0.0499999, -12.499)
 
 [node name="car" parent="." instance=ExtResource("8_cykv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0965, 1.72941, -13.3689)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0965, 0.956178, -1.69659)
 top_level = true
-HORSE_power = 6500
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6978, 0, -1.50665)
-curve = SubResource("Curve3D_nm3vy")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.463, 0, -2.18651)
+curve = SubResource("Curve3D_0cr0l")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(4.77592e-05, -0.000187725, -1, 0, 1, -0.000187725, 1, 8.96559e-09, 4.77592e-05, -1.69445, 0, 0)
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, -1.58228, 0, 0)
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 6.41764, 0, 0)
+progress = 8.0
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D2" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 17.4174, 0, 0)
+progress = 19.0
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D3" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 28.4176, 0, 0)
+progress = 30.0
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D4" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 32.4176, 0, 0)
+progress = 34.0
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D5" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D6" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 48.4176, 0, 0)
+progress = 50.0
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D6" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D7" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 64.4176, 0, 0)
+progress = 66.0
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D7" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D8" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 66.4176, 0, 0)
+progress = 68.0
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D8" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D9" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 88.4177, 0, 0)
+progress = 90.0
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D9" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D10" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 111.604, 0, 0)
+progress = 113.186
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D10" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D11" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 122.923, 0, 0)
+progress = 124.505
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D11" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D12" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 160.274, 0, 0)
+progress = 161.856
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D12" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D13" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 163.67, 0, 0)
+progress = 165.252
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D13" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D14" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 179.516, 0, 0)
+progress = 181.098
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D14" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D15" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 270.065, 0, 0)
+progress = 271.647
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D15" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D16" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 337.977, 0, 0)
+progress = 339.559
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D16" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D17" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 371.933, 0, 0)
+progress = 373.515
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D17" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D18" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 417.207, 0, 0)
+progress = 418.789
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D18" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D19" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 451.163, 0, 0)
+progress = 452.745
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D19" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D20" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 451.163, 0, 0)
+progress = 452.745
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D20" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D21" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 462.482, 0, 0)
+progress = 464.064
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D21" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D22" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 464.745, 0, 0)
+progress = 466.327
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D22" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D23" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 485.119, 0, 0)
+progress = 486.701
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D23" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D24" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 496.438, 0, 0)
+progress = 498.02
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D24" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D25" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 530.393, 0, 0)
+progress = 531.976
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D25" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D26" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 505.666, 0, 2.32257)
+progress = 622.525
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D26" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D27" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 335.888, 0, 2.28355)
+progress = 792.304
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D27" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D28" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229553, 0, -1, 0, 1, 0, 1, 0, -0.000229553, 279.296, 0, 2.27054)
+progress = 848.897
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D28" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D29" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 256.659, 0, 2.26534)
+progress = 871.534
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D29" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D30" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 267.978, 0, 2.26794)
+progress = 860.216
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D30" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D31" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 234.022, 0, 2.26013)
+progress = 894.172
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D31" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D32" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 222.704, 0, 2.25753)
+progress = 905.49
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D32" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D33" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 217.044, 0, 2.25623)
+progress = 911.15
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D33" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D34" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229792, 0, -1, 0, 1, 0, 1, 0, -0.000229792, 211.385, 0, 2.25493)
+progress = 916.809
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D34" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D35" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 177.43, 0, 2.24713)
+progress = 950.765
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D35" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D36" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 109.518, 0, 2.23152)
+progress = 1018.68
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D36" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D37" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 86.8803, 0, 2.22631)
+progress = 1041.31
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D37" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D38" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229673, 0, -1, 0, 1, 0, 1, 0, -0.000229673, 52.9238, 0, 2.21851)
+progress = 1075.27
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D38" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="PathFollow3D39" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.000229553, 0, -1, 0, 1, 0, 1, 0, -0.000229553, 7.64948, 0, 2.2081)
+progress = 1120.54
+use_model_front = true
+
+[node name="Vehicles" parent="Path3D/PathFollow3D39" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 1.77636e-15, 0, 0.35, 0, -1.77636e-15, 0, 0.35, 0, 0.2, -0.216)
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4946, 0, -2.91733)
+curve = SubResource("Curve3D_56und")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.9639, 0, 0)
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.3177, 0, 0)
+progress = 11.3539
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D2" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50.3793, 0, 0)
+progress = 45.4155
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D3" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 39.0253, 0, 0)
+progress = 34.0616
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D4" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.1607, 0, 0)
+progress = 35.197
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D5" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D6" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.4096, 0, 0)
+progress = 36.446
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D6" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D7" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.6369, 0, 0)
+progress = 36.673
+
+[node name="PathFollow3D8" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42.4317, 0, 0)
+progress = 37.4678
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D8" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D9" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 73.0872, 0, 0)
+progress = 68.1233
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D9" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D10" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 118.503, 0, 0)
+progress = 113.539
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D10" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D11" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 141.21, 0, 0)
+progress = 136.247
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D11" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D12" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 152.564, 0, 0)
+progress = 147.6
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D12" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D13" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 175.272, 0, 0)
+progress = 170.308
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D13" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D14" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 232.042, 0, 0)
+progress = 227.078
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D14" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D15" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 243.395, 0, 0)
+progress = 238.432
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D15" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D16" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 243.395, 0, 0)
+progress = 238.432
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D16" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D17" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 345.58, 0, 0)
+progress = 340.616
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D17" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D18" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 368.288, 0, 0)
+progress = 363.324
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D18" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D19" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 379.642, 0, 0)
+progress = 374.678
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D19" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D20" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 402.35, 0, 0)
+progress = 397.386
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D20" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D21" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 459.119, 0, 0)
+progress = 454.155
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D21" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D22" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 493.181, 0, 0)
+progress = 488.217
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D22" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D23" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.583954, 0, 0.811787, 0, 1, 0, -0.811787, 0, -0.583954, 552.551, 0, 3.06489)
+progress = 567.694
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D23" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D24" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 1, 0, 1, 0, -1, 0, -0.000268384, 496.109, 0, 4.09148)
+progress = 624.464
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D24" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D25" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 1, 0, 1, 0, -1, 0, -0.000268384, 473.402, 0, 4.09758)
+progress = 647.171
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D25" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D26" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 1, 0, 1, 0, -1, 0, -0.000268384, 450.694, 0, 4.10367)
+progress = 669.879
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D26" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D27" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.000268384, 427.986, 0, 4.10977)
+progress = 692.587
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D27" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D28" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.000268384, 325.803, 0, 4.13719)
+progress = 794.772
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D28" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D29" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.000268384, 314.449, 0, 4.14024)
+progress = 806.126
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D29" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D30" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.000268384, 291.741, 0, 4.14633)
+progress = 828.833
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D30" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D31" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.000268384, 280.388, 0, 4.14938)
+progress = 840.187
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D31" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D32" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.000268384, 257.68, 0, 4.15547)
+progress = 862.895
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D32" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D33" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268384, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.000268384, 234.973, 0, 4.16156)
+progress = 885.603
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D33" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D34" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268383, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.000268383, 212.265, 0, 4.16766)
+progress = 908.311
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D34" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D35" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268383, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.000268383, 178.204, 0, 4.1768)
+progress = 942.372
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D35" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D36" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268383, 0, 0.999998, 0, 1, 0, -0.999998, 0, -0.000268383, 132.788, 0, 4.18899)
+progress = 987.788
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D36" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D37" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268383, 0, 0.999998, 0, 1, 0, -0.999998, 0, -0.000268383, 98.7266, 0, 4.19813)
+progress = 1021.85
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D37" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D38" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268383, 0, 0.999998, 0, 1, 0, -0.999998, 0, -0.000268383, 64.665, 0, 4.20727)
+progress = 1055.91
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D38" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D39" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.000268383, 0, 0.999998, 0, 1, 0, -0.999998, 0, -0.000268383, 53.3112, 0, 4.21032)
+progress = 1067.26
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D39" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="PathFollow3D40" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(0.000856473, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.000856473, -3.43486, 0, 3.58814)
+progress = 1124.03
+
+[node name="Vehicles" parent="Path3D2/PathFollow3D40" instance=ExtResource("9_56und")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, 0, 0.181663, 0.164444)
+
+[node name="Path3D3" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8249, 0, -1.56509)
+curve = SubResource("Curve3D_cykv6")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.3168, 0, 0)
+progress = 11.317
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D2" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56.5849, 0, 0)
+progress = 56.5851
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D3" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 101.853, 0, 0)
+progress = 101.853
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D4" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 226.34, 0, 0)
+progress = 226.34
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D5" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D6" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 350.828, 0, 0)
+progress = 350.828
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D6" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D7" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 452.681, 0, 0)
+progress = 452.681
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D7" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D8" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 497.949, 0, 0)
+progress = 497.949
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D8" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D9" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-0.999808, 0, -0.0195945, 0, 1, 0, 0.0195945, 0, -0.999808, 551.435, 0, -1.47296)
+progress = 565.851
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D9" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D10" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-5.98868e-05, 1.1519e-08, 1, 0.000192019, 1, -1.95453e-11, -1, 0.000192019, -5.98868e-05, 485.74, 0, 2.22066)
+progress = 633.753
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D10" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D11" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-5.98868e-05, 1.1519e-08, 1, 0.000192019, 1, -1.95453e-11, -1, 0.000192019, -5.98868e-05, 429.155, 0, 2.22406)
+progress = 690.338
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D11" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D12" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-5.98868e-05, 1.1519e-08, 1, 0.000192019, 1, -1.95453e-11, -1, 0.000192019, -5.98868e-05, 383.887, 0, 2.22677)
+progress = 735.606
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D12" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D13" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-5.98868e-05, 1.1519e-08, 1, 0.000192019, 1, -1.95453e-11, -1, 0.000192019, -5.98868e-05, 338.618, 0, 2.22948)
+progress = 780.874
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D13" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D14" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-5.98868e-05, 1.1519e-08, 1, 0.000192019, 1, -1.95453e-11, -1, 0.000192019, -5.98868e-05, 282.033, 0, 2.23288)
+progress = 837.46
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D14" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D15" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-5.98868e-05, 1.1519e-08, 1, 0.000192019, 1, -1.95453e-11, -1, 0.000192019, -5.98868e-05, 225.448, 0, 2.23627)
+progress = 894.045
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D15" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D16" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-5.98868e-05, 1.1519e-08, 1, 0.000192019, 1, -1.95453e-11, -1, 0.000192019, -5.98868e-05, 168.863, 0, 2.23966)
+progress = 950.63
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D16" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D17" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-5.98868e-05, 1.1519e-08, 1, 0.000192019, 1, -1.95453e-11, -1, 0.000192019, -5.98868e-05, 100.96, 0, 2.24373)
+progress = 1018.53
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D17" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="PathFollow3D18" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-5.98868e-05, 1.1519e-08, 1, 0.000192019, 1, -1.95453e-11, -1, 0.000192019, -5.98868e-05, 55.692, 0, 2.24645)
+progress = 1063.8
+
+[node name="Vehicles" parent="Path3D3/PathFollow3D18" instance=ExtResource("9_56und")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="road-straight2" parent="." instance=ExtResource("3_sf0uv")]
+transform = Transform3D(-4.20129e-07, 0, -1.68, 0, 1.68, 0, 9.61142, 0, -7.34351e-08, -20.1627, -0.0290932, -10.9937)
+
+[node name="road-intersection-line2" parent="." instance=ExtResource("4_nm3vy")]
+transform = Transform3D(1.68, 0, 0, 0, 1.68, 0, 0, 0, 1.68, -20.1605, -0.027484, -16.6315)
